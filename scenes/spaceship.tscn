@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=10 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
+[ext_resource type="Script" uid="uid://bsx6g7drbfhb4" path="res://scripts/PlantNode.cs" id="5_me4wu"]
+[ext_resource type="Texture2D" uid="uid://0os1rl543ltf" path="res://textures/plants/tomato/tomato_plant_full.png" id="6_343tk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae4p7"]
 texture = ExtResource("1_yqmju")
@@ -30,6 +32,7 @@ sources/1 = SubResource("TileSetAtlasSource_xs8u7")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 texture_filter = 1
+position = Vector2(-40, 11)
 tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP7/AQAAAAAAAAAAAPz/AQAAAAAAAAD///z/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ky2tl")
 collision_visibility_mode = 1
@@ -41,5 +44,19 @@ script = ExtResource("3_xs8u7")
 z_index = 6
 y_sort_enabled = true
 texture = ExtResource("4_v0rat")
+
+[node name="PlantNode" type="Node2D" parent="TileMapLayer" node_paths=PackedStringArray("timer", "sprite2D")]
+z_index = 1
+position = Vector2(62, 0)
+script = ExtResource("5_me4wu")
+timer = NodePath("PlantTimer")
+sprite2D = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/PlantNode"]
+texture = ExtResource("6_343tk")
+
+[node name="PlantTimer" type="Timer" parent="TileMapLayer/PlantNode"]
+wait_time = 5.0
+autostart = true
 
 [node name="main_camera" type="Camera2D" parent="."]

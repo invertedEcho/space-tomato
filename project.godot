@@ -15,10 +15,6 @@ run/main_scene="uid://cgmr0oahjo0bx"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Globals="*res://scripts/Globals.cs"
-
 [dotnet]
 
 project/assembly_name="Space Potato"
