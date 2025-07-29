@@ -1,12 +1,13 @@
 using Godot;
 using System;
+using System.Numerics;
 
 public partial class PlayerNode : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,24 +17,54 @@ public partial class PlayerNode : Node2D
 		var newPosition = Position;
 		if (Input.IsActionJustPressed("move_right"))
 		{
-			newPosition = newPosition + new Vector2(32, 16);
+			var targetVector = newPosition + new Godot.Vector2(32, 16);
+			var isTargetVectorWall = CheckIfWall(targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
 		}
 		else if (Input.IsActionJustPressed("move_left"))
 		{
-			newPosition = newPosition + new Vector2(-32, -16);
+			var targetVector = newPosition + new Godot.Vector2(-32, -16);
+			var isTargetVectorWall = CheckIfWall(targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
 		}
 		else if (Input.IsActionJustPressed("move_down"))
 		{
-			Console.WriteLine("Moving down");
-			newPosition = newPosition + new Vector2(-32, 16);
+			var targetVector = newPosition + new Godot.Vector2(-32, 16);
+			var isTargetVectorWall = CheckIfWall(targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
 
 		}
 		else if (Input.IsActionJustPressed("move_up"))
 		{
-			Console.WriteLine("Moving up");
-			// please keep this at -16 trust me
-			newPosition = newPosition + new Vector2(32, -16);
+			var targetVector = newPosition + new Godot.Vector2(32, -16);
+			var isTargetVectorWall = CheckIfWall(targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
 		}
 		Position = newPosition;
+	}
+
+	public bool CheckIfWall(Godot.Vector2 target_vector)
+	{
+		var spaceState = GetWorld2D().DirectSpaceState;
+		// use global coordinates, not local to node
+		var query = PhysicsRayQueryParameters2D.Create(Godot.Vector2.Zero, target_vector);
+		var result = spaceState.IntersectRay(query);
+		return result.Count != 0;
 	}
 }

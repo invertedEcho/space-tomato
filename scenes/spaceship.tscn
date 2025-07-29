@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=8 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
@@ -25,8 +25,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ae4p7")
 sources/1 = SubResource("TileSetAtlasSource_xs8u7")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ae4p7"]
-
 [node name="spaceship" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -34,16 +32,10 @@ y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP7/AQAAAAAAAAAAAPz/AQAAAAAAAAD///z/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ky2tl")
+collision_visibility_mode = 1
 
 [node name="PlayerNode" type="Node2D" parent="TileMapLayer"]
 script = ExtResource("3_xs8u7")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="TileMapLayer/PlayerNode"]
-z_index = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/PlayerNode/RigidBody2D"]
-scale = Vector2(2, 2)
-shape = SubResource("CapsuleShape2D_ae4p7")
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/PlayerNode"]
 z_index = 6
