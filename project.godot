@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Space Potato"
+run/main_scene="uid://cgmr0oahjo0bx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

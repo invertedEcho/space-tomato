@@ -30,4 +30,5 @@ y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP7/AQAAAAAAAAAAAPz/AQAAAAAAAAD///z/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ky2tl")
-collision_visibility_mode = 1
+
+[node name="main_camera" type="Camera2D" parent="."]
