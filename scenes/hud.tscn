@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbb17762ytts3"]
+[gd_scene load_steps=8 format=3 uid="uid://bbb17762ytts3"]
 
+[ext_resource type="Script" uid="uid://droqaoixbkeha" path="res://scripts/HUD.cs" id="1_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://ixnnh5pfmhyt" path="res://textures/ui/hud/hud_selector1.png" id="2_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://cjr1bwxjx2lkw" path="res://textures/ui/hud/hud_selector2.png" id="3_uo2fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo2fv"]
+bg_color = Color(0.455403, 1.07693e-06, 2.16588e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
 
@@ -11,7 +15,11 @@ bg_color = Color(0.285194, 0.70737, 0.202176, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
 bg_color = Color(0.112489, 0.662182, 0.814185, 1)
 
-[node name="hud" type="CanvasLayer"]
+[node name="hud" type="CanvasLayer" node_paths=PackedStringArray("healthBar", "oxygenBar", "damageIndicator")]
+script = ExtResource("1_5ysmq")
+healthBar = NodePath("ui/VBoxContainer/health_bar")
+oxygenBar = NodePath("ui/VBoxContainer/oxygen_bar")
+damageIndicator = NodePath("ui/damage_indicator")
 
 [node name="ui" type="Control" parent="."]
 z_index = 4096
@@ -23,6 +31,16 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="damage_indicator" type="Panel" parent="ui"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uo2fv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui"]
 layout_mode = 1

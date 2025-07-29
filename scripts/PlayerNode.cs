@@ -12,11 +12,19 @@ public partial class PlayerNode : Node2D
 	[Export]
 	private int oxygen = 100;
 
+	[ExportCategory("References")]
+	[Export]
+	private HUD hud;
+
+	[Export]
+	private PlayerCamera playerCamera;
+
 	private double time;
 
 	public override void _Ready()
 	{
-
+		setHealth(health);
+		setOxygen(oxygen);
 	}
 
 	public override void _Process(double delta)
@@ -40,11 +48,30 @@ public partial class PlayerNode : Node2D
 
 		if (oxygen <= 0)
 		{
-			health -= 5;
+			setHealth(health - 5);
 		}
 
 		GD.Print(health);
 
+	}
+
+	public void setHealth(int health)
+	{
+		hud.setHealth(health);
+
+		if (health < this.health)
+		{
+			playerCamera.shakeCamera(0.2);
+			hud.takeDamage();
+		}
+
+		this.health = health;
+	}
+
+	public void setOxygen(int oxygen)
+	{
+		hud.setOxygen(oxygen);
+		this.oxygen = oxygen;
 	}
 
 	private void ProcessMovement()
