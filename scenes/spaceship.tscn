@@ -1,20 +1,33 @@
-[gd_scene load_steps=4 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=6 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
+[ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae4p7"]
 texture = ExtResource("1_yqmju")
 texture_region_size = Vector2i(64, 32)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs8u7"]
+texture = ExtResource("2_ae4p7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 0.5, -48, 32, -32, 32, 0, 0, 16, -32, 0)
+0:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_ky2tl"]
 tile_shape = 1
 tile_size = Vector2i(64, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ae4p7")
+sources/1 = SubResource("TileSetAtlasSource_xs8u7")
 
 [node name="spaceship" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+////AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP7/AQAAAAAAAAAAAPz/AQAAAAAAAAD///z/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ky2tl")
+collision_visibility_mode = 1
