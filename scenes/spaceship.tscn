@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=10 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
+[ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/SmoothFollow.cs" id="5_me4wu"]
+[ext_resource type="PackedScene" uid="uid://bbb17762ytts3" path="res://scenes/hud.tscn" id="6_343tk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae4p7"]
 texture = ExtResource("1_yqmju")
@@ -27,6 +29,14 @@ sources/1 = SubResource("TileSetAtlasSource_xs8u7")
 
 [node name="spaceship" type="Node2D"]
 
+[node name="PlayerNode" type="Node2D" parent="."]
+script = ExtResource("3_xs8u7")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerNode"]
+z_index = 6
+y_sort_enabled = true
+texture = ExtResource("4_v0rat")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 texture_filter = 1
@@ -34,12 +44,10 @@ tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAA
 tile_set = SubResource("TileSet_ky2tl")
 collision_visibility_mode = 1
 
-[node name="PlayerNode" type="Node2D" parent="TileMapLayer"]
-script = ExtResource("3_xs8u7")
+[node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(3, 3)
+script = ExtResource("5_me4wu")
+target = NodePath("../PlayerNode")
+lerp = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/PlayerNode"]
-z_index = 6
-y_sort_enabled = true
-texture = ExtResource("4_v0rat")
-
-[node name="main_camera" type="Camera2D" parent="."]
+[node name="hud" parent="." instance=ExtResource("6_343tk")]

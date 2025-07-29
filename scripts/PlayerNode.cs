@@ -4,12 +4,50 @@ using System.Numerics;
 
 public partial class PlayerNode : Node2D
 {
+
+	[ExportCategory("Player Stats")]
+	[Export]
+	private int health = 100;
+
+	[Export]
+	private int oxygen = 100;
+
+	private double time;
+
 	public override void _Ready()
 	{
 
 	}
 
 	public override void _Process(double delta)
+	{
+
+
+		ProcessMovement();
+
+		time += delta;
+
+		if (time >= 1)
+		{
+			Tick();
+			time = 0;
+		}
+
+	}
+
+	private void Tick()
+	{
+
+		if (oxygen <= 0)
+		{
+			health -= 5;
+		}
+
+		GD.Print(health);
+
+	}
+
+	private void ProcessMovement()
 	{
 		var newPosition = Position;
 		if (Input.IsActionJustPressed("move_right"))
@@ -56,7 +94,7 @@ public partial class PlayerNode : Node2D
 		Position = newPosition;
 	}
 
-	public bool CheckIfWall(Godot.Vector2 current_vector, Godot.Vector2 target_vector)
+	private bool CheckIfWall(Godot.Vector2 current_vector, Godot.Vector2 target_vector)
 	{
 		var spaceState = GetWorld2D().DirectSpaceState;
 		// use global coordinates, not local to node
