@@ -2,11 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
-[ext_resource type="Script" uid="uid://bsx6g7drbfhb4" path="res://scripts/PlantNode.cs" id="3_r0fvi"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
-
 [ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/indev/shelf.tscn" id="6_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://bbb17762ytts3" path="res://scenes/hud.tscn" id="6_343tk"]
 [ext_resource type="Texture2D" uid="uid://cjr1bwxjx2lkw" path="res://textures/ui/hud/hud_selector2.png" id="7_v6qj0"]
@@ -37,9 +35,6 @@ sources/1 = SubResource("TileSetAtlasSource_xs8u7")
 [node name="Plant" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
 z_index = 1
 position = Vector2(33, -23)
-script = ExtResource("3_r0fvi")
-isWatered = null
-plantState = null
 timer = NodePath("Timer")
 sprite2D = NodePath("Sprite2D")
 
@@ -120,6 +115,26 @@ position = Vector2(256, 32)
 [node name="shelf6" parent="." instance=ExtResource("6_6i2wf")]
 position = Vector2(288, 48)
 
-[editable path="Plant"]
+[node name="shelf12" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(320, 64)
 
+[node name="shelf13" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(352, 80)
+
+[node name="shelf7" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(192, 64)
+
+[node name="shelf8" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(160, 48)
+
+[node name="shelf9" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(224, 80)
+
+[node name="shelf10" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(256, 96)
+
+[node name="shelf11" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(288, 112)
+
+[editable path="Plant"]
 [editable path="hud"]
