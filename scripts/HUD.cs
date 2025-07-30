@@ -8,7 +8,7 @@ public partial class HUD : Node
 	private ProgressBar healthBar;
 
 	[Export]
-	private Panel damageIndicator;
+	private TextureRect damageIndicator;
 
 	[Export]
 	public int selectedHotbarItem;

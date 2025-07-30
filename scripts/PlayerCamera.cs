@@ -19,6 +19,9 @@ public partial class PlayerCamera : Camera2D
 	[Export]
 	public Camera2D camera;
 
+	[Export]
+	private Node2D Lighting;
+
 	public void shakeCamera(double duration)
 	{
 		elapsedTime = 0;
@@ -40,11 +43,14 @@ public partial class PlayerCamera : Camera2D
 	{
 		base._Process(delta);
 
+
+		Lighting.Scale = new Vector2(5 * camera.Zoom.X, 5 * camera.Zoom.Y);
+
 		if (elapsedTime < endTime)
 		{
 			Position = new Vector2(
-				Mathf.Lerp(Position.X, target.Position.X + (strength/2 - GD.Randf() * strength), (float)delta * lerp / 2),
-				Mathf.Lerp(Position.Y, target.Position.Y + (strength/2 - GD.Randf() * strength), (float)delta * lerp / 2)
+				Mathf.Lerp(Position.X, target.Position.X + (strength / 2 - GD.Randf() * strength), (float)delta * lerp / 2),
+				Mathf.Lerp(Position.Y, target.Position.Y + (strength / 2 - GD.Randf() * strength), (float)delta * lerp / 2)
 				);
 		}
 		else
@@ -61,18 +67,23 @@ public partial class PlayerCamera : Camera2D
 		{
 			var currentZoom = camera.Zoom;
 			var newZoom = currentZoom + new Vector2(0.5f, 0.5f);
+			if (newZoom.X > 6 || newZoom.Y > 6)
+			{
+				return;
+			}
 			camera.Zoom = newZoom;
 		}
 		else if (Input.IsActionJustPressed("mouse_down"))
 		{
 			var currentZoom = camera.Zoom;
 			var newZoom = currentZoom - new Vector2(0.5f, 0.5f);
-			if (newZoom.X < 0 || newZoom.Y < 0)
+			if (newZoom.X < 2 || newZoom.Y < 2)
 			{
 				return;
 			}
 			camera.Zoom = newZoom;
 		}
+
 	}
 
 }

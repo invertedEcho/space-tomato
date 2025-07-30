@@ -1,9 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://t2cid18l8xin"]
 
 [ext_resource type="Script" uid="uid://droqaoixbkeha" path="res://scripts/HUD.cs" id="1_5ysmq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo2fv"]
-bg_color = Color(0.455403, 1.07693e-06, 2.16588e-07, 1)
+[ext_resource type="Texture2D" uid="uid://bp5uqba3d021p" path="res://textures/ui/hud/damage.png" id="2_oo0fn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
 
@@ -26,15 +24,16 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="damage_indicator" type="Panel" parent="ui"]
-self_modulate = Color(1, 1, 1, 0)
+[node name="damage_indicator" type="TextureRect" parent="ui"]
+modulate = Color(0.228979, 0, 0, 0.337255)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_uo2fv")
+texture = ExtResource("2_oo0fn")
+expand_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui"]
 layout_mode = 1
