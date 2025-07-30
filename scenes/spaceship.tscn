@@ -1,5 +1,6 @@
 [gd_scene load_steps=27 format=4 uid="uid://cgmr0oahjo0bx"]
 
+
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
 [ext_resource type="Texture2D" uid="uid://cm7uec7q311qh" path="res://textures/plants/monstera/monstera_plant_full.png" id="2_r0fvi"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
@@ -8,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cu4isyyqutfx2" path="res://textures/spaceship_tiles/floors/basic_path_corner_side.png" id="5_d22a7"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
 [ext_resource type="Texture2D" uid="uid://5f8v2osi7efw" path="res://textures/spaceship_tiles/floors/basic_path_corner_top.png" id="6_0xuuw"]
+[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/shelf.tscn" id="6_6i2wf"]
+[ext_resource type="PackedScene" uid="uid://bbb17762ytts3" path="res://scenes/hud.tscn" id="6_343tk"]
+[ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
+[ext_resource type="Texture2D" uid="uid://cjr1bwxjx2lkw" path="res://textures/ui/hud/hud_selector2.png" id="7_v6qj0"]
 [ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/indev/shelf.tscn" id="6_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://scenes/hud.tscn" id="6_343tk"]
 [ext_resource type="Texture2D" uid="uid://dy13t1rn0yid1" path="res://textures/spaceship_tiles/floors/basic_path_end_bottom.png" id="7_nosia"]
@@ -128,6 +133,10 @@ target = NodePath("../PlayerNode")
 lerp = 2
 strength = 250
 camera = NodePath(".")
+
+[node name="ihud" parent="." instance=ExtResource("7_6wr2n")]
+visible = false
+position = Vector2(160, -56)
 
 [node name="hud" parent="." instance=ExtResource("6_343tk")]
 
