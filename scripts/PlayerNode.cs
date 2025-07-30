@@ -9,7 +9,7 @@ public partial class PlayerNode : Node2D
 	public int health = 100;
 
 	[Export]
-	public int oxygen = 100;
+	public float oxygen = 100;
 
 	[ExportCategory("References")]
 	[Export]
