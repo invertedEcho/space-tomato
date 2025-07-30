@@ -52,8 +52,31 @@ public partial class Shelf : Node2D
 			{
 				UglyGlobalState.interactionHUD.setPosition(GlobalPosition.X, GlobalPosition.Y - 64);
 				UglyGlobalState.interactionHUD.Visible = true;
-
 				UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
+
+				if (plantReference == null)
+				{
+					Texture2D tomatoCropTexture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
+					UglyGlobalState.interactionHUD.setTexture(tomatoCropTexture, 0);
+
+					Texture2D monsteraCropTexture = (Texture2D)GD.Load("res://textures/plants/monstera/monstera_plant_full.png");
+					UglyGlobalState.interactionHUD.setTexture(monsteraCropTexture, 1);
+
+					Texture2D emptyTexture = (Texture2D)GD.Load("res://textures/dev/empty.png");
+					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 2);
+					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 3);
+				}
+				else
+				{
+					Texture2D waterTexture = (Texture2D)GD.Load("res://textures/dev/water.png");
+					UglyGlobalState.interactionHUD.setTexture(waterTexture, 0);
+					Texture2D destroyTexture = (Texture2D)GD.Load("res://textures/dev/destroy.png");
+					UglyGlobalState.interactionHUD.setTexture(destroyTexture, 3);
+
+					Texture2D emptyTexture = (Texture2D)GD.Load("res://textures/dev/empty.png");
+					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 1);
+					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 2);
+				}
 			}
 		}
 		else
@@ -74,6 +97,8 @@ public partial class Shelf : Node2D
 		{
 			if (selectedOption == 0)
 			{
+				// tomatoCropSprite.Texture = tomatoCropTexture;
+
 				GD.Print("empty shelf, loading plant scene into tile! type: tomato");
 				var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
 				plantScene.plantType = PlantType.TOMATO;
@@ -109,10 +134,7 @@ public partial class Shelf : Node2D
 					var isTomatoAndFull = plantReference.plantState == PlantState.PLANT_FULL && plantReference.plantType == PlantType.TOMATO;
 					if (isTomatoAndFull)
 					{
-						Sprite2D tomatoFruits = new Sprite2D();
-						tomatoFruits.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_fruits.png");
-						// tomatoFruits.Position = plantReference.Position;
-						plantReference.AddChild(tomatoFruits);
+						plantReference.sprite2D.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_with_fruits.png");
 					}
 				}
 			}
@@ -123,7 +145,7 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 3)
 			{
-				plantReference.QueueFree();
+				plantReference.Free();
 				plantReference = null;
 				UglyGlobalState.fertilizerCount += 1; 
 			}
