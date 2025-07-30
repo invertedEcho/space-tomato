@@ -8,6 +8,7 @@
 script = ExtResource("1_ynh4i")
 selector = NodePath("graphics/selector")
 area = NodePath("StaticBody2D")
+distanceToNextTile = 66
 
 [node name="graphics" type="Node2D" parent="."]
 

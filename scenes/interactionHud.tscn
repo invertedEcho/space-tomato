@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://conh6mun4r6ta"]
+
+[ext_resource type="Script" uid="uid://b482bueorq1o" path="res://scripts/InteractionHUD.cs" id="1_5gkn8"]
+[ext_resource type="Texture2D" uid="uid://b83jpdlqr261r" path="res://textures/ui/interactable/ui_element_border.png" id="1_jbs3l"]
+[ext_resource type="Texture2D" uid="uid://cu0fukkjbwxud" path="res://textures/ui/interactable/ui_element_selected.png" id="2_5gkn8"]
+[ext_resource type="Script" uid="uid://bfdoe4jbckbh5" path="res://scenes/TextureRectSelector.cs" id="3_4r7dp"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("options")]
+z_index = 4096
+script = ExtResource("1_5gkn8")
+options = [NodePath("control/HBoxContainer/option1"), NodePath("control/HBoxContainer/option2"), NodePath("control/HBoxContainer/option3"), NodePath("control/HBoxContainer/option4")]
+
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -20.0
+offset_right = 86.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="option1" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+texture = ExtResource("1_jbs3l")
+expand_mode = 3
+script = ExtResource("3_4r7dp")
+selected = NodePath("selected")
+
+[node name="selected" type="TextureRect" parent="control/HBoxContainer/option1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5gkn8")
+
+[node name="option2" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+texture = ExtResource("1_jbs3l")
+expand_mode = 3
+script = ExtResource("3_4r7dp")
+selected = NodePath("selected")
+
+[node name="selected" type="TextureRect" parent="control/HBoxContainer/option2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5gkn8")
+
+[node name="option3" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+texture = ExtResource("1_jbs3l")
+expand_mode = 3
+script = ExtResource("3_4r7dp")
+selected = NodePath("selected")
+
+[node name="selected" type="TextureRect" parent="control/HBoxContainer/option3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5gkn8")
+
+[node name="option4" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+layout_mode = 2
+texture = ExtResource("1_jbs3l")
+expand_mode = 3
+script = ExtResource("3_4r7dp")
+selected = NodePath("selected")
+
+[node name="selected" type="TextureRect" parent="control/HBoxContainer/option4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5gkn8")

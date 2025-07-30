@@ -127,6 +127,12 @@ public partial class PlayerNode : Node2D
 			}
 			newPosition = targetVector;
 		}
+
+		if (newPosition != Position)
+		{
+			UglyGlobalState.interactionHUD.Visible = false;
+		}
+
 		Position = newPosition;
 	}
 
