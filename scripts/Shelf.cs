@@ -53,8 +53,8 @@ public partial class Shelf : Node2D
 			{
 				UglyGlobalState.interactionHUD.setPosition(GlobalPosition.X, GlobalPosition.Y - 64);
 				UglyGlobalState.interactionHUD.Visible = true;
-                UglyGlobalState.interactionHUD.clearEventData();
-                UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
+				UglyGlobalState.interactionHUD.clearEventData();
+				UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
 				if (plantReference == null)
 				{
 					Texture2D tomatoCropTexture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
@@ -159,9 +159,9 @@ public partial class Shelf : Node2D
 		isHovered = true;
 	}
 
-    private void onMouseExit()
-    {
-        isHovered = false;
+	private void onMouseExit()
+	{
+		isHovered = false;
 	}
 	
 }
