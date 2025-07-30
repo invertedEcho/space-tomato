@@ -46,7 +46,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_uo2fv")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.2
-anchor_top = 0.98
+anchor_top = 0.9
 anchor_right = 0.8
 anchor_bottom = 0.98
 offset_top = -27.0
@@ -74,8 +74,9 @@ value = 50.0
 show_percentage = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="fertilizer" type="TextureRect" parent="ui/VBoxContainer/HBoxContainer"]
 texture_filter = 1

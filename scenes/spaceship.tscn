@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=12 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
+[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/indev/shelf.tscn" id="6_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://bbb17762ytts3" path="res://scenes/hud.tscn" id="6_343tk"]
 [ext_resource type="Texture2D" uid="uid://cjr1bwxjx2lkw" path="res://textures/ui/hud/hud_selector2.png" id="7_v6qj0"]
 
@@ -40,7 +41,6 @@ tile_set = SubResource("TileSet_ky2tl")
 
 [node name="PlayerNode" type="Node2D" parent="player" node_paths=PackedStringArray("hud", "playerCamera")]
 script = ExtResource("3_xs8u7")
-oxygen = 0
 hud = NodePath("../../hud")
 playerCamera = NodePath("../main_camera")
 
@@ -58,6 +58,12 @@ lerp = 2
 strength = 250
 
 [node name="hud" parent="." instance=ExtResource("6_343tk")]
+
+[node name="ui" parent="hud" index="0"]
+mouse_filter = 2
+
+[node name="damage_indicator" parent="hud/ui" index="0"]
+mouse_filter = 2
 
 [node name="VBoxContainer" parent="hud/ui" index="1"]
 anchor_left = 0.4
@@ -80,5 +86,23 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("7_v6qj0")
 expand_mode = 3
+
+[node name="shelf" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(128, 0)
+
+[node name="shelf2" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(192, 0)
+
+[node name="shelf3" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(160, -16)
+
+[node name="shelf4" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(224, 16)
+
+[node name="shelf5" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(256, 32)
+
+[node name="shelf6" parent="." instance=ExtResource("6_6i2wf")]
+position = Vector2(288, 48)
 
 [editable path="hud"]
