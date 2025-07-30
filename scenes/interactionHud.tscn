@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://conh6mun4r6ta"]
+[gd_scene load_steps=6 format=3 uid="uid://conh6mun4r6ta"]
 
 [ext_resource type="Script" uid="uid://b482bueorq1o" path="res://scripts/InteractionHUD.cs" id="1_5gkn8"]
 [ext_resource type="Texture2D" uid="uid://b83jpdlqr261r" path="res://textures/ui/interactable/ui_element_border.png" id="1_jbs3l"]
 [ext_resource type="Texture2D" uid="uid://cu0fukkjbwxud" path="res://textures/ui/interactable/ui_element_selected.png" id="2_5gkn8"]
 [ext_resource type="Script" uid="uid://bfdoe4jbckbh5" path="res://scenes/TextureRectSelector.cs" id="3_4r7dp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4r7dp"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("options")]
 z_index = 4096
@@ -19,7 +21,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="control"]
 layout_mode = 1
@@ -35,12 +37,14 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="option1" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+[node name="option1" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected", "icon")]
+z_index = 1
 layout_mode = 2
 texture = ExtResource("1_jbs3l")
 expand_mode = 3
 script = ExtResource("3_4r7dp")
 selected = NodePath("selected")
+icon = NodePath("icon")
 
 [node name="selected" type="TextureRect" parent="control/HBoxContainer/option1"]
 layout_mode = 0
@@ -48,12 +52,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5gkn8")
 
-[node name="option2" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+[node name="icon" type="TextureRect" parent="control/HBoxContainer/option1"]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_4r7dp")
+expand_mode = 3
+
+[node name="option2" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected", "icon")]
 layout_mode = 2
 texture = ExtResource("1_jbs3l")
 expand_mode = 3
 script = ExtResource("3_4r7dp")
 selected = NodePath("selected")
+icon = NodePath("icon")
 
 [node name="selected" type="TextureRect" parent="control/HBoxContainer/option2"]
 layout_mode = 0
@@ -61,12 +74,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5gkn8")
 
-[node name="option3" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+[node name="icon" type="TextureRect" parent="control/HBoxContainer/option2"]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_4r7dp")
+expand_mode = 3
+
+[node name="option3" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected", "icon")]
 layout_mode = 2
 texture = ExtResource("1_jbs3l")
 expand_mode = 3
 script = ExtResource("3_4r7dp")
 selected = NodePath("selected")
+icon = NodePath("icon")
 
 [node name="selected" type="TextureRect" parent="control/HBoxContainer/option3"]
 layout_mode = 0
@@ -74,15 +95,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5gkn8")
 
-[node name="option4" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected")]
+[node name="icon" type="TextureRect" parent="control/HBoxContainer/option3"]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_4r7dp")
+expand_mode = 3
+
+[node name="option4" type="TextureRect" parent="control/HBoxContainer" node_paths=PackedStringArray("selected", "icon")]
 layout_mode = 2
 texture = ExtResource("1_jbs3l")
 expand_mode = 3
 script = ExtResource("3_4r7dp")
 selected = NodePath("selected")
+icon = NodePath("icon")
 
 [node name="selected" type="TextureRect" parent="control/HBoxContainer/option4"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5gkn8")
+
+[node name="icon" type="TextureRect" parent="control/HBoxContainer/option4"]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_4r7dp")
+expand_mode = 3

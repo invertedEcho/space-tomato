@@ -23,9 +23,21 @@ public partial class InteractionHUD : Node2D
         }
     }
 
+    public void setTexture(Texture2D texture, int index)
+    {
+
+        options[index].setIcon(texture);
+
+    }
+
     public void setPosition(float x, float y)
     {
         GlobalPosition = new Vector2(x, y);
+        foreach (var option in options)
+        {
+            option.elapsedTime = 0;
+            option.Modulate = new Color(1, 1, 1, 0);
+        }
     }
 
     public override void _Process(double delta)
@@ -38,7 +50,7 @@ public partial class InteractionHUD : Node2D
 
             if (option.getHover() == true)
             {
-                if (Input.IsActionPressed("interact"))
+                if (Input.IsActionJustPressed("interact"))
                 {
                     GD.Print("Invoking optionSelected");
                     optionSelected.Invoke(i);
