@@ -6,8 +6,12 @@ public partial class TextureRectSelector : TextureRect
 
     [Export]
     private TextureRect selected;
+    [Export]
+    private TextureRect icon;
 
     private bool isHovered = false;
+
+    public double elapsedTime = 0;
 
     public bool getHover()
     {
@@ -40,6 +44,15 @@ public partial class TextureRectSelector : TextureRect
         {
             selected.Visible = false;
         }
+
+        Modulate = new Color(1, 1, 1, Mathf.Lerp(0, 1, (float)elapsedTime * 9));
+
+        elapsedTime += delta;
+    }
+
+    public void setIcon(Texture2D texture)
+    {
+        icon.Texture = texture;
     }
 
     private void onMouseEntered()

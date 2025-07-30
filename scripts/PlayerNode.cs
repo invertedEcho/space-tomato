@@ -1,31 +1,35 @@
-using Godot;
 using System;
-using System.Numerics;
+using Godot;
 
 public partial class PlayerNode : Node2D
 {
 
 	[ExportCategory("Player Stats")]
 	[Export]
-	private int health = 100;
+	public int health = 100;
 
 	[Export]
-	private int oxygen = 100;
+	public float oxygen = 100;
 
 	[ExportCategory("References")]
 	[Export]
-	private HUD hud;
+	public HUD hud;
+
+	[Export]
+	public CanvasLayer gameOverScreen;
+	[Export]
+	public CanvasLayer pauseScreen;
 
 	[Export]
 	private PlayerCamera playerCamera;
 
 	private double time;
+	private double movementTime;
+
+	private uint ticks;
 
 	public override void _Ready()
 	{
-		setHealth(health);
-		setOxygen(oxygen);
-
 		if (UglyGlobalState.player == null)
 		{
 			UglyGlobalState.player = this;
@@ -38,8 +42,6 @@ public partial class PlayerNode : Node2D
 
 	public override void _Process(double delta)
 	{
-
-
 		ProcessMovement();
 
 		time += delta;
@@ -50,6 +52,45 @@ public partial class PlayerNode : Node2D
 			time = 0;
 		}
 
+		movementTime += delta;
+
+		if (movementTime > .2f)
+		{
+			ProcessMovementTick();
+			movementTime = 0;
+		}
+
+		if (health <= 0)
+		{
+			gameOverScreen.Visible = true;
+			Engine.TimeScale = 0;
+
+			playerCamera.Zoom = new Vector2(0.2f, 0.2f);
+		}
+
+		if (Input.IsActionJustPressed("escape"))
+		{
+
+			if (pauseScreen.Visible)
+			{
+				pauseScreen.Visible = false;
+				Engine.TimeScale = 1;
+			}
+			else
+			{
+				pauseScreen.Visible = true;
+				Engine.TimeScale = 0;
+			}
+
+		}
+	}
+
+
+	public void takeDamage(int healthToSubstract)
+	{
+		health -= healthToSubstract;
+		UglyGlobalState.player.playerCamera.shakeCamera(0.2);
+		UglyGlobalState.player.hud.elapsedTime = 0;
 	}
 
 	private void Tick()
@@ -57,34 +98,25 @@ public partial class PlayerNode : Node2D
 
 		if (oxygen <= 0)
 		{
-			setHealth(health - 5);
+			takeDamage(5);
 		}
 
-		GD.Print(health);
+		oxygen -= 1;
+
+		ticks++;
 
 	}
 
-	public void setHealth(int health)
-	{
-		hud.setHealth(health);
-
-		if (health < this.health)
-		{
-			playerCamera.shakeCamera(0.2);
-			hud.takeDamage();
-		}
-
-		this.health = health;
+	public void addHealth(int health) {
+		this.health += health;
 	}
-
-	public void setOxygen(int oxygen)
-	{
-		hud.setOxygen(oxygen);
-		this.oxygen = oxygen;
-	}
+	
 
 	private void ProcessMovement()
 	{
+		if (Engine.TimeScale < 0.2)
+			return;
+
 		var newPosition = Position;
 		if (Input.IsActionJustPressed("move_right"))
 		{
@@ -118,6 +150,64 @@ public partial class PlayerNode : Node2D
 
 		}
 		else if (Input.IsActionJustPressed("move_up"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(32, -16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+		}
+
+		if (newPosition != Position)
+		{
+			UglyGlobalState.interactionHUD.Visible = false;
+			movementTime = 0;
+		}
+
+		Position = newPosition;
+	}
+
+	private void ProcessMovementTick()
+	{
+
+		if (Engine.TimeScale < 0.2)
+			return;
+
+		var newPosition = Position;
+		if (Input.IsActionPressed("move_right"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(32, 16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+		}
+		else if (Input.IsActionPressed("move_left"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(-32, -16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+		}
+		else if (Input.IsActionPressed("move_down"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(-32, 16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+
+		}
+		else if (Input.IsActionPressed("move_up"))
 		{
 			var targetVector = newPosition + new Godot.Vector2(32, -16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);

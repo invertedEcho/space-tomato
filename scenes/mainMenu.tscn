@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2ug2ocyx57i2"]
+
+[ext_resource type="Script" path="res://scripts/SwitchSceneButton.cs" id="1_48ign"]
+[ext_resource type="PackedScene" uid="uid://cgmr0oahjo0bx" path="res://scenes/spaceship.tscn" id="2_l7wge"]
+[ext_resource type="Script" path="res://scripts/QuitButton.cs" id="3_7nrmo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_color = Color(2.88785e-06, 0.627374, 0.639106, 1)
+
+[node name="main_menu" type="CanvasLayer"]
+
+[node name="ui_root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ui_root"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.3
+anchor_right = 0.4
+anchor_bottom = 0.8
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7uy4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui_root/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="ui_root/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SPACE TOMATO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_play" type="Button" parent="ui_root/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "PLAY"
+script = ExtResource("1_48ign")
+scene = ExtResource("2_l7wge")
+
+[node name="btn_quit" type="Button" parent="ui_root/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "QUIT"
+script = ExtResource("3_7nrmo")
+
+[node name="info" type="Label" parent="ui_root/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Made in 2.5 days 
+for the AUXJAM 2025
+
+Aljoscha Otting
+Alena Schmidt
+Jakob Stechow
+Aaron Kerker"
+horizontal_alignment = 2

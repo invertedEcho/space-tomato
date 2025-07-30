@@ -1,5 +1,6 @@
 using Godot;
 
+
 public enum PlantState
 {
 	CROP_FULL,
@@ -17,8 +18,11 @@ public enum PlantType
 
 public partial class Plant : Node2D
 {
-	[Export]
-	public bool isWatered;
+	private const string DefaultTextureTomato = "res://textures/plants/tomato/tomato_crop_full.png";
+	private const string DefaultTextureMonstera = "res://textures/plants/monstera/monstera_crop_full.png";
+	public bool isWatered = false;
+	public bool isFertilized = false;
+
 	[Export]
 	public PlantState plantState;
 
@@ -31,25 +35,70 @@ public partial class Plant : Node2D
 	[Export]
 	public PlantType plantType;
 
+	private double elapsedTime;
+	private int ticks;
+
 	public override void _Ready()
 	{
+		sprite2D = GetNode<Sprite2D>("Sprite2D");
+		if (plantType == PlantType.TOMATO)
+		{
+			sprite2D.Texture = (Texture2D)GD.Load(DefaultTextureTomato);
+		}
+		else if (plantType == PlantType.MONSTERA)
+		{
+			sprite2D.Texture = (Texture2D)GD.Load(DefaultTextureMonstera);
+		}
+		timer = GetNode<Timer>("Timer");
 		timer.Timeout += HandleTimeout;
+	}
+
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+
+		handleOxygen(delta);
+	}
+
+	private void handleOxygen(double delta)
+	{
+
+		if (elapsedTime > 2 && (plantState == PlantState.PLANT_FULL || plantState == PlantState.CROP_FULL))
+		{
+			UglyGlobalState.player.oxygen += GetOxygenProduction();
+
+			elapsedTime = (double)GD.Randf();
+		}
+
+		elapsedTime += delta;
+
 	}
 
 
 	private void HandleTimeout()
 	{
-		var nextPlantState = GetNextPlantState();
-		GD.Print("nextPlantState: " + nextPlantState);
-		var spritePathForPlantState = GetSpritePathForPlantState(nextPlantState);
+		plantState = GetNextPlantState();
+		var spritePathForPlantState = GetSpritePathForPlantState(plantState);
 		sprite2D.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
-		GD.Print("timer ended, restarting");
+		isWatered = false;
+		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
+	}
+
+	private float GetOxygenProduction()
+	{
+		switch (plantType)
+		{
+			case PlantType.TOMATO:
+				return 0.1f;
+			case PlantType.MONSTERA:
+				return 0.25f;
+			default:
+				return 0.2f;
+		}
 	}
 
 	private string GetSpritePathForPlantState(PlantState plantState)
 	{
-		GD.Print("getting texture path for plant state " + plantState);
-		GD.Print("plant type: " + plantType);
 		if (plantType == PlantType.TOMATO)
 		{
 			switch (plantState)
@@ -125,4 +174,5 @@ public partial class Plant : Node2D
 		GD.Print("WARN: reached impossible? case");
 		return PlantState.PLANT_DRY;
 	}
+	
 }
