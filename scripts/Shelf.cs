@@ -44,11 +44,29 @@ public partial class Shelf : Node2D
         if (isHovered && UglyGlobalState.player.GlobalPosition.DistanceTo(GlobalPosition) < distanceToNextTile)
         {
             selector.Visible = true;
+
+            if (Input.IsActionJustPressed("interact"))
+            {
+                UglyGlobalState.interactionHUD.setPosition(GlobalPosition.X, GlobalPosition.Y - 64);
+                UglyGlobalState.interactionHUD.Visible = true;
+
+                UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
+            }
         }
         else
         {
             selector.Visible = false;
         }
+
+
+    }
+
+    private void onOptionSelected(int option)
+    {
+        GD.Print("Option #" + option + " selected!");
+        UglyGlobalState.interactionHUD.Visible = false;
+
+        UglyGlobalState.interactionHUD.optionSelected -= onOptionSelected;
     }
 
     private void onMouseEntered()
