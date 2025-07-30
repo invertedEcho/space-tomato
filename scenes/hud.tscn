@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbb17762ytts3"]
+[gd_scene load_steps=9 format=3 uid="uid://t2cid18l8xin"]
 
 [ext_resource type="Script" uid="uid://droqaoixbkeha" path="res://scripts/HUD.cs" id="1_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://ixnnh5pfmhyt" path="res://textures/ui/hud/hud_selector1.png" id="2_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://cjr1bwxjx2lkw" path="res://textures/ui/hud/hud_selector2.png" id="3_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://dk41c1dehgm7g" path="res://textures/dev/water.png" id="4_6fi6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo2fv"]
 bg_color = Color(0.455403, 1.07693e-06, 2.16588e-07, 1)
@@ -15,11 +16,13 @@ bg_color = Color(0.285194, 0.70737, 0.202176, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
 bg_color = Color(0.112489, 0.662182, 0.814185, 1)
 
-[node name="hud" type="CanvasLayer" node_paths=PackedStringArray("healthBar", "oxygenBar", "damageIndicator")]
+[node name="hud" type="CanvasLayer" node_paths=PackedStringArray("healthBar", "oxygenBar", "damageIndicator", "fertilizerTexture", "waterTexture")]
 script = ExtResource("1_5ysmq")
 healthBar = NodePath("ui/VBoxContainer/health_bar")
 oxygenBar = NodePath("ui/VBoxContainer/oxygen_bar")
 damageIndicator = NodePath("ui/damage_indicator")
+fertilizerTexture = NodePath("ui/VBoxContainer/HBoxContainer/fertilizer")
+waterTexture = NodePath("ui/VBoxContainer/HBoxContainer/water")
 
 [node name="ui" type="Control" parent="."]
 z_index = 4096
@@ -78,13 +81,18 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="fertilizer" type="TextureRect" parent="ui/VBoxContainer/HBoxContainer"]
+[node name="water" type="TextureRect" parent="ui/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_6fi6k")
 expand_mode = 3
 
-[node name="water" type="TextureRect" parent="ui/VBoxContainer/HBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="ui/VBoxContainer/HBoxContainer/water"]
+position = Vector2(25.6, 24.96)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_6fi6k")
+
+[node name="fertilizer" type="TextureRect" parent="ui/VBoxContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_uo2fv")
