@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b482bueorq1o" path="res://scripts/InteractionHUD.cs" id="1_5gkn8"]
 [ext_resource type="Texture2D" uid="uid://b83jpdlqr261r" path="res://textures/ui/interactable/ui_element_border.png" id="1_jbs3l"]
 [ext_resource type="Texture2D" uid="uid://cu0fukkjbwxud" path="res://textures/ui/interactable/ui_element_selected.png" id="2_5gkn8"]
-[ext_resource type="Script" uid="uid://bfdoe4jbckbh5" path="res://scenes/TextureRectSelector.cs" id="3_4r7dp"]
+[ext_resource type="Script" uid="uid://bfdoe4jbckbh5" path="res://scripts/TextureRectSelector.cs" id="3_4r7dp"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4r7dp"]
 
