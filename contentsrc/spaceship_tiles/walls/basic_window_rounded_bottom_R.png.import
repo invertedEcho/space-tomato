@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwc2wyg608opj"
-path="res://.godot/imported/basic_path_corner_bottom.png-4b09b0cd9828d9b299f084ecc4090e2b.ctex"
+uid="uid://c1odsth6405pm"
+path="res://.godot/imported/basic_window_rounded_bottom_R.png-06d703b10c54b1f2277887efbc2e2e4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/spaceship_tiles/floors/basic_path_corner_bottom.png"
-dest_files=["res://.godot/imported/basic_path_corner_bottom.png-4b09b0cd9828d9b299f084ecc4090e2b.ctex"]
+source_file="res://contentsrc/spaceship_tiles/walls/basic_window_rounded_bottom_R.png"
+dest_files=["res://.godot/imported/basic_window_rounded_bottom_R.png-06d703b10c54b1f2277887efbc2e2e4f.ctex"]
 
 [params]
 
