@@ -181,16 +181,16 @@ tile_map_data = PackedByteArray("AAD+////AAAAAAkAAAD///7/AAAAAAkAAAD///3/AAAAAAk
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
-[node name="floor_decal" type="TileMapLayer" parent="environment"]
+[node name="floor_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
-[node name="walls_transparent" type="TileMapLayer" parent="environment"]
+[node name="walls_transparent" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD8//r/AQAWAAQAAAD9//z/AQAUAAQAAAD8//v/AQAUAAQAAAD9/wAAAQAWAAQAAAD9/wEAAQAVAAQAAAAEAAYAAQAEAAMAAAAEAAcAAQAJAAMAAAAFAAgAAQAIAAMAABAGAAoAAQALAAQAAAAFAAkAAQAMAAQAAAADAAQAAQAMAAQAAAADAAUAAQALAAQAAAAFAAYAAQAQAAQAAAAFAAcAAQAQAAQAAAAGAAYAAQARAAQAAAAFAAUAAQARAAQAAAD9//3/AQAVAAQAAAA=")
+tile_map_data = PackedByteArray("AAD8//r/AQAWAAQAAAD9//3/AQAVAAQAAAD9//z/AQAUAAQAAAD8//v/AQAUAAQAAAD9/wAAAQAWAAQAAAD9/wEAAQAVAAQAAAAEAAYAAQAEAAMAAAAEAAcAAQAJAAMAAAAFAAgAAQAIAAMAABAGAAoAAQALAAQAAAAFAAkAAQAMAAQAAAADAAQAAQAMAAQAAAADAAUAAQALAAQAAAAFAAYAAQAQAAQAAAAFAAcAAQAQAAQAAAAGAAYAAQARAAQAAAAFAAUAAQARAAQAAAA=")
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
@@ -201,20 +201,20 @@ tile_map_data = PackedByteArray("AAD9//j/AQAMAAQAAAD+//v/AQABAAQAAAD+//r/AQAKAAQ
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
-[node name="walls_decal" type="TileMapLayer" parent="environment"]
+[node name="walls_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
-[node name="walls_top_transparent" type="TileMapLayer" parent="environment"]
+[node name="walls_top_transparent" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD9/wAAAQACAAIAABD9//z/AQACAAIAABD8//v/AQACAAIAABD8//r/AQACAAIAABD9/wEAAQAEAAIAABD9//3/AQAEAAIAABAEAAYAAQADAAIAAAADAAUAAQABAAIAAAADAAQAAQABAAIAAAAEAAUAAQABAAIAABAFAAQAAQABAAIAABAGAAoAAQABAAIAAAAFAAkAAQABAAIAAAAFAAgAAQAEAAIAAAAFAAcAAQACAAIAAAAGAAYAAQACAAIAAAA=")
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
-[node name="walls_top_persistent" type="TileMapLayer" parent="environment"]
+[node name="walls_top_persistent" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD8////AQAIAAIAABD9//j/AQAAAAIAAAD9//n/AQAAAAIAAAD+//r/AQAAAAIAAAD+//v/AQAAAAIAAAD///r/AQAAAAIAAAD///n/AQAAAAIAAAAAAPr/AQAAAAIAAAAAAPv/AQAAAAIAAAABAPr/AQAAAAIAAAABAPn/AQAAAAIAAAACAPj/AQAAAAIAAAD9//7/AQABAAIAABD9/wIAAQABAAIAABD8/wMAAQABAAIAABD8/wQAAQABAAIAABA=")
