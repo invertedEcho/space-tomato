@@ -177,6 +177,7 @@ public partial class PlayerNode : Node2D
 		Position = newPosition;
 		if (anyMovementChange)
 		{
+			// TODO: Only do if currently no bottom left side transparent walls
 			foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
 			{
 				// GD.Print("Cleaning up previous tiledata, resetting modulate color");
