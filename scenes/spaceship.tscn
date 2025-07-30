@@ -1,52 +1,41 @@
-[gd_scene load_steps=13 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=19 format=4 uid="uid://cgmr0oahjo0bx"]
 
-[ext_resource type="Texture2D" uid="uid://cm7uec7q311qh" path="res://textures/plants/monstera/monstera_plant_full.png" id="2_r0fvi"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
+[ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
+[ext_resource type="Texture2D" uid="uid://cade6o10uuwun" path="res://textures/player/player_horizontal2.png" id="5_i1do7"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
 [ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://scenes/hud.tscn" id="6_343tk"]
+[ext_resource type="Texture2D" uid="uid://d24wsw8drc34d" path="res://textures/player/player_horizontal3.png" id="6_vue1i"]
 [ext_resource type="TileSet" uid="uid://bti6t8qit4co7" path="res://tilesets/collision.tres" id="7_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
-[ext_resource type="PackedScene" uid="uid://dwbgx0ckrct5" path="res://scenes/plant.tscn" id="8_6i2wf"]
+[ext_resource type="Texture2D" uid="uid://d211gbjnwjjme" path="res://textures/player/player_horizontal4.png" id="7_k3lwc"]
+[ext_resource type="Texture2D" uid="uid://dp0ilofsoevq5" path="res://textures/player/player_vertical1.png" id="8_csm47"]
+[ext_resource type="Texture2D" uid="uid://j56mey1r25k" path="res://textures/player/player_vertical2.png" id="9_8k34q"]
 [ext_resource type="TileSet" uid="uid://dl5hp2x50pnbl" path="res://tilesets/spaceship.tres" id="9_r0fvi"]
+[ext_resource type="Texture2D" uid="uid://7hhygye2hr4d" path="res://textures/player/player_vertical3.png" id="10_plmhy"]
+[ext_resource type="Texture2D" uid="uid://clcmbsnw84ohm" path="res://textures/player/player_vertical4.png" id="11_q2lbv"]
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="12_l0x72"]
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://scenes/game_over.tscn" id="14_0xuuw"]
 [ext_resource type="PackedScene" uid="uid://ckhoqxse1e4r0" path="res://scenes/pauseMenu.tscn" id="15_nosia"]
 
 [node name="spaceship" type="Node2D"]
 
-[node name="Plant2" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
-z_index = 1
-position = Vector2(-32, -19)
-plantState = 2
-timer = NodePath("Timer")
-sprite2D = NodePath("Sprite2D")
-plantType = 1
-
-[node name="Sprite2D" parent="Plant2" index="0"]
-texture = ExtResource("2_r0fvi")
-
-[node name="Plant" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
-z_index = 1
-position = Vector2(33, -23)
-timer = NodePath("Timer")
-sprite2D = NodePath("Sprite2D")
-plantType = 1
-
-[node name="Sprite2D" parent="Plant" index="0"]
-texture_filter = 1
-
-[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera")]
+[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera", "playerSprite")]
 script = ExtResource("3_xs8u7")
 hud = NodePath("../hud")
 gameOverScreen = NodePath("../game_over")
 pauseScreen = NodePath("../pause")
 playerCamera = NodePath("../main_camera")
+playerSprite = NodePath("playerSprite")
+texturesHorizontal = Array[Texture2D]([ExtResource("4_5pdae"), ExtResource("5_i1do7"), ExtResource("6_vue1i"), ExtResource("7_k3lwc")])
+texturesVertical = Array[Texture2D]([ExtResource("8_csm47"), ExtResource("9_8k34q"), ExtResource("10_plmhy"), ExtResource("11_q2lbv")])
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerNode"]
-z_index = 6
-y_sort_enabled = true
+[node name="playerSprite" type="Sprite2D" parent="PlayerNode"]
+z_index = 1
 texture_filter = 1
+position = Vector2(0, -16)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_v0rat")
 
 [node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera")]
@@ -103,6 +92,7 @@ tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
 [node name="walls_persistent" type="TileMapLayer" parent="enviroment"]
+y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD9//j/AQAMAAQAAAD+//v/AQABAAQAAAD+//r/AQAKAAQAAAD9//n/AQAKAAQAAAD///r/AQAHAAQAAAAAAPr/AQAMAAQAAAAAAPv/AQABAAQAAAABAPr/AQAFAAQAAAABAPn/AQAFAAQAAAACAPj/AQAHAAQAAAD9/wEAAQAHAAQAAAD9/wIAAQAFAAQAAAD8/wMAAQAFAAQAAAD8/wQAAQAGAAQAAAD9//7/AQAGAAQAAAD9//3/AQAHAAQAAAA=")
 tile_set = ExtResource("9_r0fvi")
@@ -129,12 +119,11 @@ tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
 [node name="collision" type="TileMapLayer" parent="enviroment"]
+z_index = 3
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD9//j/AAAAAAAAAAD9//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPr/AAAAAAAAAAABAPn/AAAAAAAAAAACAPj/AAAAAAAAAAD8//r/AAACAAAAAAD8//v/AAACAAAAAAD9//z/AAACAAAAAAD9//3/AAAGAAAAAAD9//7/AAAEAAAAAAD9/wAAAAACAAAAAAD9/wEAAAAGAAAAAAD9/wIAAAAEAAAAAAD8/wMAAAAEAAAAAAD8/wQAAAAEAAAAAAAEAAYAAAAFAAAAAAADAAUAAAABAAAAAAADAAQAAAABAAAAAAAEAAUAAAAEAAAAAAAFAAQAAAAEAAAAAAAGAAYAAAADAAAAAAAFAAcAAAADAAAAAAAFAAgAAAAIAAAAAAAFAAkAAAABAAAAAAAGAAoAAAABAAAAAAA=")
 tile_set = ExtResource("7_6i2wf")
 script = ExtResource("12_l0x72")
 
-[editable path="Plant2"]
-[editable path="Plant"]
 [editable path="hud"]
