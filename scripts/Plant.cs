@@ -1,5 +1,6 @@
 using Godot;
 
+
 public enum PlantState
 {
 	CROP_FULL,
@@ -17,6 +18,8 @@ public enum PlantType
 
 public partial class Plant : Node2D
 {
+	private const string DefaultTextureTomato = "res://textures/plants/tomato/tomato_plant_full.png";
+	private const string DefaultTextureMonstera = "res://textures/plants/monstera/monstera_plant_full.png";
 	[Export]
 	public bool isWatered;
 	[Export]
@@ -33,6 +36,16 @@ public partial class Plant : Node2D
 
 	public override void _Ready()
 	{
+		sprite2D = GetNode<Sprite2D>("Sprite2D");
+		if (plantType == PlantType.TOMATO)
+		{
+			sprite2D.Texture = (Texture2D)GD.Load(DefaultTextureTomato);
+		}
+		else if (plantType == PlantType.MONSTERA)
+		{
+			sprite2D.Texture = (Texture2D)GD.Load(DefaultTextureMonstera);
+		}
+		timer = GetNode<Timer>("Timer");
 		timer.Timeout += HandleTimeout;
 	}
 

@@ -1,18 +1,16 @@
-[gd_scene load_steps=28 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=26 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
-[ext_resource type="Texture2D" uid="uid://cm7uec7q311qh" path="res://textures/plants/monstera/monstera_plant_full.png" id="2_r0fvi"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
 [ext_resource type="Texture2D" uid="uid://dwc2wyg608opj" path="res://textures/spaceship_tiles/floors/basic_path_corner_bottom.png" id="5_6wr2n"]
 [ext_resource type="Texture2D" uid="uid://cu4isyyqutfx2" path="res://textures/spaceship_tiles/floors/basic_path_corner_side.png" id="5_d22a7"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
 [ext_resource type="Texture2D" uid="uid://5f8v2osi7efw" path="res://textures/spaceship_tiles/floors/basic_path_corner_top.png" id="6_0xuuw"]
-[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/shelf.tscn" id="6_6i2wf"]
+[ext_resource type="PackedScene" path="res://scenes/shelf.tscn" id="6_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://scenes/hud.tscn" id="6_343tk"]
-[ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
+[ext_resource type="PackedScene" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
 [ext_resource type="Texture2D" uid="uid://dy13t1rn0yid1" path="res://textures/spaceship_tiles/floors/basic_path_end_bottom.png" id="7_nosia"]
-[ext_resource type="PackedScene" uid="uid://dwbgx0ckrct5" path="res://scenes/plant.tscn" id="8_6i2wf"]
 [ext_resource type="Texture2D" uid="uid://m2sykfiw5rc" path="res://textures/spaceship_tiles/floors/basic_path_straight.png" id="8_kcotq"]
 [ext_resource type="Texture2D" uid="uid://cwxld850q11q2" path="res://textures/spaceship_tiles/floors/basic_side_clean.png" id="9_5pdae"]
 [ext_resource type="Texture2D" uid="uid://b7gmla3tpsdlb" path="res://textures/spaceship_tiles/floors/basic_side_tile.png" id="10_i1do7"]
@@ -81,27 +79,6 @@ sources/8 = SubResource("TileSetAtlasSource_nqwxm")
 sources/9 = SubResource("TileSetAtlasSource_uvf41")
 
 [node name="spaceship" type="Node2D"]
-
-[node name="Plant2" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
-z_index = 1
-position = Vector2(-32, -19)
-plantState = 2
-timer = NodePath("Timer")
-sprite2D = NodePath("Sprite2D")
-plantType = 1
-
-[node name="Sprite2D" parent="Plant2" index="0"]
-texture = ExtResource("2_r0fvi")
-
-[node name="Plant" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
-z_index = 1
-position = Vector2(33, -23)
-timer = NodePath("Timer")
-sprite2D = NodePath("Sprite2D")
-plantType = 1
-
-[node name="Sprite2D" parent="Plant" index="0"]
-texture_filter = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -184,6 +161,4 @@ position = Vector2(256, 96)
 [node name="shelf11" parent="." instance=ExtResource("6_6i2wf")]
 position = Vector2(288, 112)
 
-[editable path="Plant2"]
-[editable path="Plant"]
 [editable path="hud"]
