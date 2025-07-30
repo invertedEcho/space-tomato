@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc030oyp6bcip"
-path="res://.godot/imported/monstera_crop_full.png-35ba26ee4800b4d1a53ed0a49c12ce31.ctex"
+uid="uid://byj64buvv3xjp"
+path="res://.godot/imported/monstera_crop_dead.png-019cd1b719599df17769fa79c3b6e7ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contentsrc/plant_tiles/monstera/monstera_crop_full.png"
-dest_files=["res://.godot/imported/monstera_crop_full.png-35ba26ee4800b4d1a53ed0a49c12ce31.ctex"]
+source_file="res://textures/plants/monstera/monstera_crop_dead.png"
+dest_files=["res://.godot/imported/monstera_crop_dead.png-019cd1b719599df17769fa79c3b6e7ad.ctex"]
 
 [params]
 

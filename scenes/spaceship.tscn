@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_yqmju"]
 [ext_resource type="Texture2D" uid="uid://o541vfo0270r" path="res://textures/dev/tile_basic_wall.png" id="2_ae4p7"]
+[ext_resource type="Texture2D" uid="uid://cm7uec7q311qh" path="res://textures/plants/monstera/monstera_plant_full.png" id="2_r0fvi"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
@@ -9,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bbb17762ytts3" path="res://scenes/hud.tscn" id="6_343tk"]
 [ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
 [ext_resource type="Texture2D" uid="uid://cjr1bwxjx2lkw" path="res://textures/ui/hud/hud_selector2.png" id="7_v6qj0"]
+[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/indev/shelf.tscn" id="6_6i2wf"]
+[ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://scenes/hud.tscn" id="6_343tk"]
 [ext_resource type="PackedScene" uid="uid://dwbgx0ckrct5" path="res://scenes/plant.tscn" id="8_6i2wf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae4p7"]
@@ -22,7 +25,6 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 0.5, -48, 32, -32, 32, 0, 0, 16, -32, 0)
-0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ky2tl"]
 tile_shape = 1
@@ -33,11 +35,23 @@ sources/1 = SubResource("TileSetAtlasSource_xs8u7")
 
 [node name="spaceship" type="Node2D"]
 
+[node name="Plant2" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
+z_index = 1
+position = Vector2(-32, -19)
+plantState = 2
+timer = NodePath("Timer")
+sprite2D = NodePath("Sprite2D")
+plantType = 1
+
+[node name="Sprite2D" parent="Plant2" index="0"]
+texture = ExtResource("2_r0fvi")
+
 [node name="Plant" parent="." node_paths=PackedStringArray("timer", "sprite2D") instance=ExtResource("8_6i2wf")]
 z_index = 1
 position = Vector2(33, -23)
 timer = NodePath("Timer")
 sprite2D = NodePath("Sprite2D")
+plantType = 1
 
 [node name="Sprite2D" parent="Plant" index="0"]
 texture_filter = 1
@@ -84,24 +98,6 @@ mouse_filter = 2
 anchor_left = 0.4
 anchor_right = 0.6
 
-[node name="water2" type="TextureRect" parent="hud/ui/VBoxContainer/HBoxContainer" index="2"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("7_v6qj0")
-expand_mode = 3
-
-[node name="water3" type="TextureRect" parent="hud/ui/VBoxContainer/HBoxContainer" index="3"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("7_v6qj0")
-expand_mode = 3
-
-[node name="water4" type="TextureRect" parent="hud/ui/VBoxContainer/HBoxContainer" index="4"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("7_v6qj0")
-expand_mode = 3
-
 [node name="shelf" parent="." instance=ExtResource("6_6i2wf")]
 position = Vector2(128, 0)
 
@@ -141,5 +137,6 @@ position = Vector2(256, 96)
 [node name="shelf11" parent="." instance=ExtResource("6_6i2wf")]
 position = Vector2(288, 112)
 
+[editable path="Plant2"]
 [editable path="Plant"]
 [editable path="hud"]
