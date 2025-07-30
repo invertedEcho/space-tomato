@@ -40,6 +40,9 @@ public partial class ParallaxBackground : Node2D
         base._Process(delta);
 
 
+        if (UglyGlobalState.paused)
+            return;
+
         cloudBase.Position = cloudBase.Position - new Vector2(cloudSpeed, 0);
 
         if (cloudBase.Position.X < -640)

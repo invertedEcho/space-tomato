@@ -97,11 +97,13 @@ public partial class PlayerNode : Node2D
 			if (pauseScreen.Visible)
 			{
 				pauseScreen.Visible = false;
+				UglyGlobalState.paused = false;
 				Engine.TimeScale = 1;
 			}
 			else
 			{
 				pauseScreen.Visible = true;
+				UglyGlobalState.paused = true;
 				Engine.TimeScale = 0;
 			}
 
