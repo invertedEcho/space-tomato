@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class Shelf : Node2D
@@ -11,8 +12,12 @@ public partial class Shelf : Node2D
     [Export]
     StaticBody2D area;
 
+    [ExportCategory("Functionality")]
+    [ExportGroup("Plant Spawning")]
     [Export]
-    PackedScene prefabToSpawn;
+    private PackedScene plant;
+
+    private Plant plantReference = null;
 
     [Export]
     private int distanceToNextTile = 64;
