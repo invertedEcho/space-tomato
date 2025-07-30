@@ -66,23 +66,24 @@ public partial class Shelf : Node2D
 
 	}
 
-	private void onOptionSelected(int option)
+	private void onOptionSelected(int selectedOption)
 	{
-		GD.Print("Option #" + option + " selected!");
+		GD.Print("Option #" + selectedOption + " selected!");
 		UglyGlobalState.interactionHUD.Visible = false;
 
 		UglyGlobalState.interactionHUD.optionSelected -= onOptionSelected;
 
 		if (plantReference == null)
 		{
-			if (option == 0)
+			if (selectedOption == 0)
 			{
 				GD.Print("empty shelf, loading plant scene into tile! type: tomato");
-				var scene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
-				scene.plantType = PlantType.TOMATO;
-				AddChild(scene);
+				var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
+				plantScene.plantType = PlantType.TOMATO;
+				plantReference = plantScene;
+				AddChild(plantScene);
 			}
-			else if (option == 1)
+			else if (selectedOption == 1)
 			{
 				GD.Print("empty shelf, loading plant scene into tile! type: tomato");
 				var scene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
@@ -92,6 +93,32 @@ public partial class Shelf : Node2D
 		}
 		else
 		{
+			if (selectedOption == 0)
+			{
+				GD.Print("watering plant!");
+				plantReference.isWatered = true;
+			}
+			else if (selectedOption == 1)
+			{
+				if (UglyGlobalState.fertilizer == 0)
+				{
+					// TODO: see string in print
+					GD.Print("Do something visuallly that signals user that he doesnt have fertilizer");
+				}
+				else
+				{
+					GD.Print("plant is now fertilized!");
+					plantReference.isFertilized = true;
+				}
+			}
+			else if (selectedOption == 2)
+			{
+				GD.Print("TODO: implement eating plant");
+			}
+			else if (selectedOption == 3)
+			{
+
+			}
 			GD.Print("shelf has plant or crop");
 		}
 	}
