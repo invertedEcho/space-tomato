@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
 [ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://scenes/hud.tscn" id="6_343tk"]
 [ext_resource type="Texture2D" uid="uid://d24wsw8drc34d" path="res://textures/player/player_horizontal3.png" id="6_vue1i"]
-[ext_resource type="TileSet" uid="uid://xdi1cep5jekj" path="res://tilesets/collision.tres" id="7_6i2wf"]
+[ext_resource type="TileSet" uid="uid://d2une5qegsp7k" path="res://tilesets/collision.tres" id="7_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
 [ext_resource type="Texture2D" uid="uid://d211gbjnwjjme" path="res://textures/player/player_horizontal4.png" id="7_k3lwc"]
 [ext_resource type="Texture2D" uid="uid://dp0ilofsoevq5" path="res://textures/player/player_vertical1.png" id="8_csm47"]
@@ -19,8 +19,8 @@
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="12_l0x72"]
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://scenes/game_over.tscn" id="14_0xuuw"]
 [ext_resource type="PackedScene" uid="uid://ckhoqxse1e4r0" path="res://scenes/pauseMenu.tscn" id="15_nosia"]
-[ext_resource type="PackedScene" uid="uid://cb6kdrdr6i6vf" path="res://scenes/oxygen_tank.tscn" id="16_kcotq"]
-[ext_resource type="PackedScene" uid="uid://df40i4042qcpo" path="res://scenes/fertiliser_tank.tscn" id="18_i1do7"]
+[ext_resource type="PackedScene" path="res://scenes/oxygen_tank.tscn" id="16_kcotq"]
+[ext_resource type="PackedScene" path="res://scenes/fertiliser_tank.tscn" id="18_i1do7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i1do7"]
 blend_mode = 1

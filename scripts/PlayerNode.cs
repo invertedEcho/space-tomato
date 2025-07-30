@@ -212,7 +212,7 @@ public partial class PlayerNode : Node2D
 				// GD.Print("Cleaning up previous tiledata, resetting modulate color");
 				tileData.Modulate = new Color(1, 1, 1, 1);
 			}
-			var wallsTransparentLayer = GetNode<TileMapLayer>("/root/spaceship/environment/walls_transparent");
+			var wallsTransparentLayer = GetNode<TileMapLayer>("/root/spaceship/enviroment/walls_transparent");
 
 			var coords = wallsTransparentLayer.LocalToMap(Position);
 
