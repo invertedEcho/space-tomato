@@ -52,7 +52,6 @@ public partial class InteractionHUD : Node2D
             {
                 if (Input.IsActionJustPressed("interact"))
                 {
-                    GD.Print("Invoking optionSelected");
                     optionSelected.Invoke(i);
                 }
             }

@@ -103,8 +103,6 @@ public partial class PlayerNode : Node2D
 
 		oxygen -= 1;
 
-		GD.Print(health);
-
 		ticks++;
 
 	}
