@@ -101,21 +101,20 @@ Jakob Stechow
 Aaron Kerker"
 horizontal_alignment = 2
 
-[node name="parallax_background" type="Node2D" parent="." node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny")]
+[node name="parallax_background" type="Node2D" parent="." node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase")]
 position = Vector2(0, 8)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("4_lam2r")
-cloudBase = NodePath("clouds")
 cloudSpeed = 0.1
-farStarBase = NodePath("stars/far")
 farStarSpeed = 0.15
-middleStarBase = NodePath("stars/middle")
 middleStarSpeed = 0.2
-closeStarBase = NodePath("stars/close")
 closeStarSpeed = 0.3
-speedStarBase = NodePath("stars/speedyStars")
 speedStarSpeed = 2.0
-upAndDowny = [null, null, null]
+cloudBase = NodePath("clouds")
+farStarBase = NodePath("stars/far")
+middleStarBase = NodePath("stars/middle")
+closeStarBase = NodePath("stars/close")
+speedStarBase = NodePath("stars/speedyStars")
 
 [node name="background_base" type="Sprite2D" parent="parallax_background"]
 texture = ExtResource("5_amia2")
