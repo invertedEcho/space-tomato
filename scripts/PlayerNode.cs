@@ -1,18 +1,19 @@
 using System;
 using System.Linq;
 using Godot;
+using Godot.Collections;
 
 public partial class PlayerNode : Node2D
 {
 
-	[ExportCategory("Player Stats")]
+	[ExportGroup("Player Stats")]
 	[Export]
 	public int health = 100;
 
 	[Export]
 	public float oxygen = 100;
 
-	[ExportCategory("References")]
+	[ExportGroup("References")]
 	[Export]
 	public HUD hud;
 
@@ -24,10 +25,31 @@ public partial class PlayerNode : Node2D
 	[Export]
 	private PlayerCamera playerCamera;
 
+	[Export]
+	private Sprite2D playerSprite;
+
 	private double time;
 	private double movementTime;
 
 	private uint ticks;
+
+	[ExportGroup("Animation")]
+	[Export]
+	private Array<Texture2D> texturesHorizontal;
+	[Export]
+	private Array<Texture2D> texturesVertical;
+
+	// ---
+
+	private enum Direction
+	{
+		DIRECTION_FRONT,
+		DIRECTION_BACK,
+		DIRECTION_LEFT,
+		DIRECTION_RIGHT
+	}
+
+	private Direction lastFacingDirection = Direction.DIRECTION_FRONT;
 
 	public override void _Ready()
 	{
@@ -66,7 +88,8 @@ public partial class PlayerNode : Node2D
 			gameOverScreen.Visible = true;
 			Engine.TimeScale = 0;
 
-			playerCamera.Zoom = new Vector2(0.2f, 0.2f);
+			playerCamera.Zoom = new Vector2(1f, 1f);
+			playerCamera._Process(0);
 		}
 
 		if (Input.IsActionJustPressed("escape"))
@@ -85,7 +108,7 @@ public partial class PlayerNode : Node2D
 
 		}
 
-		// tileCellData.Modulate = new Color(1, 1, 1, 0.3f);
+		RenderPlayerSprite();
 	}
 
 
@@ -105,6 +128,8 @@ public partial class PlayerNode : Node2D
 		}
 
 		// oxygen -= 1;
+
+		UglyGlobalState.fertilizerCount += 5;
 
 		ticks++;
 
@@ -131,6 +156,7 @@ public partial class PlayerNode : Node2D
 			{
 				return;
 			}
+			lastFacingDirection = Direction.DIRECTION_RIGHT;
 			newPosition = targetVector;
 		}
 		else if (Input.IsActionJustPressed("move_left"))
@@ -142,6 +168,7 @@ public partial class PlayerNode : Node2D
 			{
 				return;
 			}
+			lastFacingDirection = Direction.DIRECTION_LEFT;
 			newPosition = targetVector;
 		}
 		else if (Input.IsActionJustPressed("move_down"))
@@ -153,6 +180,7 @@ public partial class PlayerNode : Node2D
 			{
 				return;
 			}
+			lastFacingDirection = Direction.DIRECTION_BACK;
 			newPosition = targetVector;
 
 		}
@@ -165,6 +193,7 @@ public partial class PlayerNode : Node2D
 			{
 				return;
 			}
+			lastFacingDirection = Direction.DIRECTION_FRONT;
 			newPosition = targetVector;
 		}
 
@@ -280,6 +309,40 @@ public partial class PlayerNode : Node2D
 		}
 
 		Position = newPosition;
+	}
+
+	private void RenderPlayerSprite()
+	{
+
+		int index = (int)(ticks % 4);
+
+		switch (lastFacingDirection)
+		{
+			case Direction.DIRECTION_FRONT:
+				{
+					playerSprite.Texture = texturesVertical[index];
+					playerSprite.FlipH = false;
+					break;
+				}
+			case Direction.DIRECTION_BACK:
+				{
+					playerSprite.Texture = texturesHorizontal[index];
+					playerSprite.FlipH = true;
+					break;
+				}
+			case Direction.DIRECTION_LEFT:
+				{
+					playerSprite.Texture = texturesVertical[index];
+					playerSprite.FlipH = true;
+					break;
+				}
+			case Direction.DIRECTION_RIGHT:
+				{
+					playerSprite.Texture = texturesHorizontal[index];
+					playerSprite.FlipH = false;
+					break;
+				}
+		}
 	}
 
 	private bool CheckIfWall(Godot.Vector2 current_vector, Godot.Vector2 target_vector)

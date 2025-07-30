@@ -6,11 +6,9 @@ public partial class HUD : Node
 	[ExportCategory("References")]
 	[Export]
 	private ProgressBar healthBar;
-	[Export]
-	private ProgressBar oxygenBar;
 
 	[Export]
-	private Panel damageIndicator;
+	private TextureRect damageIndicator;
 
 	[Export]
 	public int selectedHotbarItem;
@@ -31,7 +29,6 @@ public partial class HUD : Node
 
 		elapsedTime += delta;
 		healthBar.Value = UglyGlobalState.player.health;
-		oxygenBar.Value = UglyGlobalState.player.oxygen;
 	}
 
 }

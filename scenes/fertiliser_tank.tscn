@@ -1,0 +1,15 @@
+[gd_scene load_steps=8 format=3 uid="uid://df40i4042qcpo"]
+
+[ext_resource type="Texture2D" uid="uid://bsyt464y4w62j" path="res://textures/spaceship_tiles/fertiliser/fertiliser_0.png" id="1_w7xyv"]
+[ext_resource type="Script" uid="uid://dxentncdp8n2v" path="res://scripts/FertiliserTank.cs" id="2_4e2fy"]
+[ext_resource type="Texture2D" uid="uid://so2av1344bo7" path="res://textures/spaceship_tiles/fertiliser/fertiliser_1.png" id="3_1bett"]
+[ext_resource type="Texture2D" uid="uid://bjsbly3xhbmtf" path="res://textures/spaceship_tiles/fertiliser/fertiliser_2.png" id="4_23f24"]
+[ext_resource type="Texture2D" uid="uid://bus8e8xmy283x" path="res://textures/spaceship_tiles/fertiliser/fertiliser_3.png" id="5_7cp7o"]
+[ext_resource type="Texture2D" uid="uid://nel72qdgfgk2" path="res://textures/spaceship_tiles/fertiliser/fertiliser_4.png" id="6_cciba"]
+[ext_resource type="Texture2D" uid="uid://pwadbjw6d4ka" path="res://textures/spaceship_tiles/fertiliser/fertiliser_5.png" id="7_irslm"]
+
+[node name="fertiliser_tank" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_w7xyv")
+script = ExtResource("2_4e2fy")
+fillStates = Array[Texture2D]([ExtResource("1_w7xyv"), ExtResource("3_1bett"), ExtResource("4_23f24"), ExtResource("5_7cp7o"), ExtResource("6_cciba"), ExtResource("7_irslm")])

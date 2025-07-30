@@ -1,0 +1,36 @@
+[gd_scene load_steps=12 format=3 uid="uid://cb6kdrdr6i6vf"]
+
+[ext_resource type="Texture2D" uid="uid://klwh3ueh8v7w" path="res://contentsrc/spaceship_tiles/oxygen/oxygen_tank_0.png" id="1_ycgen"]
+[ext_resource type="Script" uid="uid://cautumhqlxadq" path="res://scripts/OxygenTank.cs" id="2_obw5g"]
+[ext_resource type="Texture2D" uid="uid://csi3sb7eopna7" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_0.png" id="3_j266c"]
+[ext_resource type="Texture2D" uid="uid://dfld8tddw3aqg" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_1.png" id="4_0b5gf"]
+[ext_resource type="Texture2D" uid="uid://d3i4kkkatv5hy" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_2.png" id="5_3qc03"]
+[ext_resource type="Texture2D" uid="uid://iqr3fgbpff3x" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_3.png" id="6_f4bam"]
+[ext_resource type="Texture2D" uid="uid://lhuc1kdufp1m" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_4.png" id="7_6bqc4"]
+[ext_resource type="Texture2D" uid="uid://c7ua2et4qpg36" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_5.png" id="8_j62ci"]
+[ext_resource type="Texture2D" uid="uid://bkxh33etf4ksc" path="res://textures/lighting/gradient_radial_light.png" id="9_0b5gf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j266c"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3qc03"]
+blend_mode = 1
+light_mode = 1
+
+[node name="oxygen_tank" type="Sprite2D"]
+z_index = 1
+material = SubResource("CanvasItemMaterial_j266c")
+texture = ExtResource("1_ycgen")
+script = ExtResource("2_obw5g")
+fillStates = Array[Texture2D]([ExtResource("3_j266c"), ExtResource("4_0b5gf"), ExtResource("5_3qc03"), ExtResource("6_f4bam"), ExtResource("7_6bqc4"), ExtResource("8_j62ci")])
+
+[node name="lighting" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="lighting"]
+modulate = Color(0, 0.486275, 0.490196, 0.266667)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_3qc03")
+position = Vector2(3, -5)
+rotation = 0.0487193
+scale = Vector2(0.374282, 0.47693)
+texture = ExtResource("9_0b5gf")
