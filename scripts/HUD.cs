@@ -15,31 +15,13 @@ public partial class HUD : Node
 	[Export]
 	public int selectedHotbarItem;
 
-	private double elapsedTime = 1;
+	public double elapsedTime = 1;
 
 	[Export]
 	public TextureRect fertilizerTexture;
 	[Export]
 	public TextureRect waterTexture;
 
-	public override void _Ready()
-	{
-	}
-
-	public void setHealth(int health)
-	{
-		healthBar.Value = health;
-	}
-
-	public void setOxygen(int oxygen)
-	{
-		oxygenBar.Value = oxygen;
-	}
-
-	public void takeDamage()
-	{
-		elapsedTime = 0;
-	}
 
 	public override void _Process(double delta)
 	{
@@ -48,6 +30,8 @@ public partial class HUD : Node
 		damageIndicator.SelfModulate = new Color(1, 1, 1, Mathf.Lerp(1, 0, (float)elapsedTime * 2));
 
 		elapsedTime += delta;
+		healthBar.Value = UglyGlobalState.player.health;
+		oxygenBar.Value = UglyGlobalState.player.oxygen;
 	}
 
 }

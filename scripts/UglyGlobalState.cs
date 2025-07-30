@@ -7,6 +7,6 @@ public partial class UglyGlobalState : Node
     public static PlayerNode player;
     public static InteractionHUD interactionHUD;
 
-    public static int fertilizer;
+    public static int fertilizerCount;
 
 }

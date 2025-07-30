@@ -18,10 +18,11 @@ public enum PlantType
 
 public partial class Plant : Node2D
 {
-	private const string DefaultTextureTomato = "res://textures/plants/tomato/tomato_plant_full.png";
-	private const string DefaultTextureMonstera = "res://textures/plants/monstera/monstera_plant_full.png";
-	[Export]
-	public bool isWatered;
+	private const string DefaultTextureTomato = "res://textures/plants/tomato/tomato_crop_full.png";
+	private const string DefaultTextureMonstera = "res://textures/plants/monstera/monstera_crop_full.png";
+	public bool isWatered = false;
+	public bool isFertilized = false;
+
 	[Export]
 	public PlantState plantState;
 
@@ -52,11 +53,12 @@ public partial class Plant : Node2D
 
 	private void HandleTimeout()
 	{
-		var nextPlantState = GetNextPlantState();
-		GD.Print("nextPlantState: " + nextPlantState);
-		var spritePathForPlantState = GetSpritePathForPlantState(nextPlantState);
+		plantState = GetNextPlantState();
+		GD.Print("plantState: " + plantState);
+		var spritePathForPlantState = GetSpritePathForPlantState(plantState);
 		sprite2D.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
-		GD.Print("timer ended, restarting");
+		isWatered = false;
+		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
 	}
 
 	private string GetSpritePathForPlantState(PlantState plantState)

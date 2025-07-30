@@ -1,6 +1,4 @@
 using Godot;
-using Godot.Collections;
-using System;
 
 public partial class Shelf : Node2D
 {
@@ -66,23 +64,23 @@ public partial class Shelf : Node2D
 
 	}
 
-	private void onOptionSelected(int option)
+	private void onOptionSelected(int selectedOption)
 	{
-		GD.Print("Option #" + option + " selected!");
 		UglyGlobalState.interactionHUD.Visible = false;
 
 		UglyGlobalState.interactionHUD.optionSelected -= onOptionSelected;
 
 		if (plantReference == null)
 		{
-			if (option == 0)
+			if (selectedOption == 0)
 			{
 				GD.Print("empty shelf, loading plant scene into tile! type: tomato");
-				var scene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
-				scene.plantType = PlantType.TOMATO;
-				AddChild(scene);
+				var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
+				plantScene.plantType = PlantType.TOMATO;
+				plantReference = plantScene;
+				AddChild(plantScene);
 			}
-			else if (option == 1)
+			else if (selectedOption == 1)
 			{
 				GD.Print("empty shelf, loading plant scene into tile! type: tomato");
 				var scene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
@@ -92,6 +90,43 @@ public partial class Shelf : Node2D
 		}
 		else
 		{
+			if (selectedOption == 0)
+			{
+				GD.Print("watering plant!");
+				plantReference.isWatered = true;
+			}
+			else if (selectedOption == 1)
+			{
+				if (UglyGlobalState.fertilizerCount == 0)
+				{
+					// TODO: see string in print
+					GD.Print("Do something visuallly that signals user that he doesnt have fertilizer");
+				}
+				else
+				{
+					GD.Print("plant is now fertilized!");
+					plantReference.isFertilized = true;
+					var isTomatoAndFull = plantReference.plantState == PlantState.PLANT_FULL && plantReference.plantType == PlantType.TOMATO;
+					if (isTomatoAndFull)
+					{
+						Sprite2D tomatoFruits = new Sprite2D();
+						tomatoFruits.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_fruits.png");
+						// tomatoFruits.Position = plantReference.Position;
+						plantReference.AddChild(tomatoFruits);
+					}
+				}
+			}
+			else if (selectedOption == 2)
+			{
+				UglyGlobalState.player.addHealth(10);
+				GD.Print("TODO: implement eating plant");
+			}
+			else if (selectedOption == 3)
+			{
+				plantReference.QueueFree();
+				plantReference = null;
+				UglyGlobalState.fertilizerCount += 1; 
+			}
 			GD.Print("shelf has plant or crop");
 		}
 	}
