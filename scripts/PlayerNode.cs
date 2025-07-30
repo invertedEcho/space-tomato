@@ -25,6 +25,15 @@ public partial class PlayerNode : Node2D
 	{
 		setHealth(health);
 		setOxygen(oxygen);
+
+		if (UglyGlobalState.player == null)
+		{
+			UglyGlobalState.player = this;
+		}
+		else
+		{
+			GD.PrintErr("There can only be one instance of the player");
+		}
 	}
 
 	public override void _Process(double delta)
