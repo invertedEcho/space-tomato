@@ -1,6 +1,4 @@
 using Godot;
-using Godot.Collections;
-using System;
 
 public partial class Shelf : Node2D
 {
@@ -26,7 +24,6 @@ public partial class Shelf : Node2D
 
 	public override void _Ready()
 	{
-		GD.Print("fertilizer count: " + UglyGlobalState.fertilizerCount);
 		base._Ready();
 
 		area.InputPickable = true;
@@ -69,7 +66,6 @@ public partial class Shelf : Node2D
 
 	private void onOptionSelected(int selectedOption)
 	{
-		GD.Print("Option #" + selectedOption + " selected!");
 		UglyGlobalState.interactionHUD.Visible = false;
 
 		UglyGlobalState.interactionHUD.optionSelected -= onOptionSelected;
@@ -110,15 +106,25 @@ public partial class Shelf : Node2D
 				{
 					GD.Print("plant is now fertilized!");
 					plantReference.isFertilized = true;
+					var isTomatoAndFull = plantReference.plantState == PlantState.PLANT_FULL && plantReference.plantType == PlantType.TOMATO;
+					if (isTomatoAndFull)
+					{
+						Sprite2D tomatoFruits = new Sprite2D();
+						tomatoFruits.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_fruits.png");
+						// tomatoFruits.Position = plantReference.Position;
+						plantReference.AddChild(tomatoFruits);
+					}
 				}
 			}
 			else if (selectedOption == 2)
 			{
+				UglyGlobalState.player.addHealth(10);
 				GD.Print("TODO: implement eating plant");
 			}
 			else if (selectedOption == 3)
 			{
 				plantReference.QueueFree();
+				plantReference = null;
 				UglyGlobalState.fertilizerCount += 1; 
 			}
 			GD.Print("shelf has plant or crop");

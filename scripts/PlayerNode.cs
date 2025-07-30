@@ -1,20 +1,19 @@
-using Godot;
 using System;
-using System.Numerics;
+using Godot;
 
 public partial class PlayerNode : Node2D
 {
 
 	[ExportCategory("Player Stats")]
 	[Export]
-	private int health = 100;
+	public int health = 100;
 
 	[Export]
-	private int oxygen = 100;
+	public int oxygen = 100;
 
 	[ExportCategory("References")]
 	[Export]
-	private HUD hud;
+	public HUD hud;
 
 	[Export]
 	private PlayerCamera playerCamera;
@@ -23,9 +22,6 @@ public partial class PlayerNode : Node2D
 
 	public override void _Ready()
 	{
-		setHealth(health);
-		setOxygen(oxygen);
-
 		if (UglyGlobalState.player == null)
 		{
 			UglyGlobalState.player = this;
@@ -38,7 +34,6 @@ public partial class PlayerNode : Node2D
 
 	public override void _Process(double delta)
 	{
-		GD.Print("fertilizer count: " + UglyGlobalState.fertilizerCount);
 		ProcessMovement();
 
 		time += delta;
@@ -48,7 +43,13 @@ public partial class PlayerNode : Node2D
 			Tick();
 			time = 0;
 		}
+	}
 
+	public void takeDamage(int healthToSubstract)
+	{
+		health -= healthToSubstract;
+		UglyGlobalState.player.playerCamera.shakeCamera(0.2);
+		UglyGlobalState.player.hud.elapsedTime = 0;
 	}
 
 	private void Tick()
@@ -56,31 +57,17 @@ public partial class PlayerNode : Node2D
 
 		if (oxygen <= 0)
 		{
-			setHealth(health - 5);
+			takeDamage(5);
 		}
 
 		GD.Print(health);
 
 	}
 
-	public void setHealth(int health)
-	{
-		hud.setHealth(health);
-
-		if (health < this.health)
-		{
-			playerCamera.shakeCamera(0.2);
-			hud.takeDamage();
-		}
-
-		this.health = health;
+	public void addHealth(int health) {
+		this.health += health;
 	}
-
-	public void setOxygen(int oxygen)
-	{
-		hud.setOxygen(oxygen);
-		this.oxygen = oxygen;
-	}
+	
 
 	private void ProcessMovement()
 	{
