@@ -29,7 +29,7 @@ public partial class Plant : Node2D
 	}
 
 
-	public void HandleTimeout()
+	private void HandleTimeout()
 	{
 		var nextPlantState = GetNextPlantState();
 		GD.Print("nextPlantState: " + nextPlantState);
@@ -38,7 +38,7 @@ public partial class Plant : Node2D
 		GD.Print("timer ended, restarting");
 	}
 
-	public String GetSpritePathForPlantState(PlantState plantState)
+	private String GetSpritePathForPlantState(PlantState plantState)
 	{
 		switch (plantState)
 		{

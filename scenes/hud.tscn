@@ -88,8 +88,7 @@ texture = ExtResource("2_6fi6k")
 expand_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="ui/VBoxContainer/HBoxContainer/water"]
-position = Vector2(25.6, 24.96)
-scale = Vector2(0.75, 0.75)
+position = Vector2(51.6, 48.9599)
 texture = ExtResource("4_6fi6k")
 
 [node name="fertilizer" type="TextureRect" parent="ui/VBoxContainer/HBoxContainer"]
