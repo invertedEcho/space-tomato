@@ -97,7 +97,6 @@ strength = 250
 
 [node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera")]
 script = ExtResource("3_xs8u7")
-oxygen = 50
 hud = NodePath("../user_interface/hud")
 gameOverScreen = NodePath("../user_interface/game_over")
 pauseScreen = NodePath("../user_interface/pause")

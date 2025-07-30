@@ -35,6 +35,9 @@ public partial class Plant : Node2D
 	[Export]
 	public PlantType plantType;
 
+	private double elapsedTime;
+	private int ticks;
+
 	public override void _Ready()
 	{
 		sprite2D = GetNode<Sprite2D>("Sprite2D");
@@ -50,6 +53,27 @@ public partial class Plant : Node2D
 		timer.Timeout += HandleTimeout;
 	}
 
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+
+		handleOxygen(delta);
+	}
+
+	private void handleOxygen(double delta)
+	{
+
+		if (elapsedTime > 2 && (plantState == PlantState.PLANT_FULL || plantState == PlantState.CROP_FULL))
+		{
+			UglyGlobalState.player.oxygen += GetOxygenProduction();
+
+			elapsedTime = (double)GD.Randf();
+		}
+
+		elapsedTime += delta;
+
+	}
+
 
 	private void HandleTimeout()
 	{
@@ -58,6 +82,19 @@ public partial class Plant : Node2D
 		sprite2D.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
 		isWatered = false;
 		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
+	}
+
+	private float GetOxygenProduction()
+	{
+		switch (plantType)
+		{
+			case PlantType.TOMATO:
+				return 0.1f;
+			case PlantType.MONSTERA:
+				return 0.25f;
+			default:
+				return 0.2f;
+		}
 	}
 
 	private string GetSpritePathForPlantState(PlantState plantState)
@@ -137,4 +174,5 @@ public partial class Plant : Node2D
 		GD.Print("WARN: reached impossible? case");
 		return PlantState.PLANT_DRY;
 	}
+	
 }
