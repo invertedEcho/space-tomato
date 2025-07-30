@@ -76,6 +76,7 @@ texture = ExtResource("2_5gkn8")
 
 [node name="icon" type="TextureRect" parent="control/HBoxContainer/option2"]
 z_index = -1
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("PlaceholderTexture2D_4r7dp")
@@ -97,6 +98,7 @@ texture = ExtResource("2_5gkn8")
 
 [node name="icon" type="TextureRect" parent="control/HBoxContainer/option3"]
 z_index = -1
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("PlaceholderTexture2D_4r7dp")
@@ -118,6 +120,7 @@ texture = ExtResource("2_5gkn8")
 
 [node name="icon" type="TextureRect" parent="control/HBoxContainer/option4"]
 z_index = -1
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("PlaceholderTexture2D_4r7dp")

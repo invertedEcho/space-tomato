@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmncfhfw4krg6"]
+[gd_scene load_steps=4 format=3 uid="uid://cmncfhfw4krg6"]
 
 [ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_sph1f"]
 [ext_resource type="Script" uid="uid://skmc6jubnn5j" path="res://scripts/Shelf.cs" id="1_ynh4i"]
 [ext_resource type="Texture2D" uid="uid://bn57e1igsp64s" path="res://textures/ui/tile_selector.png" id="2_707bd"]
-[ext_resource type="PackedScene" uid="uid://dwbgx0ckrct5" path="res://scenes/plant.tscn" id="2_viw0s"]
 
 [node name="shelf" type="Node2D" node_paths=PackedStringArray("selector", "area")]
 script = ExtResource("1_ynh4i")
 selector = NodePath("graphics/selector")
 area = NodePath("StaticBody2D")
-plant = ExtResource("2_viw0s")
 distanceToNextTile = 66
 
 [node name="graphics" type="Node2D" parent="."]

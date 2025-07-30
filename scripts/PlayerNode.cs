@@ -19,6 +19,9 @@ public partial class PlayerNode : Node2D
 	private PlayerCamera playerCamera;
 
 	private double time;
+	private double movementTime;
+
+	private uint ticks;
 
 	public override void _Ready()
 	{
@@ -43,7 +46,16 @@ public partial class PlayerNode : Node2D
 			Tick();
 			time = 0;
 		}
+    
+    movementTime += delta;
+
+		if (movementTime > .2f)
+		{
+			ProcessMovementTick();
+			movementTime = 0;
+		}
 	}
+
 
 	public void takeDamage(int healthToSubstract)
 	{
@@ -60,7 +72,11 @@ public partial class PlayerNode : Node2D
 			takeDamage(5);
 		}
 
+		setOxygen(oxygen - 1);
+
 		GD.Print(health);
+
+		ticks++;
 
 	}
 
@@ -104,6 +120,60 @@ public partial class PlayerNode : Node2D
 
 		}
 		else if (Input.IsActionJustPressed("move_up"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(32, -16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+		}
+
+		if (newPosition != Position)
+		{
+			UglyGlobalState.interactionHUD.Visible = false;
+			movementTime = 0;
+		}
+
+		Position = newPosition;
+	}
+
+		private void ProcessMovementTick()
+	{
+		var newPosition = Position;
+		if (Input.IsActionPressed("move_right"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(32, 16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+		}
+		else if (Input.IsActionPressed("move_left"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(-32, -16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+		}
+		else if (Input.IsActionPressed("move_down"))
+		{
+			var targetVector = newPosition + new Godot.Vector2(-32, 16);
+			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
+			if (isTargetVectorWall)
+			{
+				return;
+			}
+			newPosition = targetVector;
+
+		}
+		else if (Input.IsActionPressed("move_up"))
 		{
 			var targetVector = newPosition + new Godot.Vector2(32, -16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
