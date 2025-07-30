@@ -38,8 +38,7 @@ public partial class PlayerNode : Node2D
 
 	public override void _Process(double delta)
 	{
-
-
+		GD.Print("fertilizer count: " + UglyGlobalState.fertilizerCount);
 		ProcessMovement();
 
 		time += delta;

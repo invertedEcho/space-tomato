@@ -26,6 +26,7 @@ public partial class Shelf : Node2D
 
 	public override void _Ready()
 	{
+		GD.Print("fertilizer count: " + UglyGlobalState.fertilizerCount);
 		base._Ready();
 
 		area.InputPickable = true;
@@ -100,7 +101,7 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 1)
 			{
-				if (UglyGlobalState.fertilizer == 0)
+				if (UglyGlobalState.fertilizerCount == 0)
 				{
 					// TODO: see string in print
 					GD.Print("Do something visuallly that signals user that he doesnt have fertilizer");
@@ -117,7 +118,8 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 3)
 			{
-
+				plantReference.QueueFree();
+				UglyGlobalState.fertilizerCount += 1; 
 			}
 			GD.Print("shelf has plant or crop");
 		}
