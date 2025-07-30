@@ -60,6 +60,11 @@ public partial class InteractionHUD : Node2D
 
     }
 
+    public void clearEventData()
+    {
+        optionSelected = null;
+    }
+
     public event Action<int> optionSelected;
 
 }

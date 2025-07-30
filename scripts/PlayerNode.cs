@@ -16,6 +16,11 @@ public partial class PlayerNode : Node2D
 	public HUD hud;
 
 	[Export]
+	public CanvasLayer gameOverScreen;
+	[Export]
+	public CanvasLayer pauseScreen;
+
+	[Export]
 	private PlayerCamera playerCamera;
 
 	private double time;
@@ -46,13 +51,37 @@ public partial class PlayerNode : Node2D
 			Tick();
 			time = 0;
 		}
-	
-	movementTime += delta;
+
+		movementTime += delta;
 
 		if (movementTime > .2f)
 		{
 			ProcessMovementTick();
 			movementTime = 0;
+		}
+
+		if (health <= 0)
+		{
+			gameOverScreen.Visible = true;
+			Engine.TimeScale = 0;
+
+			playerCamera.Zoom = new Vector2(0.2f, 0.2f);
+		}
+
+		if (Input.IsActionJustPressed("escape"))
+		{
+
+			if (pauseScreen.Visible)
+			{
+				pauseScreen.Visible = false;
+				Engine.TimeScale = 1;
+			}
+			else
+			{
+				pauseScreen.Visible = true;
+				Engine.TimeScale = 0;
+			}
+
 		}
 	}
 
@@ -87,6 +116,9 @@ public partial class PlayerNode : Node2D
 
 	private void ProcessMovement()
 	{
+		if (Engine.TimeScale < 0.2)
+			return;
+
 		var newPosition = Position;
 		if (Input.IsActionJustPressed("move_right"))
 		{
@@ -139,8 +171,12 @@ public partial class PlayerNode : Node2D
 		Position = newPosition;
 	}
 
-		private void ProcessMovementTick()
+	private void ProcessMovementTick()
 	{
+
+		if (Engine.TimeScale < 0.2)
+			return;
+
 		var newPosition = Position;
 		if (Input.IsActionPressed("move_right"))
 		{

@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2ug2ocyx57i2"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ug2ocyx57i2"]
+
+[ext_resource type="Script" uid="uid://ces0vc2gua4ut" path="res://scripts/SwitchSceneButton.cs" id="1_48ign"]
+[ext_resource type="PackedScene" uid="uid://cgmr0oahjo0bx" path="res://scenes/spaceship.tscn" id="2_l7wge"]
+[ext_resource type="Script" uid="uid://cs7at8fg33cn5" path="res://scripts/QuitButton.cs" id="3_7nrmo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
 bg_color = Color(1, 1, 1, 0)
@@ -50,11 +54,14 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "PLAY"
+script = ExtResource("1_48ign")
+scene = ExtResource("2_l7wge")
 
 [node name="btn_quit" type="Button" parent="ui_root/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "QUIT"
+script = ExtResource("3_7nrmo")
 
 [node name="info" type="Label" parent="ui_root/Panel/VBoxContainer"]
 layout_mode = 2

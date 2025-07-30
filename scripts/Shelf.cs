@@ -1,3 +1,4 @@
+using System.Reflection;
 using Godot;
 
 public partial class Shelf : Node2D
@@ -53,7 +54,8 @@ public partial class Shelf : Node2D
 				UglyGlobalState.interactionHUD.setPosition(GlobalPosition.X, GlobalPosition.Y - 64);
 				UglyGlobalState.interactionHUD.Visible = true;
 
-				UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
+                UglyGlobalState.interactionHUD.clearEventData();
+                UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
 			}
 		}
 		else
@@ -136,9 +138,9 @@ public partial class Shelf : Node2D
 		isHovered = true;
 	}
 
-	private void onMouseExit()
-	{
-		isHovered = false;
+    private void onMouseExit()
+    {
+        isHovered = false;
 	}
 	
 }
