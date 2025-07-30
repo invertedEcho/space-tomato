@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=13 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Texture2D" uid="uid://cm7uec7q311qh" path="res://textures/plants/monstera/monstera_plant_full.png" id="2_r0fvi"]
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
-[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/shelf.tscn" id="6_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://scenes/hud.tscn" id="6_343tk"]
+[ext_resource type="TileSet" uid="uid://bti6t8qit4co7" path="res://tilesets/collision.tres" id="7_6i2wf"]
 [ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://scenes/interactionHud.tscn" id="7_6wr2n"]
 [ext_resource type="PackedScene" uid="uid://dwbgx0ckrct5" path="res://scenes/plant.tscn" id="8_6i2wf"]
 [ext_resource type="TileSet" uid="uid://dl5hp2x50pnbl" path="res://tilesets/spaceship.tres" id="9_r0fvi"]
+[ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="12_l0x72"]
+[ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://scenes/game_over.tscn" id="14_0xuuw"]
+[ext_resource type="PackedScene" uid="uid://ckhoqxse1e4r0" path="res://scenes/pauseMenu.tscn" id="15_nosia"]
 
 [node name="spaceship" type="Node2D"]
 
@@ -33,24 +36,24 @@ plantType = 1
 [node name="Sprite2D" parent="Plant" index="0"]
 texture_filter = 1
 
-[node name="player" type="Node" parent="."]
-
-[node name="PlayerNode" type="Node2D" parent="player" node_paths=PackedStringArray("hud", "playerCamera")]
+[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera")]
 script = ExtResource("3_xs8u7")
-hud = NodePath("../../hud")
+hud = NodePath("../hud")
+gameOverScreen = NodePath("../game_over")
+pauseScreen = NodePath("../pause")
 playerCamera = NodePath("../main_camera")
 
-[node name="Sprite2D" type="Sprite2D" parent="player/PlayerNode"]
+[node name="Sprite2D" type="Sprite2D" parent="PlayerNode"]
 z_index = 6
 y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("4_v0rat")
 
-[node name="main_camera" type="Camera2D" parent="player" node_paths=PackedStringArray("target", "camera")]
-zoom = Vector2(2.4, 2.4)
+[node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera")]
+zoom = Vector2(3, 3)
 script = ExtResource("5_me4wu")
 target = NodePath("../PlayerNode")
-lerp = 2
+lerp = 1
 strength = 250
 camera = NodePath(".")
 
@@ -71,57 +74,11 @@ mouse_filter = 2
 anchor_left = 0.4
 anchor_right = 0.6
 
-[node name="shelf" parent="." instance=ExtResource("6_6i2wf")]
+[node name="pause" parent="." instance=ExtResource("15_nosia")]
 visible = false
-position = Vector2(128, 0)
 
-[node name="shelf2" parent="." instance=ExtResource("6_6i2wf")]
+[node name="game_over" parent="." instance=ExtResource("14_0xuuw")]
 visible = false
-position = Vector2(192, 0)
-
-[node name="shelf3" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(160, -16)
-
-[node name="shelf4" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(224, 16)
-
-[node name="shelf5" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(256, 32)
-
-[node name="shelf6" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(288, 48)
-
-[node name="shelf12" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(320, 64)
-
-[node name="shelf13" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(352, 80)
-
-[node name="shelf7" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(192, 64)
-
-[node name="shelf8" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(160, 48)
-
-[node name="shelf9" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(224, 80)
-
-[node name="shelf10" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(256, 96)
-
-[node name="shelf11" parent="." instance=ExtResource("6_6i2wf")]
-visible = false
-position = Vector2(288, 112)
 
 [node name="enviroment" type="Node2D" parent="."]
 
@@ -130,39 +87,53 @@ y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD+////AAAAAAkAAAD///7/AAAAAAkAAAD///3/AAAAAAkAAAAAAP7/AAAAAAkAAAAAAP//AAAAAAkAAAAAAAAAAAAAAAkAAAD//wEAAAAAAAkAAAD//wAAAAAAAAkAAAD/////AAACAAkAAAD9////AAABAAkAAAD+/wAAAAABAAkAAAD+/wEAAAABAAkAAAD//wIAAAABAAkAAAD//wMAAAABAAkAAAAAAAIAAAABAAkAAAAAAAEAAAABAAkAAAABAAAAAAABAAkAAAABAP//AAABAAkAAAABAP7/AAABAAkAAAAAAP3/AAABAAkAAAAAAPz/AAABAAkAAAD///v/AAABAAkAAAD///z/AAABAAkAAAD+//3/AAABAAkAAAD+//7/AAABAAkAAAABAAIAAAABAAkAAAABAAMAAAABAAkAAAACAAQAAAAAAAkAAAD+/wIAAAABAAkAAAD9/wMAAAABAAkAAAD9/wQAAAABAAkAAAD+//z/AAABAAkAAAD9//v/AAABAAkAAAD9//r/AAABAAkAAAD8//n/AAABAAkAAAABAPz/AAABAAkAAAABAPv/AAABAAkAAAACAPr/AAABAAkAAAACAPn/AAABAAkAAAACAAUAAAADAAYAAAD8/wUAAAABAAkAAAABAAUAAAAAAAkAAAABAAYAAAAAAAkAAAABAAcAAAAEAAYAABACAAgAAAAFAAcAABACAAkAAAAFAAcAABADAAgAAAADAAcAAAADAAcAAAAEAAcAABADAAYAAAAEAAcAABADAAUAAAAAAAkAAAAEAAQAAAAAAAkAAAAEAAYAAAAAAAkAAAAEAAUAAAAAAAkAAAADAAMAAAAAAAkAAAADAAIAAAAAAAkAAAACAAMAAAAAAAkAAAACAAYAAAAEAAcAAAADAAQAAAAAAAkAAAAFAAYAAAAAAAgAAAAEAAcAAAAAAAgAAAAEAAgAAAAFAAgAABADAAkAAAADAAgAAAADAAoAAAAFAAcAABAFAAcAAAAAAAkAAAAFAAgAAAAAAAkAAAAEAAkAAAAEAAcAABAEAAoAAAADAAcAAAAEAAsAAAADAAgAAAAEAAwAAAAFAAcAABADAAsAAAAFAAcAABAGAAgAAAAAAAkAAAAFAAkAAAAAAAkAAAAFAAoAAAAEAAcAABAGAAkAAAAAAAkAAAAGAAoAAAAAAAkAAAAFAAsAAAAEAAYAAAAFAAwAAAAFAAcAAAAEAA0AAAAFAAYAAAAAAAcAAAAAAAkAAAABAAgAAAAAAAkAAAABAAkAAAAAAAkAAAACAAoAAAAAAAkAAAADAAwAAAAAAAkAAAADAA0AAAAAAAkAAAAEAA4AAAAAAAkAAAACAAsAAAAAAAkAAAADAAEAAAAAAAkAAAAEAAIAAAAAAAkAAAAEAAMAAAAAAAkAAAAFAAQAAAAAAAkAAAAFAAUAAAAAAAgAAAAGAAYAAAAAAAkAAAAGAAcAAAAAAAkAAAAHAAgAAAAAAAkAAAACAAcAAAADAAgAAAAAAAgAAAADAAcAAAA=")
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
 
 [node name="floor_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
 
 [node name="walls_transparent" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD8//r/AQAWAAQAAAD9//3/AQAVAAQAAAD9//z/AQAUAAQAAAD8//v/AQAUAAQAAAD9/wAAAQAWAAQAAAD9/wEAAQAVAAQAAAAEAAYAAQAEAAMAAAAEAAcAAQAJAAMAAAAFAAgAAQAIAAMAABAGAAoAAQALAAQAAAAFAAkAAQAMAAQAAAADAAQAAQAMAAQAAAADAAUAAQALAAQAAAAFAAYAAQAQAAQAAAAFAAcAAQAQAAQAAAAGAAYAAQARAAQAAAAFAAUAAQARAAQAAAA=")
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
 
 [node name="walls_persistent" type="TileMapLayer" parent="enviroment"]
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD9//j/AQAMAAQAAAD+//v/AQABAAQAAAD+//r/AQAKAAQAAAD9//n/AQAKAAQAAAD///r/AQAHAAQAAAAAAPr/AQAMAAQAAAAAAPv/AQABAAQAAAABAPr/AQAFAAQAAAABAPn/AQAFAAQAAAACAPj/AQAHAAQAAAD9/wEAAQAHAAQAAAD9/wIAAQAFAAQAAAD8/wMAAQAFAAQAAAD8/wQAAQAGAAQAAAD9//7/AQAGAAQAAAD9//3/AQAHAAQAAAA=")
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
 
 [node name="walls_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
 
 [node name="walls_top_transparent" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD9/wAAAQACAAIAABD9//z/AQACAAIAABD8//v/AQACAAIAABD8//r/AQACAAIAABD9/wEAAQAEAAIAABD9//3/AQAEAAIAABAEAAYAAQADAAIAAAADAAUAAQABAAIAAAADAAQAAQABAAIAAAAEAAUAAQABAAIAABAFAAQAAQABAAIAABAGAAoAAQABAAIAAAAFAAkAAQABAAIAAAAFAAgAAQAEAAIAAAAFAAcAAQACAAIAAAAGAAYAAQACAAIAAAA=")
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
 
 [node name="walls_top_persistent" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD8////AQAIAAIAABD9//j/AQAAAAIAAAD9//n/AQAAAAIAAAD+//r/AQAAAAIAAAD+//v/AQAAAAIAAAD///r/AQAAAAIAAAD///n/AQAAAAIAAAAAAPr/AQAAAAIAAAAAAPv/AQAAAAIAAAABAPr/AQAAAAIAAAABAPn/AQAAAAIAAAACAPj/AQAAAAIAAAD9//7/AQABAAIAABD9/wIAAQABAAIAABD8/wMAAQABAAIAABD8/wQAAQABAAIAABA=")
 tile_set = ExtResource("9_r0fvi")
+collision_enabled = false
+
+[node name="collision" type="TileMapLayer" parent="enviroment"]
+y_sort_enabled = true
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD9//j/AAAAAAAAAAD9//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPr/AAAAAAAAAAABAPn/AAAAAAAAAAACAPj/AAAAAAAAAAD8//r/AAACAAAAAAD8//v/AAACAAAAAAD9//z/AAACAAAAAAD9//3/AAAGAAAAAAD9//7/AAAEAAAAAAD9/wAAAAACAAAAAAD9/wEAAAAGAAAAAAD9/wIAAAAEAAAAAAD8/wMAAAAEAAAAAAD8/wQAAAAEAAAAAAAEAAYAAAAFAAAAAAADAAUAAAABAAAAAAADAAQAAAABAAAAAAAEAAUAAAAEAAAAAAAFAAQAAAAEAAAAAAAGAAYAAAADAAAAAAAFAAcAAAADAAAAAAAFAAgAAAAIAAAAAAAFAAkAAAABAAAAAAAGAAoAAAABAAAAAAA=")
+tile_set = ExtResource("7_6i2wf")
+script = ExtResource("12_l0x72")
 
 [editable path="Plant2"]
 [editable path="Plant"]
