@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb6kdrdr6i6vf"]
+
+[ext_resource type="Texture2D" uid="uid://klwh3ueh8v7w" path="res://contentsrc/spaceship_tiles/oxygen/oxygen_tank_0.png" id="1_ycgen"]
+[ext_resource type="Script" uid="uid://cautumhqlxadq" path="res://scripts/OxygenTank.cs" id="2_obw5g"]
+
+[node name="oxygen_tank" type="Sprite2D"]
+texture = ExtResource("1_ycgen")
+script = ExtResource("2_obw5g")
