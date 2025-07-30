@@ -43,9 +43,6 @@ public partial class PlayerCamera : Camera2D
 	{
 		base._Process(delta);
 
-
-		Lighting.Scale = new Vector2(5 * camera.Zoom.X, 5 * camera.Zoom.Y);
-
 		if (elapsedTime < endTime)
 		{
 			Position = new Vector2(
