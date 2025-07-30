@@ -10,7 +10,7 @@ public enum PlantState
 	PLANT_DEAD,
 }
 
-public partial class PlantNode : Node2D
+public partial class Plant : Node2D
 {
 	[Export]
 	public bool isWatered;
