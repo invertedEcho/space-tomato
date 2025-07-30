@@ -46,8 +46,8 @@ public partial class PlayerNode : Node2D
 			Tick();
 			time = 0;
 		}
-    
-    movementTime += delta;
+	
+	movementTime += delta;
 
 		if (movementTime > .2f)
 		{
@@ -72,7 +72,7 @@ public partial class PlayerNode : Node2D
 			takeDamage(5);
 		}
 
-		setOxygen(oxygen - 1);
+		oxygen -= 1;
 
 		GD.Print(health);
 
