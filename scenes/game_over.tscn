@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://betvv7qvwr0vf"]
+[gd_scene load_steps=2 format=3 uid="uid://betvv7qvwr0vf"]
 
-[ext_resource type="Script" uid="uid://ces0vc2gua4ut" path="res://scripts/SwitchSceneButton.cs" id="1_tbwuq"]
 [ext_resource type="Script" uid="uid://cs7at8fg33cn5" path="res://scripts/QuitButton.cs" id="1_xeevv"]
-[ext_resource type="PackedScene" uid="uid://d2ug2ocyx57i2" path="res://scenes/mainMenu.tscn" id="2_racf3"]
 
 [node name="game_over" type="CanvasLayer"]
 
@@ -41,12 +39,6 @@ horizontal_alignment = 1
 [node name="spacing" type="Label" parent="ui_root/Panel/VBoxContainer"]
 layout_mode = 2
 horizontal_alignment = 1
-
-[node name="btn_main_menu" type="Button" parent="ui_root/Panel/VBoxContainer"]
-layout_mode = 2
-text = "MAIN MENU"
-script = ExtResource("1_tbwuq")
-scene = ExtResource("2_racf3")
 
 [node name="btn_quit" type="Button" parent="ui_root/Panel/VBoxContainer"]
 layout_mode = 2
