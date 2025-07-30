@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://fvr26oaunejr"
+=======
+uid="uid://dt6dffibby4kg"
+>>>>>>> 0076bbdeef3a9b1f91d12b77c8b0b57cb2565513
 path="res://.godot/imported/oxygen_tank_2.png-f54f517e42f317ff262139e4f27635d2.ctex"
 metadata={
 "vram_texture": false
