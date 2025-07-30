@@ -21,7 +21,6 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 0.5, -48, 32, -32, 32, 0, 0, 16, -32, 0)
-0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ky2tl"]
 tile_shape = 1
