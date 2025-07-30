@@ -21,10 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://scenes/game_over.tscn" id="14_0xuuw"]
 [ext_resource type="Texture2D" uid="uid://bpib0brv1ibyy" path="res://textures/background/cloud_0.png" id="14_uvf41"]
 [ext_resource type="PackedScene" uid="uid://ckhoqxse1e4r0" path="res://scenes/pauseMenu.tscn" id="15_nosia"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dpj001whd6mpp" path="res://textures/background/cloud_1.png" id="15_r15p1"]
 [ext_resource type="PackedScene" uid="uid://cb6kdrdr6i6vf" path="res://scenes/oxygen_tank.tscn" id="16_kcotq"]
 [ext_resource type="Texture2D" uid="uid://dwp8nffshlbin" path="res://textures/background/cloud_2.png" id="16_m7q4g"]
 [ext_resource type="Texture2D" uid="uid://bngjbovmp7x8v" path="res://textures/background/cloud_3.png" id="17_aigc1"]
+=======
+[ext_resource type="PackedScene" path="res://scenes/oxygen_tank.tscn" id="16_kcotq"]
+>>>>>>> 52b929b82834aac80bc2e1749642853320b37567
 [ext_resource type="PackedScene" uid="uid://df40i4042qcpo" path="res://scenes/fertiliser_tank.tscn" id="18_i1do7"]
 [ext_resource type="Texture2D" uid="uid://mdfnhfcn6kli" path="res://textures/background/cloud_4.png" id="18_vn0wb"]
 [ext_resource type="Texture2D" uid="uid://dohnop0wx58tf" path="res://textures/background/cloud_5.png" id="19_syl8l"]
@@ -69,14 +73,22 @@ texture = ExtResource("4_v0rat")
 [node name="AudioListener2D" type="AudioListener2D" parent="PlayerNode"]
 current = true
 
+<<<<<<< HEAD
 [node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera", "Lighting")]
 zoom = Vector2(2, 2)
+=======
+[node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera")]
+zoom = Vector2(3, 3)
+>>>>>>> 52b929b82834aac80bc2e1749642853320b37567
 script = ExtResource("5_me4wu")
 target = NodePath("../PlayerNode")
 lerp = 1
 strength = 250
 camera = NodePath(".")
+<<<<<<< HEAD
 Lighting = NodePath("")
+=======
+>>>>>>> 52b929b82834aac80bc2e1749642853320b37567
 
 [node name="parallax_background" type="Node2D" parent="main_camera" node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny")]
 scale = Vector2(2.2, 2.2)
@@ -263,6 +275,7 @@ collision_enabled = false
 [node name="floor_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
+tile_map_data = PackedByteArray("AAD+////AAAAAAUAAAABAAcAAAAAAAUAAAAFAAsAAAAAAAUAAAACAPr/AAAAAAUAABD8/wUAAAAAAAUAABA=")
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
@@ -283,6 +296,7 @@ collision_enabled = false
 [node name="walls_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
+tile_map_data = PackedByteArray("AAADAAUAAQAAAAEAAAAGAAoAAQACAAEAAAD+//r/AQACAAEAAAD9//j/AQABAAEAAAABAPn/AQABAAEAABABAPr/AQACAAEAABD8/wMAAQACAAEAABD9/wEAAQAAAAEAABA=")
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
