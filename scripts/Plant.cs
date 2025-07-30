@@ -54,7 +54,6 @@ public partial class Plant : Node2D
 	private void HandleTimeout()
 	{
 		plantState = GetNextPlantState();
-		GD.Print("plantState: " + plantState);
 		var spritePathForPlantState = GetSpritePathForPlantState(plantState);
 		sprite2D.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
 		isWatered = false;
@@ -63,8 +62,6 @@ public partial class Plant : Node2D
 
 	private string GetSpritePathForPlantState(PlantState plantState)
 	{
-		GD.Print("getting texture path for plant state " + plantState);
-		GD.Print("plant type: " + plantType);
 		if (plantType == PlantType.TOMATO)
 		{
 			switch (plantState)

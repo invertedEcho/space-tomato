@@ -60,14 +60,12 @@ public partial class PlayerCamera : Camera2D
 		if (Input.IsActionJustPressed("mouse_up"))
 		{
 			var currentZoom = camera.Zoom;
-			GD.Print("currentZoom: " + currentZoom);
 			var newZoom = currentZoom + new Vector2(0.5f, 0.5f);
 			camera.Zoom = newZoom;
 		}
 		else if (Input.IsActionJustPressed("mouse_down"))
 		{
 			var currentZoom = camera.Zoom;
-			GD.Print("currentZoom: " + currentZoom);
 			var newZoom = currentZoom - new Vector2(0.5f, 0.5f);
 			if (newZoom.X < 0 || newZoom.Y < 0)
 			{
