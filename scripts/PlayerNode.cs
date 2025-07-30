@@ -87,7 +87,7 @@ public partial class PlayerNode : Node2D
 			gameOverScreen.Visible = true;
 			Engine.TimeScale = 0;
 
-			playerCamera.Zoom = new Vector2(1f, 1f);
+			playerCamera.Zoom = new Vector2(2f, 2f);
 			playerCamera._Process(0);
 		}
 
