@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://t2cid18l8xin"]
+[gd_scene load_steps=5 format=3 uid="uid://t2cid18l8xin"]
 
 [ext_resource type="Script" uid="uid://droqaoixbkeha" path="res://scripts/HUD.cs" id="1_5ysmq"]
 
@@ -10,13 +10,10 @@ bg_color = Color(0.455403, 1.07693e-06, 2.16588e-07, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ysmq"]
 bg_color = Color(0.285194, 0.70737, 0.202176, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fi6k"]
-bg_color = Color(0.112489, 0.662182, 0.814185, 1)
-
 [node name="hud" type="CanvasLayer" node_paths=PackedStringArray("healthBar", "oxygenBar", "damageIndicator")]
 script = ExtResource("1_5ysmq")
 healthBar = NodePath("ui/VBoxContainer/health_bar")
-oxygenBar = NodePath("ui/VBoxContainer/oxygen_bar")
+oxygenBar = NodePath("")
 damageIndicator = NodePath("ui/damage_indicator")
 
 [node name="ui" type="Control" parent="."]
@@ -57,16 +54,6 @@ layout_mode = 2
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_oo0fn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5ysmq")
-step = 0.0
-value = 50.0
-show_percentage = false
-
-[node name="oxygen_bar" type="ProgressBar" parent="ui/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_constants/outline_size = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_oo0fn")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6fi6k")
 step = 0.0
 value = 50.0
 show_percentage = false

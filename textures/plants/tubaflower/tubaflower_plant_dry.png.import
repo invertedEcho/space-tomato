@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://klwh3ueh8v7w"
-path="res://.godot/imported/oxygen_tank_0.png-eb66838c35ccf7df66fddafbd0c2710a.ctex"
+uid="uid://dflbeev235dcv"
+path="res://.godot/imported/tubaflower_plant_dry.png-2aabf310c8e0f34f63f5e93c66f58bba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contentsrc/spaceship_tiles/oxygen/oxygen_tank_0.png"
-dest_files=["res://.godot/imported/oxygen_tank_0.png-eb66838c35ccf7df66fddafbd0c2710a.ctex"]
+source_file="res://textures/plants/tubaflower/tubaflower_plant_dry.png"
+dest_files=["res://.godot/imported/tubaflower_plant_dry.png-2aabf310c8e0f34f63f5e93c66f58bba.ctex"]
 
 [params]
 
