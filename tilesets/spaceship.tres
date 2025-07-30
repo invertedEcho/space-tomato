@@ -28,6 +28,7 @@ texture_region_size = Vector2i(64, 32)
 3:9/0 = 0
 4:6/0 = 0
 5:6/0 = 0
+0:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_anp3a"]
 texture = ExtResource("2_33kp3")
@@ -133,6 +134,12 @@ texture_region_size = Vector2i(64, 64)
 9:2/0 = 0
 9:2/0/texture_origin = Vector2i(0, 16)
 10:2/0 = 0
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, 16)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, 16)
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, 16)
 
 [resource]
 tile_shape = 1

@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="12_l0x72"]
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://scenes/game_over.tscn" id="14_0xuuw"]
 [ext_resource type="PackedScene" uid="uid://ckhoqxse1e4r0" path="res://scenes/pauseMenu.tscn" id="15_nosia"]
-[ext_resource type="PackedScene" uid="uid://cb6kdrdr6i6vf" path="res://scenes/oxygen_tank.tscn" id="16_kcotq"]
+[ext_resource type="PackedScene" path="res://scenes/oxygen_tank.tscn" id="16_kcotq"]
 [ext_resource type="PackedScene" uid="uid://df40i4042qcpo" path="res://scenes/fertiliser_tank.tscn" id="18_i1do7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i1do7"]
@@ -68,14 +68,13 @@ texture = ExtResource("4_v0rat")
 [node name="AudioListener2D" type="AudioListener2D" parent="PlayerNode"]
 current = true
 
-[node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera", "Lighting")]
+[node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera")]
 zoom = Vector2(3, 3)
 script = ExtResource("5_me4wu")
 target = NodePath("../PlayerNode")
 lerp = 2
 strength = 250
 camera = NodePath(".")
-Lighting = NodePath("lighting")
 
 [node name="lighting" type="Node2D" parent="main_camera"]
 scale = Vector2(7, 7)
@@ -184,6 +183,7 @@ collision_enabled = false
 [node name="floor_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
+tile_map_data = PackedByteArray("AAD+////AAAAAAUAAAABAAcAAAAAAAUAAAAFAAsAAAAAAAUAAAACAPr/AAAAAAUAABD8/wUAAAAAAAUAABA=")
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
@@ -204,6 +204,7 @@ collision_enabled = false
 [node name="walls_decal" type="TileMapLayer" parent="enviroment"]
 y_sort_enabled = true
 texture_filter = 1
+tile_map_data = PackedByteArray("AAADAAUAAQAAAAEAAAAGAAoAAQACAAEAAAD+//r/AQACAAEAAAD9//j/AQABAAEAAAABAPn/AQABAAEAABABAPr/AQACAAEAABD8/wMAAQACAAEAABD9/wEAAQAAAAEAABA=")
 tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
