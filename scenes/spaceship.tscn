@@ -90,6 +90,7 @@ tile_set = SubResource("TileSet_ky2tl")
 
 [node name="PlayerNode" type="Node2D" parent="player" node_paths=PackedStringArray("hud", "playerCamera")]
 script = ExtResource("3_xs8u7")
+oxygen = 50
 hud = NodePath("../../hud")
 playerCamera = NodePath("../main_camera")
 
