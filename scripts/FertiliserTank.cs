@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 
-public partial class OxygenTank : Sprite2D
+public partial class FertiliserTank : Sprite2D
 {
 
     [Export]
@@ -24,7 +24,13 @@ public partial class OxygenTank : Sprite2D
 
     private void calculateState()
     {
-        int currentStage = (int)Mathf.Remap(UglyGlobalState.player.oxygen, 0, 100, 0, fillStates.Count);
+
+        if (UglyGlobalState.fertilizerCount > 100)
+        {
+            UglyGlobalState.fertilizerCount = 100;
+        }
+
+        int currentStage = (int)Mathf.Remap(UglyGlobalState.fertilizerCount, 0, 100, 0, fillStates.Count);
 
         Texture = fillStates[currentStage];
     }

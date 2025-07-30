@@ -87,7 +87,8 @@ public partial class PlayerNode : Node2D
 			gameOverScreen.Visible = true;
 			Engine.TimeScale = 0;
 
-			playerCamera.Zoom = new Vector2(0.2f, 0.2f);
+			playerCamera.Zoom = new Vector2(1f, 1f);
+			playerCamera._Process(0);
 		}
 
 		if (Input.IsActionJustPressed("escape"))
@@ -126,6 +127,8 @@ public partial class PlayerNode : Node2D
 		}
 
 		oxygen -= 1;
+
+		UglyGlobalState.fertilizerCount += 5;
 
 		ticks++;
 
