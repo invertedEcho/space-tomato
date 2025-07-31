@@ -13,7 +13,7 @@ public partial class ParallaxBackground : Node2D
     [Export]
     private Node2D farStarBase;
     [Export]
-    private float  farStarSpeed;
+    private float farStarSpeed;
 
     [Export]
     private Node2D middleStarBase;
@@ -33,7 +33,25 @@ public partial class ParallaxBackground : Node2D
     [Export]
     private Array<Node2D> upAndDowny;
 
+    [Export]
+    private Timer planetSpawnTimer;
+
+    [Export]
+    private Array<Texture2D> planets;
+
+    [Export]
+    private Sprite2D planet;
+
     private double elapsedTime = 0;
+
+    public override void _Ready()
+    {
+        base._Ready();
+
+        planetSpawnTimer.Timeout += onTimeout;
+
+        onTimeout();
+    }
 
     public override void _Process(double delta)
     {
@@ -79,6 +97,8 @@ public partial class ParallaxBackground : Node2D
             speedStarBase.Position = speedStarBase.Position + new Vector2(1280, 0);
         }
 
+        planet.Position = planet.Position - new Vector2(farStarSpeed + 0.5f, 0);
+
         foreach (Node2D moving in upAndDowny)
         {
 
@@ -88,6 +108,12 @@ public partial class ParallaxBackground : Node2D
 
         elapsedTime += delta;
 
+    }
+
+    public void onTimeout()
+    {
+        planet.Texture = planets.PickRandom();
+        planet.Position = new Vector2(640, GD.RandRange(-150, 150));
     }
 
 }
