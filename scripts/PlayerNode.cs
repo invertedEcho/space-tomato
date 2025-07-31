@@ -149,6 +149,12 @@ public partial class PlayerNode : Node2D
 	}
 
 	public void addHealth(int health) {
+		var newHealth = this.health + health;
+		if (newHealth > 100)
+		{
+			this.health = 100;
+			return;
+		}
 		this.health += health;
 	}
 	

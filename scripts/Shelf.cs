@@ -30,6 +30,10 @@ public partial class Shelf : Node2D
 		GD.Print("ready shelf!");
 		area.InputPickable = true;
 
+
+		Random randomBool = new Random();
+		prePlanted = randomBool.NextDouble() >= 0.5;
+
 		area.MouseEntered += onMouseEntered;
 		area.MouseExited += onMouseExit;
 
@@ -137,8 +141,16 @@ public partial class Shelf : Node2D
 					Texture2D waterTexture = (Texture2D)GD.Load("res://textures/icons/water.png");
 					UglyGlobalState.interactionHUD.setTexture(waterTexture, 0);
 
-					Texture2D fertilizeTexture = (Texture2D)GD.Load("res://textures/icons/fertilize.png");
-					UglyGlobalState.interactionHUD.setTexture(fertilizeTexture, 1);
+					if (UglyGlobalState.fertilizerCount == 0)
+					{
+						Texture2D emptyTexture = (Texture2D)GD.Load("res://textures/dev/empty.png");
+						UglyGlobalState.interactionHUD.setTexture(emptyTexture, 1);
+					}
+					else
+					{
+						Texture2D fertilizeTexture = (Texture2D)GD.Load("res://textures/icons/fertilize.png");
+						UglyGlobalState.interactionHUD.setTexture(fertilizeTexture, 1);
+					}
 
 					Texture2D eatTexture = (Texture2D)GD.Load("res://textures/icons/eat.png");
 					UglyGlobalState.interactionHUD.setTexture(eatTexture, 2);
@@ -176,7 +188,6 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 1)
 			{
-				GD.Print("trying to fertilize plant, count: " + UglyGlobalState.fertilizerCount);
 				if (UglyGlobalState.fertilizerCount == 0)
 				{
 					// TODO: see string in print
@@ -196,10 +207,13 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 2)
 			{
+				var isTomatoAndHasFruits = plantReference.plantType == PlantType.TOMATO && plantReference.plantState == PlantState.PLANT_FRUIT;
 				if (plantReference.plantType == PlantType.TOMATO)
 				{
+
 					UglyGlobalState.player.addHealth(10);
 					plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_full.png");
+					plantReference.plantState = PlantState.PLANT_FULL;
 				}
 			}
 			else if (selectedOption == 3)
