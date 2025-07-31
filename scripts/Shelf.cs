@@ -112,7 +112,7 @@ public partial class Shelf : Node2D
 					var isTomatoAndFull = plantReference.plantState == PlantState.PLANT_FULL && plantReference.plantType == PlantType.TOMATO;
 					if (isTomatoAndFull)
 					{
-						plantReference.sprite2D.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_with_fruits.png");
+						plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_with_fruits.png");
 					}
 				}
 			}
