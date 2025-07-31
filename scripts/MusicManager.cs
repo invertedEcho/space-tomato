@@ -33,6 +33,9 @@ public partial class MusicManager : Node2D
 
         musicSource.Stream = musicPieces.PickRandom();
         musicSource.Play();
+
+        backgroundSource.Stream = backgroundPieces.PickRandom();
+        backgroundSource.Play();
     }
 
     private void onTimeoutReached()
@@ -54,8 +57,8 @@ public partial class MusicManager : Node2D
     {
         GD.Print("Background Piece finished. ANOTHER ONE!");
 
-        //backgroundSource.Stream = backgroundPieces.PickRandom();
-        //backgroundSource.Play();
+        backgroundSource.Stream = backgroundPieces.PickRandom();
+        backgroundSource.Play();
     }
 
 }
