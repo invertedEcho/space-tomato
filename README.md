@@ -7,6 +7,8 @@ To play this game, visit our itch.io website https://invertedecho.itch.io/space-
 
 all assets including textures and audios are self-made :)
 
+the game jam forbid AI so not a single bit of the project is AI-generated
+
 Here are some screenshots and arts:
 
 <img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/94d75b64-41d4-4da7-8f06-c7547535bb92" />
