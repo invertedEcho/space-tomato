@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8pl11gl4euwp"]
+[gd_scene load_steps=14 format=3 uid="uid://c8pl11gl4euwp"]
 
 [ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="1_s145n"]
 [ext_resource type="Texture2D" uid="uid://3b16va4bb3tg" path="res://textures/background/background.png" id="2_ytgti"]
+[ext_resource type="Texture2D" uid="uid://cjlmgxlreahra" path="res://textures/background/dangerfield.png" id="3_flw1v"]
 [ext_resource type="Texture2D" uid="uid://bpib0brv1ibyy" path="res://textures/background/cloud_0.png" id="3_w0180"]
 [ext_resource type="Texture2D" uid="uid://dpj001whd6mpp" path="res://textures/background/cloud_1.png" id="4_flw1v"]
 [ext_resource type="Texture2D" uid="uid://dwp8nffshlbin" path="res://textures/background/cloud_2.png" id="5_uobku"]
@@ -28,10 +29,11 @@ speedStarBase = NodePath("stars/speedyStars")
 speedStarSpeed = 2.0
 upAndDowny = [NodePath("clouds/cloud_group/cloud1"), NodePath("clouds/cloud_group2/cloud1"), NodePath("clouds/cloud_group3/cloud1")]
 planetSpawnTimer = NodePath("planet_spawn_timer")
-planets = Array[Texture2D]([ExtResource("9_ytgti")])
+planets = Array[Texture2D]([ExtResource("9_ytgti"), ExtResource("3_flw1v")])
 planet = NodePath("planet")
 
 [node name="background_base" type="Sprite2D" parent="."]
+scale = Vector2(50, 50)
 texture = ExtResource("2_ytgti")
 
 [node name="clouds" type="Node2D" parent="."]

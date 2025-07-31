@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2ug2ocyx57i2"]
+[gd_scene load_steps=11 format=3 uid="uid://d2ug2ocyx57i2"]
 
 [ext_resource type="Script" uid="uid://ces0vc2gua4ut" path="res://scripts/SwitchSceneButton.cs" id="1_48ign"]
 [ext_resource type="Theme" uid="uid://daovupa4m1u03" path="res://ui_theme.tres" id="1_amia2"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="5_25e00"]
 [ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="6_jfr2g"]
 [ext_resource type="PackedScene" uid="uid://c8pl11gl4euwp" path="res://prefabs/parallax_background.tscn" id="7_ldpc3"]
-[ext_resource type="Texture2D" uid="uid://dhqhrxjosttl5" path="res://textures/background/dustplanet.png" id="8_dj72i"]
-[ext_resource type="Texture2D" uid="uid://cjlmgxlreahra" path="res://textures/background/dangerfield.png" id="9_6b2wv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
 bg_color = Color(1, 1, 1, 0)
@@ -169,4 +167,4 @@ zoom = Vector2(2, 2)
 environment = SubResource("Environment_lam2r")
 
 [node name="parallax_background" parent="." instance=ExtResource("7_ldpc3")]
-planets = Array[Texture2D]([ExtResource("8_dj72i"), ExtResource("9_6b2wv")])
+planets = null
