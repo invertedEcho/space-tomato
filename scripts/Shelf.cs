@@ -1,3 +1,4 @@
+using System.Transactions;
 using Godot;
 
 public partial class Shelf : Node2D
@@ -17,6 +18,12 @@ public partial class Shelf : Node2D
 
 	private bool isHovered;
 
+	[Export]
+	private bool prePlanted = false;
+	public bool isWatered = false;
+	public Sprite2D dirtSprite;
+	public Timer shelfTimer;
+
 	public override void _Ready()
 	{
 		base._Ready();
@@ -25,7 +32,34 @@ public partial class Shelf : Node2D
 
 		area.MouseEntered += onMouseEntered;
 		area.MouseExited += onMouseExit;
+
+		dirtSprite = GetNode<Sprite2D>("graphics/dirt_sprite");
+		shelfTimer = GetNode<Timer>("shelf_timer");
+
+		shelfTimer.Timeout += HandleTimeout;
+
+		if (prePlanted)
+		{
+			var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
+			plantScene.plantType = PlantType.TOMATO;
+			plantScene.plantState = PlantState.PLANT_FULL;
+			plantReference = plantScene;
+			AddChild(plantScene);
+			plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_full.png");
+			isWatered = true;
+			dirtSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_normal.png");
+		}
 		GD.Print("ready done shelf!");
+	}
+
+	private void HandleTimeout()
+	{
+		plantReference.plantState = plantReference.GetNextPlantState();
+		var spritePathForPlantState = plantReference.GetSpritePathForPlantState(plantReference.plantState);
+		plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
+		isWatered = false;
+		dirtSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_dry.png");
+		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
 	}
 
 	public override void _ExitTree()
@@ -100,6 +134,7 @@ public partial class Shelf : Node2D
 			if (selectedOption == 0)
 			{
 				plantReference.isWatered = true;
+				dirtSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_normal.png");
 			}
 			else if (selectedOption == 1)
 			{

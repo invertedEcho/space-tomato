@@ -31,9 +31,6 @@ public partial class Plant : Node2D
 	public PlantState plantState;
 
 	[Export]
-	public Timer timer;
-
-	[Export]
 	public Sprite2D plantSprite;
 
 	[Export]
@@ -60,8 +57,6 @@ public partial class Plant : Node2D
 		else if (plantType == PlantType.CANDLE_FLOWER) {
 			plantSprite.Texture = (Texture2D)GD.Load(DefaultTextureCandleFlower);
 		}
-		timer = GetNode<Timer>("plant_timer");
-		timer.Timeout += HandleTimeout;
 	}
 
 	public override void _Process(double delta)
@@ -86,14 +81,6 @@ public partial class Plant : Node2D
 	}
 
 
-	private void HandleTimeout()
-	{
-		plantState = GetNextPlantState();
-		var spritePathForPlantState = GetSpritePathForPlantState(plantState);
-		plantSprite.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
-		isWatered = false;
-		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
-	}
 
 	private float GetOxygenProduction()
 	{
@@ -112,7 +99,7 @@ public partial class Plant : Node2D
 		}
 	}
 
-	private string GetSpritePathForPlantState(PlantState plantState)
+	public string GetSpritePathForPlantState(PlantState plantState)
 	{
 		if (plantType == PlantType.TOMATO)
 		{

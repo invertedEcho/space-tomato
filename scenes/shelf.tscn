@@ -1,28 +1,34 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmncfhfw4krg6"]
 
-[ext_resource type="Texture2D" uid="uid://coliu8darpio0" path="res://textures/dev/tile_basic.png" id="1_sph1f"]
 [ext_resource type="Script" uid="uid://skmc6jubnn5j" path="res://scripts/Shelf.cs" id="1_ynh4i"]
 [ext_resource type="Texture2D" uid="uid://bn57e1igsp64s" path="res://textures/ui/tile_selector.png" id="2_707bd"]
+[ext_resource type="Texture2D" uid="uid://cltksydb1a170" path="res://textures/plants/dirtpatch/dirtpatch_dry.png" id="4_7q781"]
 
 [node name="shelf" type="Node2D" node_paths=PackedStringArray("selector", "area")]
 script = ExtResource("1_ynh4i")
 selector = NodePath("graphics/selector")
 area = NodePath("StaticBody2D")
 distanceToNextTile = 66
+prePlanted = true
 
 [node name="graphics" type="Node2D" parent="."]
-
-[node name="render" type="Sprite2D" parent="graphics"]
-texture_filter = 1
-texture = ExtResource("1_sph1f")
 
 [node name="selector" type="Sprite2D" parent="graphics"]
 z_index = 4096
 texture_filter = 1
 texture = ExtResource("2_707bd")
 
+[node name="dirt_sprite" type="Sprite2D" parent="graphics"]
+z_index = 3
+position = Vector2(-1, -16)
+texture = ExtResource("4_7q781")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 input_pickable = true
 
 [node name="collision_shape" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-32, 0, 0, 16, 32, 0, 0, -16)
+
+[node name="shelf_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
