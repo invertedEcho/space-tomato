@@ -208,12 +208,6 @@ public partial class PlayerNode : Node2D
 		Position = newPosition;
 		if (anyMovementChange)
 		{
-			// TODO: Only do if currently no bottom left side transparent walls
-			// foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
-			// {
-			// 	// GD.Print("Cleaning up previous tiledata, resetting modulate color");
-			// 	tileData.Modulate = new Color(1, 1, 1, 1);
-			// }
 			var wallsTransparentLayer = GetNode<TileMapLayer>("/root/spaceship/enviroment/tilemaps/walls_transparent");
 
 			var coords = wallsTransparentLayer.LocalToMap(Position);
@@ -222,7 +216,16 @@ public partial class PlayerNode : Node2D
 			var bottomLeftSideCoordinates = wallsTransparentLayer.GetNeighborCell(coords, TileSet.CellNeighbor.BottomLeftSide);
 			var bottomLeftSideTileData = wallsTransparentLayer.GetCellTileData(bottomLeftSideCoordinates);
 
-			if (bottomLeftSideTileData != null)
+			if (bottomLeftSideTileData == null)
+			{
+				// TODO: Only do if currently no bottom left side transparent walls
+				foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
+				{
+					// GD.Print("Cleaning up previous tiledata, resetting modulate color");
+					tileData.Modulate = new Color(1, 1, 1, 1);
+				}
+			}
+			else
 			{
 				UglyGlobalState.allRelevantTiles.Add(bottomLeftSideTileData);
 				bottomLeftSideTileData.Modulate = new Color(1, 1, 1, 0.4f);
@@ -237,6 +240,18 @@ public partial class PlayerNode : Node2D
 					}
 					currentCoordinates = nextBottomLeftSideCoordinates;
 					nextBottomLeftSideTileData.Modulate = new Color(1, 1, 1, 0.4f);
+				}
+
+				while (true)
+				{
+					var nextCoordinates = wallsTransparentLayer.GetNeighborCell(currentCoordinates, TileSet.CellNeighbor.BottomRightSide);
+					var nextTileData = wallsTransparentLayer.GetCellTileData(nextCoordinates);
+					if (nextTileData == null)
+					{
+						break;
+					}
+					currentCoordinates = nextCoordinates;
+					nextTileData.Modulate = new Color(1, 1, 1, 0.4f);
 				}
 			}
 
