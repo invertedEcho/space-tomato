@@ -26,7 +26,7 @@ public partial class HUD : CanvasLayer
 		base._Ready();
 
 		this.Visible = true;
-    }
+	}
 
 	public override void _Process(double delta)
 	{

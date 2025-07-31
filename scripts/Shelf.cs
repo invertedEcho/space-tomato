@@ -20,11 +20,12 @@ public partial class Shelf : Node2D
 	public override void _Ready()
 	{
 		base._Ready();
-
+		GD.Print("ready shelf!");
 		area.InputPickable = true;
 
 		area.MouseEntered += onMouseEntered;
 		area.MouseExited += onMouseExit;
+		GD.Print("ready done shelf!");
 	}
 
 	public override void _ExitTree()
@@ -33,6 +34,7 @@ public partial class Shelf : Node2D
 
 		area.MouseEntered -= onMouseEntered;
 		area.MouseExited -= onMouseExit;
+		GD.Print("shelf exited tree!");
 	}
 
 	public override void _Process(double delta)
@@ -151,11 +153,13 @@ public partial class Shelf : Node2D
 
 	private void onMouseEntered()
 	{
+		GD.Print("onMouseEntered!");
 		isHovered = true;
 	}
 
 	private void onMouseExit()
 	{
+		GD.Print("onMouseExited!");
 		isHovered = false;
 	}
 

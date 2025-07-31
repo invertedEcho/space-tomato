@@ -23,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="damage_indicator" type="TextureRect" parent="ui"]
 modulate = Color(0.228979, 0, 0, 0.337255)
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_oo0fn")
 expand_mode = 3
 
@@ -45,10 +47,12 @@ anchor_bottom = 0.98
 offset_top = -27.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="health_bar" type="ProgressBar" parent="ui/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_oo0fn")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5ysmq")

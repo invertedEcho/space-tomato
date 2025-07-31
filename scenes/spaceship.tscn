@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=36 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cbkvvhhdngtn7" path="res://textures/background/stars_middle.png" id="21_vn0wb"]
 [ext_resource type="Texture2D" uid="uid://hllmfj164s8v" path="res://textures/background/stars_close.png" id="22_syl8l"]
 [ext_resource type="Texture2D" uid="uid://bkxh33etf4ksc" path="res://textures/lighting/gradient_radial_light.png" id="32_aigc1"]
+[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://scenes/shelf.tscn" id="34_syl8l"]
 
 [sub_resource type="Environment" id="Environment_kcotq"]
 background_mode = 3
@@ -355,3 +356,8 @@ position = Vector2(320, 192)
 energy = 0.15
 texture = ExtResource("32_aigc1")
 texture_scale = 0.5
+
+[node name="shelf" parent="." instance=ExtResource("34_syl8l")]
+position = Vector2(193, 128)
+
+[editable path="shelf"]
