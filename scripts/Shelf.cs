@@ -176,6 +176,7 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 1)
 			{
+				GD.Print("trying to fertilize plant, count: " + UglyGlobalState.fertilizerCount);
 				if (UglyGlobalState.fertilizerCount == 0)
 				{
 					// TODO: see string in print
