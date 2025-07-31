@@ -74,6 +74,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_amia2")
+theme_override_font_sizes/font_size = 64
 text = "SPACE TOMATO"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -96,9 +97,8 @@ script = ExtResource("3_7nrmo")
 [node name="info" type="Label" parent="main_menu/ui_root/Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_amia2")
-theme_override_font_sizes/font_size = 16
-text = "Made in 2.5 days 
-for the AUXJAM 2025
+theme_override_font_sizes/font_size = 24
+text = "Made for the AUXJAM 2025
 
 Aljoscha Otting
 Alena Schmidt
