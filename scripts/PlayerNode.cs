@@ -149,7 +149,6 @@ public partial class PlayerNode : Node2D
 		var anyMovementChange = false;
 		if (Input.IsActionJustPressed("move_right"))
 		{
-			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(32, 16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -162,7 +161,6 @@ public partial class PlayerNode : Node2D
 		}
 		else if (Input.IsActionJustPressed("move_left"))
 		{
-			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(-32, -16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -171,10 +169,10 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_LEFT;
 			newPosition = targetVector;
+			anyMovementChange = true;
 		}
 		else if (Input.IsActionJustPressed("move_down"))
 		{
-			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(-32, 16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -187,7 +185,6 @@ public partial class PlayerNode : Node2D
 		}
 		else if (Input.IsActionJustPressed("move_up"))
 		{
-			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(32, -16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -212,16 +209,13 @@ public partial class PlayerNode : Node2D
 
 			var coords = wallsTransparentLayer.LocalToMap(Position);
 
-			// GD.Print("our coords: " + coords);
 			var bottomLeftSideCoordinates = wallsTransparentLayer.GetNeighborCell(coords, TileSet.CellNeighbor.BottomLeftSide);
 			var bottomLeftSideTileData = wallsTransparentLayer.GetCellTileData(bottomLeftSideCoordinates);
 
 			if (bottomLeftSideTileData == null)
 			{
-				// TODO: Only do if currently no bottom left side transparent walls
 				foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
 				{
-					// GD.Print("Cleaning up previous tiledata, resetting modulate color");
 					tileData.Modulate = new Color(1, 1, 1, 1);
 				}
 			}
@@ -262,12 +256,19 @@ public partial class PlayerNode : Node2D
 			{
 				UglyGlobalState.allRelevantTiles.Add(bottomRightSideTileData);
 				bottomRightSideTileData.Modulate = new Color(1, 1, 1, 0.4f);
+				var currentCoordinates = bottomRightSideCoordinates;
+				while (true)
+				{
+					var nextCoordinates = wallsTransparentLayer.GetNeighborCell(currentCoordinates, TileSet.CellNeighbor.TopRightSide);
+					var nextTileData = wallsTransparentLayer.GetCellTileData(nextCoordinates);
+					if (nextTileData == null)
+					{
+						break;
+					}
+					currentCoordinates = nextCoordinates;
+					nextTileData.Modulate = new Color(1, 1, 1, 0.4f);
+				}
 			}
-			
-			// GD.Print("Found transparent wall on bottom left side coords, setting to opacity 30");
-			// GD.Print("adding tiledata to all relevant tiles");
-
-			GD.Print("\n");
 		}
 	}
 
