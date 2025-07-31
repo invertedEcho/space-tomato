@@ -48,7 +48,7 @@ glow_map_strength = 0.5
 [node name="spaceship" type="Node2D"]
 
 [node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera", "playerSprite")]
-z_index = 2
+z_index = 4096
 script = ExtResource("3_xs8u7")
 health = 50
 oxygen = 70.0
