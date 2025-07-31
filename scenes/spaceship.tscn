@@ -243,3 +243,5 @@ visible = false
 environment = SubResource("Environment_kcotq")
 
 [node name="enviroment" parent="." instance=ExtResource("29_uvf41")]
+
+[editable path="enviroment"]
