@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Godot;
 using Godot.Collections;
 
@@ -142,11 +140,11 @@ public partial class PlayerNode : Node2D
 
 	private void ProcessMovement()
 	{
-		var anyMovementChange = false;
 		if (Engine.TimeScale < 0.2)
 			return;
 
 		var newPosition = Position;
+		var anyMovementChange = false;
 		if (Input.IsActionJustPressed("move_right"))
 		{
 			anyMovementChange = true;
@@ -158,6 +156,7 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_RIGHT;
 			newPosition = targetVector;
+			anyMovementChange = true;
 		}
 		else if (Input.IsActionJustPressed("move_left"))
 		{
@@ -182,7 +181,7 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_BACK;
 			newPosition = targetVector;
-
+			anyMovementChange = true;
 		}
 		else if (Input.IsActionJustPressed("move_up"))
 		{
@@ -195,6 +194,7 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_FRONT;
 			newPosition = targetVector;
+			anyMovementChange = true;
 		}
 
 		if (newPosition != Position)
@@ -207,11 +207,11 @@ public partial class PlayerNode : Node2D
 		if (anyMovementChange)
 		{
 			// TODO: Only do if currently no bottom left side transparent walls
-			foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
-			{
-				// GD.Print("Cleaning up previous tiledata, resetting modulate color");
-				tileData.Modulate = new Color(1, 1, 1, 1);
-			}
+			// foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
+			// {
+			// 	// GD.Print("Cleaning up previous tiledata, resetting modulate color");
+			// 	tileData.Modulate = new Color(1, 1, 1, 1);
+			// }
 			var wallsTransparentLayer = GetNode<TileMapLayer>("/root/spaceship/enviroment/walls_transparent");
 
 			var coords = wallsTransparentLayer.LocalToMap(Position);
