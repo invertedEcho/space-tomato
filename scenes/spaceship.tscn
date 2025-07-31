@@ -41,10 +41,14 @@ background_mode = 3
 background_canvas_max_layer = 25
 ambient_light_energy = 0.0
 tonemap_mode = 4
+tonemap_exposure = 1.1
+glow_enabled = true
+glow_intensity = 0.4
 glow_strength = 0.4
 glow_blend_mode = 0
-glow_hdr_scale = 1.0
-glow_hdr_luminance_cap = 10.0
+glow_hdr_threshold = 0.8
+glow_hdr_scale = 0.0
+glow_hdr_luminance_cap = 0.7
 glow_map_strength = 0.5
 
 [node name="spaceship" type="Node2D"]
@@ -106,7 +110,6 @@ upAndDowny = []
 texture = ExtResource("13_k3lwc")
 
 [node name="clouds" type="Node2D" parent="main_camera/parallax_background"]
-position = Vector2(-640, 0)
 
 [node name="cloud_group" type="Node2D" parent="main_camera/parallax_background/clouds"]
 
