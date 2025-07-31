@@ -41,7 +41,7 @@ ambient_light_energy = 0.0
 tonemap_mode = 3
 tonemap_white = 1.4
 glow_enabled = true
-glow_intensity = 8.0
+glow_intensity = 1.5
 glow_strength = 0.4
 glow_bloom = 0.1
 glow_blend_mode = 0
@@ -51,7 +51,7 @@ glow_map_strength = 0.5
 
 [node name="spaceship" type="Node2D"]
 
-[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera", "playerSprite", "infoSprite")]
+[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera", "playerSprite")]
 z_index = 2
 script = ExtResource("3_xs8u7")
 health = 50
@@ -61,7 +61,6 @@ gameOverScreen = NodePath("../user_interface/game_over")
 pauseScreen = NodePath("../user_interface/pause")
 playerCamera = NodePath("../main_camera")
 playerSprite = NodePath("playerSprite")
-infoSprite = NodePath("info_overlay")
 texturesHorizontal = Array[Texture2D]([ExtResource("4_5pdae"), ExtResource("5_i1do7"), ExtResource("6_vue1i"), ExtResource("7_k3lwc")])
 texturesVertical = Array[Texture2D]([ExtResource("8_csm47"), ExtResource("9_8k34q"), ExtResource("10_plmhy"), ExtResource("11_q2lbv")])
 
