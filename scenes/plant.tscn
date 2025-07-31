@@ -8,6 +8,7 @@ script = ExtResource("1_odjdt")
 
 [node name="plant_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_a88lo")
+offset = Vector2(0, -16)
 
 [node name="plant_timer" type="Timer" parent="."]
 wait_time = 5.0
