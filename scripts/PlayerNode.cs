@@ -65,6 +65,7 @@ public partial class PlayerNode : Node2D
 		{
 			GD.PrintErr("There can only be one instance of the player");
 		}
+		infoSprite = GetNode<Sprite2D>("info_overlay");
 	}
 
 	public override void _Process(double delta)
@@ -117,6 +118,10 @@ public partial class PlayerNode : Node2D
 
 		RenderPlayerSprite();
 
+		if (elapsedTime > 5)
+		{
+			return;
+		}
 		infoSprite.Modulate = new Color(1, 0.2f, 0, (float)Mathf.Lerp(1, 0, elapsedTime / 5));
 
 	}
