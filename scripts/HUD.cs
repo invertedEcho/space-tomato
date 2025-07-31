@@ -32,6 +32,11 @@ public partial class HUD : CanvasLayer
 	{
 		base._Process(delta);
 
+		if (elapsedTime == 0)
+		{
+			UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("ALERT"), Vector2.Zero);
+		}
+
 		damageIndicator.SelfModulate = new Color(1, 1, 1, Mathf.Lerp(1, 0, (float)elapsedTime * 2));
 
 		elapsedTime += delta;

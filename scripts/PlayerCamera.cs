@@ -26,6 +26,8 @@ public partial class PlayerCamera : Camera2D
 	{
 		elapsedTime = 0;
 		endTime = duration;
+
+		UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("ALERT"), Vector2.Zero);
 	}
 
 	public override void _Ready()

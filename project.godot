@@ -17,6 +17,10 @@ run/main_scene="uid://d2ug2ocyx57i2"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SoundManager="*res://scenes/sound_manager.tscn"
+
 [dotnet]
 
 project/assembly_name="Space Potato"

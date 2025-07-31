@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://ug4voacecdrk"]
+[gd_scene load_steps=14 format=3 uid="uid://ug4voacecdrk"]
+
+[ext_resource type="Script" uid="uid://bx5htlmfbpc3o" path="res://scripts/SoundManager.cs" id="1_gbdfy"]
+[ext_resource type="AudioStream" uid="uid://c44k8kxwhm0jg" path="res://sounds/sfx/menu1.mp3" id="2_5lwbd"]
+[ext_resource type="AudioStream" uid="uid://2rkr5tidduoh" path="res://sounds/sfx/menu2.mp3" id="3_ro3ww"]
+[ext_resource type="AudioStream" uid="uid://bhy31bcitad25" path="res://sounds/sfx/menu3.mp3" id="4_v1pt3"]
+[ext_resource type="AudioStream" uid="uid://f44u878lco6c" path="res://sounds/sfx/Seed1.mp3" id="5_wwv6j"]
+[ext_resource type="AudioStream" uid="uid://dm0po2gv5kujt" path="res://sounds/sfx/Seed2.mp3" id="6_55or6"]
+[ext_resource type="AudioStream" uid="uid://gc7mxaxgsdks" path="res://sounds/sfx/Seed4.mp3" id="7_74mgu"]
+[ext_resource type="AudioStream" uid="uid://df5dinbvbqtgg" path="res://sounds/sfx/sterben1.mp3" id="8_s8vuo"]
+[ext_resource type="AudioStream" uid="uid://bq7ythyx43k3x" path="res://sounds/sfx/sterben2.mp3" id="9_wcfih"]
+[ext_resource type="AudioStream" uid="uid://yp1mhla7fgxp" path="res://sounds/sfx/sterben3.mp3" id="10_laeq7"]
+[ext_resource type="AudioStream" uid="uid://c8u2gf0m7ydrv" path="res://sounds/sfx/sterben4.mp3" id="11_mj6ls"]
+[ext_resource type="AudioStream" uid="uid://dwabqxbxcp8iw" path="res://sounds/sfx/Attention1.mp3" id="12_74mgu"]
+[ext_resource type="AudioStream" uid="uid://b80i0dpjelg71" path="res://sounds/sfx/Attention2.mp3" id="13_s8vuo"]
 
 [node name="sound_manager" type="Node2D"]
+script = ExtResource("1_gbdfy")
+menuPalette = Array[AudioStream]([ExtResource("2_5lwbd"), ExtResource("3_ro3ww"), ExtResource("4_v1pt3")])
+plantPalette = Array[AudioStream]([ExtResource("5_wwv6j"), ExtResource("6_55or6"), ExtResource("7_74mgu")])
+deathPalette = Array[AudioStream]([ExtResource("8_s8vuo"), ExtResource("9_wcfih"), ExtResource("10_laeq7"), ExtResource("11_mj6ls")])
+alertPalette = Array[AudioStream]([ExtResource("12_74mgu"), ExtResource("13_s8vuo")])

@@ -15,6 +15,9 @@ public partial class SwitchSceneButton : Button
 
     private void switchScene()
     {
+		UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("MENU"), Vector2.Zero);
+
+
         GetTree().ChangeSceneToFile(scene.ResourcePath);
     }
 
