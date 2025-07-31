@@ -86,7 +86,7 @@ public partial class PlayerNode : Node2D
 			gameOverScreen.Visible = true;
 			Engine.TimeScale = 0;
 
-			playerCamera.Zoom = new Vector2(1f, 1f);
+			playerCamera.Zoom = new Vector2(2f, 2f);
 			playerCamera._Process(0);
 		}
 
@@ -96,11 +96,13 @@ public partial class PlayerNode : Node2D
 			if (pauseScreen.Visible)
 			{
 				pauseScreen.Visible = false;
+				UglyGlobalState.paused = false;
 				Engine.TimeScale = 1;
 			}
 			else
 			{
 				pauseScreen.Visible = true;
+				UglyGlobalState.paused = true;
 				Engine.TimeScale = 0;
 			}
 
