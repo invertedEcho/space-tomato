@@ -20,6 +20,7 @@ script = ExtResource("2_obw5g")
 fillStates = Array[Texture2D]([ExtResource("3_j266c"), ExtResource("4_0b5gf"), ExtResource("5_3qc03"), ExtResource("6_f4bam"), ExtResource("7_6bqc4"), ExtResource("8_j62ci")])
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
 color = Color(0.160784, 0.937255, 0.878431, 1)
 energy = 0.4
 texture = ExtResource("9_0b5gf")
