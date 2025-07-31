@@ -15,11 +15,17 @@ config/description="MY CABBAGES!!!"
 config/version="1.0"
 run/main_scene="uid://d2ug2ocyx57i2"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
+
 
 [autoload]
 
 SoundManager="*res://scenes/sound_manager.tscn"
+
+[display]
+window/vsync/vsync_mode=2
+
 
 [dotnet]
 
@@ -83,3 +89,4 @@ escape={
 rendering_device/vsync/swapchain_image_count=2
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
