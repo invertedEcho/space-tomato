@@ -8,6 +8,7 @@ public enum PlantState
 	PLANT_FULL,
 	PLANT_DRY,
 	PLANT_DEAD,
+	PLANT_FRUIT
 }
 
 public enum PlantType
@@ -115,12 +116,17 @@ public partial class Plant : Node2D
 					return "textures/plants/tomato/tomato_crop_dead.png";
 				case PlantState.CROP_FULL:
 					return "textures/plants/tomato/tomato_crop_full.png";
+				case PlantState.PLANT_FRUIT:
+					return "textures/plants/tomato/tomato_plant_with_fruits.png";
 			}
 		}
 		else if (plantType == PlantType.MONSTERA)
 		{
 			switch (plantState)
 			{
+				// TODO: It should not be possible that a plantstate is fruit and is not a tomato.
+				// but shouldnt happen right now as long as we dont set plant fruit if not tomato.
+				case PlantState.PLANT_FRUIT:
 				case PlantState.PLANT_FULL:
 					return "textures/plants/monstera/monstera_plant_full.png";
 				case PlantState.PLANT_DEAD:
@@ -131,12 +137,14 @@ public partial class Plant : Node2D
 					return "textures/plants/monstera/monstera_crop_dead.png";
 				case PlantState.CROP_FULL:
 					return "textures/plants/monstera/monstera_crop_full.png";
+
 			}
 		}
 		else if (plantType == PlantType.CANDLE_FLOWER)
 		{
 			switch (plantState)
 			{
+				case PlantState.PLANT_FRUIT:
 				case PlantState.PLANT_FULL:
 					return "textures/plants/candleflower/candleflower_plant_full.png";
 				case PlantState.PLANT_DEAD:
@@ -153,6 +161,7 @@ public partial class Plant : Node2D
 		{
 			switch (plantState)
 			{
+				case PlantState.PLANT_FRUIT:
 				case PlantState.PLANT_FULL:
 					return "textures/plants/tubaflower/tubaflower_plant_full.png";
 				case PlantState.PLANT_DEAD:
@@ -186,6 +195,8 @@ public partial class Plant : Node2D
 					return PlantState.PLANT_FULL;
 				case PlantState.PLANT_DEAD:
 					return PlantState.PLANT_DEAD;
+				case PlantState.PLANT_FRUIT:
+					return PlantState.PLANT_FRUIT;
 			}
 		}
 		else
@@ -202,6 +213,8 @@ public partial class Plant : Node2D
 					return PlantState.PLANT_DEAD;
 				case PlantState.PLANT_FULL:
 					return PlantState.PLANT_DRY;
+				case PlantState.PLANT_FRUIT:
+					return PlantState.PLANT_FULL;
 			}
 		}
 		// this path should thereotically never be possible to reach
