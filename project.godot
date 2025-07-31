@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SoundManager="*res://scenes/sound_manager.tscn"
+SoundManager="*res://prefabs/sound_manager.tscn"
 
 [display]
 

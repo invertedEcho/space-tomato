@@ -42,7 +42,7 @@ public partial class Shelf : Node2D
 		{
 			PlantType[] plantTypes = [PlantType.CANDLE_FLOWER, PlantType.MONSTERA, PlantType.TOMATO, PlantType.TUBAFLOWER];
 
-			var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
+			var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://prefabs/plant.tscn").Instantiate();
 			plantScene.plantState = PlantState.PLANT_FULL;
 
 			Random random = new Random();

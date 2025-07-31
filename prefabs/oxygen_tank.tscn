@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb6kdrdr6i6vf"]
+[gd_scene load_steps=11 format=3 uid="uid://cb6kdrdr6i6vf"]
 
 [ext_resource type="Script" uid="uid://cautumhqlxadq" path="res://scripts/OxygenTank.cs" id="2_obw5g"]
 [ext_resource type="Texture2D" uid="uid://csi3sb7eopna7" path="res://textures/spaceship_tiles/oxygen/oxygen_tank_0.png" id="3_j266c"]
@@ -11,6 +11,10 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j266c"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h8sbh"]
+blend_mode = 1
+light_mode = 1
+
 [node name="oxygen_tank" type="Sprite2D"]
 z_index = 1
 material = SubResource("CanvasItemMaterial_j266c")
@@ -18,8 +22,9 @@ texture = ExtResource("3_j266c")
 script = ExtResource("2_obw5g")
 fillStates = Array[Texture2D]([ExtResource("3_j266c"), ExtResource("4_0b5gf"), ExtResource("5_3qc03"), ExtResource("6_f4bam"), ExtResource("7_6bqc4"), ExtResource("8_j62ci")])
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.160784, 0.937255, 0.878431, 1)
-energy = 0.4
+[node name="light" type="Sprite2D" parent="."]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_h8sbh")
+scale = Vector2(0.3, 0.5)
 texture = ExtResource("9_0b5gf")
-texture_scale = 0.3

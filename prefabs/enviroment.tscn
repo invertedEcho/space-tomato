@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://c14ujwkhdey34"]
+[gd_scene load_steps=7 format=4 uid="uid://c14ujwkhdey34"]
 
 [ext_resource type="TileSet" uid="uid://dl5hp2x50pnbl" path="res://tilesets/spaceship.tres" id="1_qh1bb"]
 [ext_resource type="TileSet" uid="uid://xdi1cep5jekj" path="res://tilesets/collision.tres" id="2_i6lat"]
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="3_eyxog"]
-[ext_resource type="PackedScene" uid="uid://cb6kdrdr6i6vf" path="res://scenes/oxygen_tank.tscn" id="4_1qsqk"]
-[ext_resource type="PackedScene" uid="uid://df40i4042qcpo" path="res://scenes/fertiliser_tank.tscn" id="5_hkis7"]
+[ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://prefabs/shelf.tscn" id="4_0tyjc"]
+[ext_resource type="Texture2D" uid="uid://bxfsklfujkv8b" path="res://textures/lighting/gradient_linear_light_window.png" id="5_56s3p"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_56s3p"]
+blend_mode = 1
+light_mode = 1
 
 [node name="enviroment" type="Node2D"]
 
@@ -99,25 +103,484 @@ z_index = 1
 
 [node name="oxygen_tanks" type="Node2D" parent="props"]
 
-[node name="oxygen_tank" parent="props/oxygen_tanks" instance=ExtResource("4_1qsqk")]
-position = Vector2(0, -80)
-texture = null
-
-[node name="oxygen_tank2" parent="props/oxygen_tanks" instance=ExtResource("4_1qsqk")]
-position = Vector2(-32, -64)
-texture = null
-flip_h = true
-
-[node name="oxygen_tank3" parent="props/oxygen_tanks" instance=ExtResource("4_1qsqk")]
-position = Vector2(-128, 48)
-texture = null
-flip_h = true
-
 [node name="fertiliser_tanks" type="Node2D" parent="props"]
 
-[node name="fertiliser_tank" parent="props/fertiliser_tanks" instance=ExtResource("5_hkis7")]
-position = Vector2(184, 40)
+[node name="interactables" type="Node2D" parent="."]
 
-[node name="fertiliser_tank2" parent="props/fertiliser_tanks" instance=ExtResource("5_hkis7")]
-position = Vector2(96, -96)
+[node name="shelves_main_room" type="Node2D" parent="interactables"]
+
+[node name="shelf" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-256, 32)
+
+[node name="shelf2" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-288, 48)
+
+[node name="shelf3" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-320, 64)
+
+[node name="shelf4" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-352, 80)
+
+[node name="shelf5" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-384, 96)
+
+[node name="shelf6" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-416, 112)
+
+[node name="shelf7" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-192, 64)
+
+[node name="shelf8" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-224, 80)
+
+[node name="shelf9" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-256, 96)
+
+[node name="shelf10" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-288, 112)
+
+[node name="shelf11" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-320, 128)
+
+[node name="shelf12" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-352, 144)
+
+[node name="shelf13" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-128, 96)
+
+[node name="shelf14" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-160, 112)
+
+[node name="shelf15" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-192, 128)
+
+[node name="shelf16" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-224, 144)
+
+[node name="shelf17" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-256, 160)
+
+[node name="shelf18" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-288, 176)
+
+[node name="shelf19" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-64, 128)
+
+[node name="shelf20" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-96, 144)
+
+[node name="shelf21" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-128, 160)
+
+[node name="shelf22" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-160, 176)
+
+[node name="shelf23" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-192, 192)
+
+[node name="shelf24" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-224, 208)
+
+[node name="shelf25" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-480, 144)
+
+[node name="shelf26" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-512, 160)
+
+[node name="shelf27" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-544, 176)
+
+[node name="shelf28" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-576, 192)
+
+[node name="shelf29" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-608, 208)
+
+[node name="shelf30" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-640, 224)
+
+[node name="shelf31" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-416, 176)
+
+[node name="shelf32" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-448, 192)
+
+[node name="shelf33" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-480, 208)
+
+[node name="shelf34" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-512, 224)
+
+[node name="shelf35" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-544, 240)
+
+[node name="shelf36" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-576, 256)
+
+[node name="shelf37" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-352, 208)
+
+[node name="shelf38" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-384, 224)
+
+[node name="shelf39" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-416, 240)
+
+[node name="shelf40" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-448, 256)
+
+[node name="shelf41" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-480, 272)
+
+[node name="shelf42" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-512, 288)
+
+[node name="shelf43" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-288, 240)
+
+[node name="shelf44" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-320, 256)
+
+[node name="shelf45" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-352, 272)
+
+[node name="shelf46" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-384, 288)
+
+[node name="shelf47" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-416, 304)
+
+[node name="shelf48" parent="interactables/shelves_main_room" instance=ExtResource("4_0tyjc")]
+position = Vector2(-448, 320)
+
+[node name="shelves_sporradic" type="Node2D" parent="interactables"]
+
+[node name="shelf" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(0, -32)
+
+[node name="shelf2" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(64, 0)
+
+[node name="shelf3" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(-32, 48)
+
+[node name="shelf4" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(-96, 16)
+
+[node name="shelf5" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(224, -144)
+
+[node name="shelf6" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(288, -112)
+
+[node name="shelf7" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(192, -64)
+
+[node name="shelf8" parent="interactables/shelves_sporradic" instance=ExtResource("4_0tyjc")]
+position = Vector2(128, -96)
+
+[node name="shelves_left" type="Node2D" parent="interactables"]
+
+[node name="shelf" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(32, -176)
+
+[node name="shelf2" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(0, -160)
+
+[node name="shelf3" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-32, -144)
+
+[node name="shelf4" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-64, -128)
+
+[node name="shelf5" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-96, -112)
+
+[node name="shelf6" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-128, -96)
+
+[node name="shelf7" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-160, -80)
+
+[node name="shelf8" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-32, -208)
+
+[node name="shelf9" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-64, -192)
+
+[node name="shelf10" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-96, -176)
+
+[node name="shelf11" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-128, -160)
+
+[node name="shelf12" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-160, -144)
+
+[node name="shelf13" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-192, -128)
+
+[node name="shelf14" parent="interactables/shelves_left" instance=ExtResource("4_0tyjc")]
+position = Vector2(-224, -112)
+
+[node name="shelves_right" type="Node2D" parent="interactables"]
+
+[node name="shelf" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(416, 16)
+
+[node name="shelf2" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(384, 32)
+
+[node name="shelf3" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(352, 48)
+
+[node name="shelf4" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(320, 64)
+
+[node name="shelf5" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(288, 80)
+
+[node name="shelf6" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(256, 96)
+
+[node name="shelf7" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(224, 112)
+
+[node name="shelf8" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(352, -16)
+
+[node name="shelf9" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(320, 0)
+
+[node name="shelf10" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(288, 16)
+
+[node name="shelf11" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(256, 32)
+
+[node name="shelf12" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(224, 48)
+
+[node name="shelf13" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(192, 64)
+
+[node name="shelf14" parent="interactables/shelves_right" instance=ExtResource("4_0tyjc")]
+position = Vector2(160, 80)
+
+[node name="lighting" type="Node2D" parent="."]
+process_mode = 3
+
+[node name="thruster_light" type="Node2D" parent="lighting"]
+
+[node name="light" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-808, 560)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light2" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-840, 607)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light3" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-872, 620)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light4" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-936, 626)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light9" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-936, 594)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light10" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-936, 562)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light11" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-936, 522)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light12" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-936, 498)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light13" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-976, 482)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light14" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-1024, 450)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light15" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-856, 546)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light16" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-904, 530)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light17" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-928, 514)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light18" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-944, 490)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light19" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-1016, 450)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light5" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-1032, 546)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light6" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-1064, 498)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light7" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-1096, 426)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="light8" type="Sprite2D" parent="lighting/thruster_light"]
+modulate = Color(0.266667, 0.921569, 0.87451, 0.117647)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-896, 530)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_56s3p")
+flip_v = true
+
+[node name="doorway_light" type="Node2D" parent="lighting"]
+
+[node name="light18" type="Sprite2D" parent="lighting/doorway_light"]
+modulate = Color(0.898039, 0.505882, 0.360784, 0.172549)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-392, 160)
+scale = Vector2(0.6, 0.9)
+texture = ExtResource("5_56s3p")
 flip_h = true
+flip_v = true
+
+[node name="light19" type="Sprite2D" parent="lighting/doorway_light"]
+modulate = Color(0.898039, 0.505882, 0.360784, 0.172549)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(-232, 80)
+scale = Vector2(0.6, 0.9)
+texture = ExtResource("5_56s3p")
+flip_h = true
+flip_v = true
+
+[node name="light20" type="Sprite2D" parent="lighting/doorway_light"]
+modulate = Color(0.898039, 0.505882, 0.360784, 0.172549)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(139, -18)
+scale = Vector2(0.533, 0.8)
+texture = ExtResource("5_56s3p")
+flip_h = true
+flip_v = true
+
+[node name="light21" type="Sprite2D" parent="lighting/doorway_light"]
+modulate = Color(0.898039, 0.505882, 0.360784, 0.172549)
+z_index = 4096
+material = SubResource("CanvasItemMaterial_56s3p")
+position = Vector2(299, 62)
+scale = Vector2(0.533, 0.8)
+texture = ExtResource("5_56s3p")
+flip_h = true
+flip_v = true
