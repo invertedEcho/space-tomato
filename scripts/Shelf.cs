@@ -134,14 +134,17 @@ public partial class Shelf : Node2D
 				else
 				{
 					GD.Print("shelf was clicked, it has a plant or crop!");
-					Texture2D waterTexture = (Texture2D)GD.Load("res://textures/dev/water.png");
+					Texture2D waterTexture = (Texture2D)GD.Load("res://textures/icons/water.png");
 					UglyGlobalState.interactionHUD.setTexture(waterTexture, 0);
-					Texture2D destroyTexture = (Texture2D)GD.Load("res://textures/dev/destroy.png");
-					UglyGlobalState.interactionHUD.setTexture(destroyTexture, 3);
 
-					Texture2D emptyTexture = (Texture2D)GD.Load("res://textures/dev/empty.png");
-					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 1);
-					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 2);
+					Texture2D fertilizeTexture = (Texture2D)GD.Load("res://textures/icons/fertilize.png");
+					UglyGlobalState.interactionHUD.setTexture(fertilizeTexture, 1);
+
+					Texture2D eatTexture = (Texture2D)GD.Load("res://textures/icons/eat.png");
+					UglyGlobalState.interactionHUD.setTexture(eatTexture, 2);
+
+					Texture2D destroyTexture = (Texture2D)GD.Load("res://textures/icons/destroy.png");
+					UglyGlobalState.interactionHUD.setTexture(destroyTexture, 3);
 				}
 			}
 		}
@@ -160,6 +163,8 @@ public partial class Shelf : Node2D
 		UglyGlobalState.interactionHUD.optionSelected -= onOptionSelected;
 
 		var shelfHasPlantOrCrop = plantReference != null;
+
+		GD.Print("selectedOption: " + selectedOption);
 
 		if (shelfHasPlantOrCrop)
 		{
@@ -182,14 +187,19 @@ public partial class Shelf : Node2D
 					var isTomatoAndFull = plantReference.plantState == PlantState.PLANT_FULL && plantReference.plantType == PlantType.TOMATO;
 					if (isTomatoAndFull)
 					{
-						plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_with_fruits.png");
+						// TODO: actually keep tomato with fruits if once there and kept watered
+						plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
+						UglyGlobalState.fertilizerCount -= 1;
 					}
 				}
 			}
 			else if (selectedOption == 2)
 			{
-				// TODO: when eating, should also remove fruits
-				UglyGlobalState.player.addHealth(10);
+				if (plantReference.plantType == PlantType.TOMATO)
+				{
+					UglyGlobalState.player.addHealth(10);
+					plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_full.png");
+				}
 			}
 			else if (selectedOption == 3)
 			{

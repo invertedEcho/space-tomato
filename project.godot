@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Space Potato"
+config/name="Space Tomato"
 config/description="MY CABBAGES!!!"
 config/version="1.0"
 run/main_scene="uid://d2ug2ocyx57i2"

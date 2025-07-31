@@ -10,6 +10,6 @@ public partial class UglyGlobalState : Node
 
     public static SoundManager soundManager;
 
-    public static int fertilizerCount = 5;
+    public static int fertilizerCount = 0;
 
 }
