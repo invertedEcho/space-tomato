@@ -11,10 +11,10 @@
 [node name="tilemaps" type="Node2D" parent="."]
 
 [node name="outside_thruster" type="TileMapLayer" parent="tilemaps"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.841862, 1, 0.996805, 1)
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AADz/xsAAAADAAcAAAD0/xwAAAADAAcAAAD0/x0AAAADAAcAAAD1/x4AAAADAAcAAAD0/x4AAAADAAcAAADz/xoAAAADAAcAAADz/xgAAAADAAcAAADy/xcAAAADAAcAAADy/xUAAAADAAcAAADy/xMAAAADAAcAAADy/xIAAAADAAcAAADz/xQAAAADAAcAAADz/xUAAAADAAcAAAD0/xYAAAADAAcAAAD0/xcAAAADAAcAAAD1/xgAAAADAAcAAAD1/xkAAAADAAcAAAD2/xoAAAADAAcAAAD2/xsAAAADAAcAAAD2/xwAAAADAAcAAAD1/x0AAAADAAcAAAD1/xwAAAADAAcAAAD0/xsAAAADAAcAAAD0/xoAAAADAAcAAADz/xkAAAADAAcAAADz/xYAAAADAAcAAADz/xcAAAADAAcAAAD0/xgAAAADAAcAAAD0/xkAAAADAAcAAAD1/xoAAAADAAcAAAD1/xsAAAADAAcAAAA=")
+tile_map_data = PackedByteArray("AADz/xsAAAAFAAkAAAD0/xwAAAAFAAkAAAD0/x0AAAAFAAkAAAD1/x4AAAAFAAkAAAD0/x4AAAAFAAkAAADz/xoAAAAFAAkAAADz/xgAAAAFAAkAAADy/xcAAAAFAAkAAADy/xUAAAAFAAkAAADy/xMAAAAFAAkAAADy/xIAAAAFAAkAAADz/xQAAAAFAAkAAADz/xUAAAAFAAkAAAD0/xYAAAAFAAkAAAD0/xcAAAAFAAkAAAD1/xgAAAAFAAkAAAD1/xkAAAAFAAkAAAD2/xoAAAAFAAkAAAD2/xsAAAAFAAkAAAD2/xwAAAAFAAkAAAD1/x0AAAAFAAkAAAD1/xwAAAAFAAkAAAD0/xsAAAAFAAkAAAD0/xoAAAAFAAkAAADz/xkAAAAFAAkAAADz/xYAAAAFAAkAAADz/xcAAAAFAAkAAAD0/xgAAAAFAAkAAAD0/xkAAAAFAAkAAAD1/xoAAAAFAAkAAAD1/xsAAAAFAAkAAAA=")
 tile_set = ExtResource("1_qh1bb")
 collision_enabled = false
 
@@ -116,8 +116,8 @@ flip_h = true
 [node name="fertiliser_tanks" type="Node2D" parent="props"]
 
 [node name="fertiliser_tank" parent="props/fertiliser_tanks" instance=ExtResource("5_hkis7")]
-position = Vector2(32, -64)
+position = Vector2(184, 40)
 
 [node name="fertiliser_tank2" parent="props/fertiliser_tanks" instance=ExtResource("5_hkis7")]
-position = Vector2(96, -64)
+position = Vector2(96, -96)
 flip_h = true
