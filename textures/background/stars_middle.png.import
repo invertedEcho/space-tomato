@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbkvvhhdngtn7"
-path="res://.godot/imported/stars_middle.png-8aeb6e6dfff0984e5c1d8c6897f7ae50.ctex"
+path="res://godot/imported/stars_middle.png-8aeb6e6dfff0984e5c1d8c6897f7ae50.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/background/stars_middle.png"
-dest_files=["res://.godot/imported/stars_middle.png-8aeb6e6dfff0984e5c1d8c6897f7ae50.ctex"]
+dest_files=["res://godot/imported/stars_middle.png-8aeb6e6dfff0984e5c1d8c6897f7ae50.ctex"]
 
 [params]
 

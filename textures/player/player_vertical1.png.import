@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp0ilofsoevq5"
-path="res://.godot/imported/player_vertical1.png-fc094104877b148f5053d1742eecb930.ctex"
+path="res://godot/imported/player_vertical1.png-fc094104877b148f5053d1742eecb930.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/player/player_vertical1.png"
-dest_files=["res://.godot/imported/player_vertical1.png-fc094104877b148f5053d1742eecb930.ctex"]
+dest_files=["res://godot/imported/player_vertical1.png-fc094104877b148f5053d1742eecb930.ctex"]
 
 [params]
 

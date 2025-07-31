@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://5mwsy5fquf1l"
-path="res://.godot/imported/pixelfont.ttf-0936775289ff35e48d117777ed94635f.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://fonts/pixelfont.ttf"
-dest_files=["res://.godot/imported/pixelfont.ttf-0936775289ff35e48d117777ed94635f.fontdata"]
 
 [params]
 

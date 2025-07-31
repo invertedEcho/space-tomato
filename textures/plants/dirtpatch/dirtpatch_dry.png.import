@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cltksydb1a170"
-path="res://.godot/imported/dirtpatch_dry.png-9f919396aef463ecd3a3f6eda2fdd4f9.ctex"
+path="res://godot/imported/dirtpatch_dry.png-9f919396aef463ecd3a3f6eda2fdd4f9.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/plants/dirtpatch/dirtpatch_dry.png"
-dest_files=["res://.godot/imported/dirtpatch_dry.png-9f919396aef463ecd3a3f6eda2fdd4f9.ctex"]
+dest_files=["res://godot/imported/dirtpatch_dry.png-9f919396aef463ecd3a3f6eda2fdd4f9.ctex"]
 
 [params]
 

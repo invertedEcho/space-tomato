@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2prv1voc46wt"
-path="res://.godot/imported/eat.png-32d1dd151ca87e70ae7e54ce00ea4f3b.ctex"
+path="res://godot/imported/eat.png-32d1dd151ca87e70ae7e54ce00ea4f3b.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/icons/eat.png"
-dest_files=["res://.godot/imported/eat.png-32d1dd151ca87e70ae7e54ce00ea4f3b.ctex"]
+dest_files=["res://godot/imported/eat.png-32d1dd151ca87e70ae7e54ce00ea4f3b.ctex"]
 
 [params]
 

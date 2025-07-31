@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clcmbsnw84ohm"
-path="res://.godot/imported/player_vertical4.png-172e5d4ae1602075f3cfe21c4088159c.ctex"
+path="res://godot/imported/player_vertical4.png-172e5d4ae1602075f3cfe21c4088159c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/player/player_vertical4.png"
-dest_files=["res://.godot/imported/player_vertical4.png-172e5d4ae1602075f3cfe21c4088159c.ctex"]
+dest_files=["res://godot/imported/player_vertical4.png-172e5d4ae1602075f3cfe21c4088159c.ctex"]
 
 [params]
 
