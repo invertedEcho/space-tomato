@@ -50,6 +50,8 @@ public partial class Shelf : Node2D
 			var randomPlantPick = plantTypes[randomPlantTypeIndex];
 			plantScene.plantType = randomPlantPick;
 			plantReference = plantScene;
+			plantReference.isWatered = true;
+			isWatered = true;
 			AddChild(plantScene);
 
 			switch (plantReference.plantType)
@@ -85,6 +87,7 @@ public partial class Shelf : Node2D
 		var spritePathForPlantState = plantReference.GetSpritePathForPlantState(plantReference.plantState);
 		plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
 		isWatered = false;
+		plantReference.isWatered = false;
 		dirtSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_dry.png");
 		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
 	}

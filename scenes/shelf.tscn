@@ -30,5 +30,5 @@ input_pickable = true
 polygon = PackedVector2Array(-32, 0, 0, 16, 32, 0, 0, -16)
 
 [node name="shelf_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 autostart = true
