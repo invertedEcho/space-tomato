@@ -1,4 +1,4 @@
-using System.Transactions;
+using System;
 using Godot;
 
 public partial class Shelf : Node2D
@@ -40,12 +40,34 @@ public partial class Shelf : Node2D
 
 		if (prePlanted)
 		{
+			PlantType[] plantTypes = [PlantType.CANDLE_FLOWER, PlantType.MONSTERA, PlantType.TOMATO, PlantType.TUBAFLOWER];
+
 			var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
-			plantScene.plantType = PlantType.TOMATO;
 			plantScene.plantState = PlantState.PLANT_FULL;
+
+			Random random = new Random();
+			int randomPlantTypeIndex = random.Next(0, plantTypes.Length);
+			var randomPlantPick = plantTypes[randomPlantTypeIndex];
+			plantScene.plantType = randomPlantPick;
 			plantReference = plantScene;
 			AddChild(plantScene);
-			plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_full.png");
+
+			switch (plantReference.plantType)
+			{
+				case PlantType.TOMATO:
+					plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_full.png");
+					break;
+				case PlantType.MONSTERA:
+					plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/monstera/monstera_plant_full.png");
+					break;
+				case PlantType.CANDLE_FLOWER:
+					plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/candleflower/candleflower_plant_full.png");
+					break;
+				case PlantType.TUBAFLOWER:
+					plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tubaflower/tubaflower_plant_full.png");
+					break;
+			}
+
 			isWatered = true;
 			dirtSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_normal.png");
 		}
@@ -54,6 +76,11 @@ public partial class Shelf : Node2D
 
 	private void HandleTimeout()
 	{
+		if (plantReference == null)
+		{
+			GD.Print("handle timoeout from shelf timer was called, but no plant planted yet. ignoring!");
+			return;
+		}
 		plantReference.plantState = plantReference.GetNextPlantState();
 		var spritePathForPlantState = plantReference.GetSpritePathForPlantState(plantReference.plantState);
 		plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
@@ -94,9 +121,12 @@ public partial class Shelf : Node2D
 					Texture2D monsteraCropTexture = (Texture2D)GD.Load("res://textures/plants/monstera/monstera_plant_full.png");
 					UglyGlobalState.interactionHUD.setTexture(monsteraCropTexture, 1);
 
-					Texture2D emptyTexture = (Texture2D)GD.Load("res://textures/dev/empty.png");
-					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 2);
-					UglyGlobalState.interactionHUD.setTexture(emptyTexture, 3);
+					Texture2D tubaFlowerCropTexture = (Texture2D)GD.Load("res://textures/plants/tubaflower/tubaflower_plant_full.png");
+					UglyGlobalState.interactionHUD.setTexture(tubaFlowerCropTexture, 2);
+
+					Texture2D candleFlowerTexture = (Texture2D)GD.Load("res://textures/plants/candleflower/candleflower_plant_full.png");
+					UglyGlobalState.interactionHUD.setTexture(candleFlowerTexture, 3);
+					UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("PLANT"), GlobalPosition);
 				}
 				else
 				{
@@ -180,6 +210,18 @@ public partial class Shelf : Node2D
 			else if (selectedOption == 1)
 			{
 				plantScene.plantType = PlantType.MONSTERA;
+				plantReference = plantScene;
+				AddChild(plantScene);
+			}
+			else if (selectedOption == 2)
+			{
+				plantScene.plantType = PlantType.TUBAFLOWER;
+				plantReference = plantScene;
+				AddChild(plantScene);
+			}
+			else if (selectedOption == 3)
+			{
+				plantScene.plantType = PlantType.CANDLE_FLOWER;
 				plantReference = plantScene;
 				AddChild(plantScene);
 			}

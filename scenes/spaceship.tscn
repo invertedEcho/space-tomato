@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=37 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
@@ -358,5 +358,20 @@ texture_scale = 0.5
 
 [node name="shelf" parent="." instance=ExtResource("34_syl8l")]
 position = Vector2(193, 128)
+
+[node name="shelf2" parent="." instance=ExtResource("34_syl8l")]
+position = Vector2(225, 144)
+prePlanted = false
+
+[node name="shelf3" parent="." instance=ExtResource("34_syl8l")]
+position = Vector2(257, 160)
+prePlanted = false
+
+[node name="shelf4" parent="." instance=ExtResource("34_syl8l")]
+position = Vector2(289, 176)
+prePlanted = false
+
+[node name="shelf5" parent="." instance=ExtResource("34_syl8l")]
+position = Vector2(321, 192)
 
 [editable path="shelf"]
