@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbpr7rq47xxcl"]
+
+[ext_resource type="Script" uid="uid://csftfr8uwiqeg" path="res://scripts/MusicManager.cs" id="1_tn5dr"]
+[ext_resource type="AudioStream" uid="uid://b716vnefnvj4a" path="res://sounds/music/M1.mp3" id="2_yodp2"]
+[ext_resource type="AudioStream" uid="uid://din52728lk31j" path="res://sounds/music/M2.mp3" id="3_xcw26"]
+[ext_resource type="AudioStream" uid="uid://do1dj51nkya1p" path="res://sounds/music/M3.mp3" id="4_jbem4"]
+[ext_resource type="AudioStream" uid="uid://b5by6t7vye3k2" path="res://sounds/music/BG _ digital.mp3" id="5_jbem4"]
+[ext_resource type="AudioStream" uid="uid://bur3eua3usmvr" path="res://sounds/music/BG _ white noise.mp3" id="6_hu6vc"]
+
+[node name="music_manager" type="Node2D" node_paths=PackedStringArray("timer", "musicSource", "backgroundSource")]
+script = ExtResource("1_tn5dr")
+timer = NodePath("music_timer")
+musicSource = NodePath("music_source")
+backgroundSource = NodePath("background_source")
+musicPieces = Array[AudioStream]([ExtResource("2_yodp2"), ExtResource("3_xcw26"), ExtResource("4_jbem4")])
+backgroundPieces = Array[AudioStream]([ExtResource("5_jbem4"), ExtResource("6_hu6vc")])
+
+[node name="music_source" type="AudioStreamPlayer2D" parent="."]
+
+[node name="background_source" type="AudioStreamPlayer2D" parent="."]
+volume_db = -8.0
+
+[node name="music_timer" type="Timer" parent="."]
+one_shot = true

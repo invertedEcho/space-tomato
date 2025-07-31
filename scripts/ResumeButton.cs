@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class ResumeButton : Button
@@ -19,6 +20,8 @@ public partial class ResumeButton : Button
         Engine.TimeScale = 1;
         root.Visible = false;
         UglyGlobalState.paused = false;
+
+        UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("MENU"), Vector2.Zero);
     }
 
 

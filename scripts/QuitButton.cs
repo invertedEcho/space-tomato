@@ -13,7 +13,12 @@ public partial class QuitButton : Button
 
     private void quit()
     {
+
+		UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("MENU"), Vector2.Zero);
+
         GetTree().Quit();
+
+
     }
 
 }

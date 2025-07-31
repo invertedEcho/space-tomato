@@ -8,6 +8,8 @@ public partial class UglyGlobalState : Node
     public static InteractionHUD interactionHUD;
     public static bool paused = false;
 
+    public static SoundManager soundManager;
+
     public static int fertilizerCount = 5;
 
 }

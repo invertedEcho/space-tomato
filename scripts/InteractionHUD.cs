@@ -53,6 +53,7 @@ public partial class InteractionHUD : Node2D
                 if (Input.IsActionJustPressed("interact"))
                 {
                     optionSelected.Invoke(i);
+			        UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("MENU"), Vector2.Zero);
                 }
             }
         }
