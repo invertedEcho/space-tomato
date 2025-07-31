@@ -1,4 +1,3 @@
-using System;
 using Godot;
 using Godot.Collections;
 
@@ -129,7 +128,7 @@ public partial class PlayerNode : Node2D
 			takeDamage(5);
 		}
 
-		oxygen -= 1;
+		// oxygen -= 1;
 
 		UglyGlobalState.fertilizerCount += 5;
 
@@ -148,8 +147,10 @@ public partial class PlayerNode : Node2D
 			return;
 
 		var newPosition = Position;
+		var anyMovementChange = false;
 		if (Input.IsActionJustPressed("move_right"))
 		{
+			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(32, 16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -158,9 +159,11 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_RIGHT;
 			newPosition = targetVector;
+			anyMovementChange = true;
 		}
 		else if (Input.IsActionJustPressed("move_left"))
 		{
+			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(-32, -16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -172,6 +175,7 @@ public partial class PlayerNode : Node2D
 		}
 		else if (Input.IsActionJustPressed("move_down"))
 		{
+			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(-32, 16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -180,10 +184,11 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_BACK;
 			newPosition = targetVector;
-
+			anyMovementChange = true;
 		}
 		else if (Input.IsActionJustPressed("move_up"))
 		{
+			anyMovementChange = true;
 			var targetVector = newPosition + new Godot.Vector2(32, -16);
 			var isTargetVectorWall = CheckIfWall(newPosition, targetVector);
 			if (isTargetVectorWall)
@@ -192,6 +197,7 @@ public partial class PlayerNode : Node2D
 			}
 			lastFacingDirection = Direction.DIRECTION_FRONT;
 			newPosition = targetVector;
+			anyMovementChange = true;
 		}
 
 		if (newPosition != Position)
@@ -201,6 +207,54 @@ public partial class PlayerNode : Node2D
 		}
 
 		Position = newPosition;
+		if (anyMovementChange)
+		{
+			// TODO: Only do if currently no bottom left side transparent walls
+			// foreach (TileData tileData in UglyGlobalState.allRelevantTiles)
+			// {
+			// 	// GD.Print("Cleaning up previous tiledata, resetting modulate color");
+			// 	tileData.Modulate = new Color(1, 1, 1, 1);
+			// }
+			var wallsTransparentLayer = GetNode<TileMapLayer>("/root/spaceship/enviroment/tilemaps/walls_transparent");
+
+			var coords = wallsTransparentLayer.LocalToMap(Position);
+
+			// GD.Print("our coords: " + coords);
+			var bottomLeftSideCoordinates = wallsTransparentLayer.GetNeighborCell(coords, TileSet.CellNeighbor.BottomLeftSide);
+			var bottomLeftSideTileData = wallsTransparentLayer.GetCellTileData(bottomLeftSideCoordinates);
+
+			if (bottomLeftSideTileData != null)
+			{
+				UglyGlobalState.allRelevantTiles.Add(bottomLeftSideTileData);
+				bottomLeftSideTileData.Modulate = new Color(1, 1, 1, 0.4f);
+				var currentCoordinates = bottomLeftSideCoordinates;
+				while (true)
+				{
+					var nextBottomLeftSideCoordinates = wallsTransparentLayer.GetNeighborCell(currentCoordinates, TileSet.CellNeighbor.TopLeftSide);
+					var nextBottomLeftSideTileData = wallsTransparentLayer.GetCellTileData(nextBottomLeftSideCoordinates);
+					if (nextBottomLeftSideTileData == null)
+					{
+						break;
+					}
+					currentCoordinates = nextBottomLeftSideCoordinates;
+					nextBottomLeftSideTileData.Modulate = new Color(1, 1, 1, 0.4f);
+				}
+			}
+
+			var bottomRightSideCoordinates = wallsTransparentLayer.GetNeighborCell(coords, TileSet.CellNeighbor.BottomRightSide);
+			var bottomRightSideTileData = wallsTransparentLayer.GetCellTileData(bottomRightSideCoordinates);
+
+			if (bottomRightSideTileData != null)
+			{
+				UglyGlobalState.allRelevantTiles.Add(bottomRightSideTileData);
+				bottomRightSideTileData.Modulate = new Color(1, 1, 1, 0.4f);
+			}
+			
+			// GD.Print("Found transparent wall on bottom left side coords, setting to opacity 30");
+			// GD.Print("adding tiledata to all relevant tiles");
+
+			GD.Print("\n");
+		}
 	}
 
 	private void ProcessMovementTick()
@@ -297,7 +351,6 @@ public partial class PlayerNode : Node2D
 	private bool CheckIfWall(Godot.Vector2 current_vector, Godot.Vector2 target_vector)
 	{
 		var spaceState = GetWorld2D().DirectSpaceState;
-		// use global coordinates, not local to node
 		var query = PhysicsRayQueryParameters2D.Create(current_vector, target_vector);
 		var result = spaceState.IntersectRay(query);
 		return result.Count != 0;

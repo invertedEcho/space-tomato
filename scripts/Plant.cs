@@ -81,7 +81,7 @@ public partial class Plant : Node2D
 		var spritePathForPlantState = GetSpritePathForPlantState(plantState);
 		sprite2D.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
 		isWatered = false;
-		GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
+		// GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
 	}
 
 	private float GetOxygenProduction()
