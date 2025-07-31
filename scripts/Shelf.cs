@@ -121,7 +121,6 @@ public partial class Shelf : Node2D
 				UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
 				if (plantReference == null)
 				{
-					GD.Print("shelf was clicked, its empty!");
 					Texture2D tomatoCropTexture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
 					UglyGlobalState.interactionHUD.setTexture(tomatoCropTexture, 0);
 
@@ -137,7 +136,6 @@ public partial class Shelf : Node2D
 				}
 				else
 				{
-					GD.Print("shelf was clicked, it has a plant or crop!");
 					Texture2D waterTexture = (Texture2D)GD.Load("res://textures/icons/water.png");
 					UglyGlobalState.interactionHUD.setTexture(waterTexture, 0);
 
@@ -152,8 +150,17 @@ public partial class Shelf : Node2D
 						UglyGlobalState.interactionHUD.setTexture(fertilizeTexture, 1);
 					}
 
-					Texture2D eatTexture = (Texture2D)GD.Load("res://textures/icons/eat.png");
-					UglyGlobalState.interactionHUD.setTexture(eatTexture, 2);
+					if (plantReference.plantState == PlantState.PLANT_FRUIT && plantReference.plantType == PlantType.TOMATO)
+					{
+						Texture2D eatTexture = (Texture2D)GD.Load("res://textures/icons/eat.png");
+						UglyGlobalState.interactionHUD.setTexture(eatTexture, 2);
+					}
+					else
+					{
+						Texture2D emptyTexture = (Texture2D)GD.Load("res://textures/dev/empty.png");
+						UglyGlobalState.interactionHUD.setTexture(emptyTexture, 2);
+					}
+
 
 					Texture2D destroyTexture = (Texture2D)GD.Load("res://textures/icons/destroy.png");
 					UglyGlobalState.interactionHUD.setTexture(destroyTexture, 3);
@@ -176,8 +183,6 @@ public partial class Shelf : Node2D
 
 		var shelfHasPlantOrCrop = plantReference != null;
 
-		GD.Print("selectedOption: " + selectedOption);
-
 		if (shelfHasPlantOrCrop)
 		{
 			GD.Print("Option selected, shelf its coming from has plant or crop.");
@@ -188,12 +193,7 @@ public partial class Shelf : Node2D
 			}
 			else if (selectedOption == 1)
 			{
-				if (UglyGlobalState.fertilizerCount == 0)
-				{
-					// TODO: see string in print
-					GD.Print("Do something visuallly that signals user that he doesnt have fertilizer");
-				}
-				else
+				if (UglyGlobalState.fertilizerCount != 0)
 				{
 					plantReference.isFertilized = true;
 					var isTomatoAndFull = plantReference.plantState == PlantState.PLANT_FULL && plantReference.plantType == PlantType.TOMATO;
@@ -202,6 +202,7 @@ public partial class Shelf : Node2D
 						// TODO: actually keep tomato with fruits if once there and kept watered
 						plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
 						UglyGlobalState.fertilizerCount -= 1;
+						plantReference.plantState = PlantState.PLANT_FRUIT;
 					}
 				}
 			}
@@ -227,7 +228,7 @@ public partial class Shelf : Node2D
 		else
 		{
 			GD.Print("Option selected on an empty shelf!");
-			var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://scenes/plant.tscn").Instantiate();
+			var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://prefabs/plant.tscn").Instantiate();
 			GD.Print("plantScene: " + plantScene);
 			if (selectedOption == 0)
 			{
@@ -258,13 +259,11 @@ public partial class Shelf : Node2D
 
 	private void onMouseEntered()
 	{
-		GD.Print("onMouseEntered!");
 		isHovered = true;
 	}
 
 	private void onMouseExit()
 	{
-		GD.Print("onMouseExited!");
 		isHovered = false;
 	}
 
