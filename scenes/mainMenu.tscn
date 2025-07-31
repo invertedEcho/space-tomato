@@ -1,12 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://d2ug2ocyx57i2"]
+[gd_scene load_steps=21 format=3 uid="uid://d2ug2ocyx57i2"]
 
 [ext_resource type="Script" uid="uid://ces0vc2gua4ut" path="res://scripts/SwitchSceneButton.cs" id="1_48ign"]
 [ext_resource type="Theme" uid="uid://daovupa4m1u03" path="res://ui_theme.tres" id="1_amia2"]
 [ext_resource type="PackedScene" uid="uid://cgmr0oahjo0bx" path="res://scenes/spaceship.tscn" id="2_l7wge"]
 [ext_resource type="Script" uid="uid://cs7at8fg33cn5" path="res://scripts/QuitButton.cs" id="3_7nrmo"]
 [ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="4_lam2r"]
+[ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="5_25e00"]
 [ext_resource type="Texture2D" uid="uid://3b16va4bb3tg" path="res://textures/background/background.png" id="5_amia2"]
 [ext_resource type="Texture2D" uid="uid://bpib0brv1ibyy" path="res://textures/background/cloud_0.png" id="6_25e00"]
+[ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="6_jfr2g"]
 [ext_resource type="Texture2D" uid="uid://dpj001whd6mpp" path="res://textures/background/cloud_1.png" id="7_jfr2g"]
 [ext_resource type="Texture2D" uid="uid://dwp8nffshlbin" path="res://textures/background/cloud_2.png" id="8_5i7h7"]
 [ext_resource type="Texture2D" uid="uid://bngjbovmp7x8v" path="res://textures/background/cloud_3.png" id="9_6c1hc"]
@@ -19,6 +21,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
 bg_color = Color(1, 1, 1, 0)
 border_width_left = 5
+border_color = Color(0.00392157, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfr2g"]
+bg_color = Color(1, 1, 1, 0)
+border_width_right = 5
 border_color = Color(0.00392157, 1, 1, 1)
 
 [sub_resource type="Environment" id="Environment_lam2r"]
@@ -105,6 +112,63 @@ Alena Schmidt
 Jakob Stechow
 Aaron Kerker"
 horizontal_alignment = 2
+
+[node name="Panel2" type="Panel" parent="main_menu/ui_root"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.15
+anchor_right = 0.95
+anchor_bottom = 0.85
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jfr2g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_menu/ui_root/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="info_play" type="Label" parent="main_menu/ui_root/Panel2/VBoxContainer"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme = ExtResource("1_amia2")
+theme_override_font_sizes/font_size = 24
+text = "HOW TO PLAY?
+Plant plants by clicking on a shelf and selecting a plant.
+Water plants to grow them.
+Fertilize grown plants to get fruit.
+Destroy plants to get fertilizer.
+
+MOVEMENT"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="info_movement" type="TextureRect" parent="main_menu/ui_root/Panel2/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_25e00")
+expand_mode = 5
+
+[node name="player" type="TextureRect" parent="main_menu/ui_root/Panel2/VBoxContainer/info_movement"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -115.0
+offset_right = 75.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_jfr2g")
+expand_mode = 5
 
 [node name="parallax_background" type="Node2D" parent="." node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny")]
 position = Vector2(0, 8)

@@ -18,14 +18,13 @@ config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
-
 [autoload]
 
 SoundManager="*res://scenes/sound_manager.tscn"
 
 [display]
-window/vsync/vsync_mode=2
 
+window/vsync/vsync_mode=2
 
 [dotnet]
 
