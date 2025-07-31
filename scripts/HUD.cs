@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class HUD : Node
+public partial class HUD : CanvasLayer
 {
 	[ExportCategory("References")]
 	[Export]
@@ -20,6 +20,13 @@ public partial class HUD : Node
 	[Export]
 	public TextureRect waterTexture;
 
+
+	public override void _Ready()
+	{
+		base._Ready();
+
+		this.Visible = true;
+    }
 
 	public override void _Process(double delta)
 	{

@@ -27,8 +27,13 @@ public partial class PlayerNode : Node2D
 	[Export]
 	private Sprite2D playerSprite;
 
+	[Export]
+	private Sprite2D infoSprite;
+
 	private double time;
 	private double movementTime;
+
+	private double elapsedTime;
 
 	private uint ticks;
 
@@ -67,6 +72,7 @@ public partial class PlayerNode : Node2D
 		ProcessMovement();
 
 		time += delta;
+		elapsedTime += delta;
 
 		if (time >= 1)
 		{
@@ -110,6 +116,8 @@ public partial class PlayerNode : Node2D
 		}
 
 		RenderPlayerSprite();
+
+		infoSprite.Modulate = new Color(1, 0.2f, 0, (float)Mathf.Lerp(1, 0, elapsedTime / 5));
 
 	}
 

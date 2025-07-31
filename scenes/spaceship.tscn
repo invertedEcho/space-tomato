@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=35 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
@@ -15,6 +15,7 @@
 [ext_resource type="TileSet" uid="uid://dl5hp2x50pnbl" path="res://tilesets/spaceship.tres" id="9_r0fvi"]
 [ext_resource type="Texture2D" uid="uid://7hhygye2hr4d" path="res://textures/player/player_vertical3.png" id="10_plmhy"]
 [ext_resource type="Texture2D" uid="uid://clcmbsnw84ohm" path="res://textures/player/player_vertical4.png" id="11_q2lbv"]
+[ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="11_vn0wb"]
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="12_l0x72"]
 [ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="12_vue1i"]
 [ext_resource type="Texture2D" uid="uid://3b16va4bb3tg" path="res://textures/background/background.png" id="13_k3lwc"]
@@ -50,7 +51,7 @@ glow_map_strength = 0.5
 
 [node name="spaceship" type="Node2D"]
 
-[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera", "playerSprite")]
+[node name="PlayerNode" type="Node2D" parent="." node_paths=PackedStringArray("hud", "gameOverScreen", "pauseScreen", "playerCamera", "playerSprite", "infoSprite")]
 z_index = 2
 script = ExtResource("3_xs8u7")
 health = 50
@@ -60,6 +61,7 @@ gameOverScreen = NodePath("../user_interface/game_over")
 pauseScreen = NodePath("../user_interface/pause")
 playerCamera = NodePath("../main_camera")
 playerSprite = NodePath("playerSprite")
+infoSprite = NodePath("info_overlay")
 texturesHorizontal = Array[Texture2D]([ExtResource("4_5pdae"), ExtResource("5_i1do7"), ExtResource("6_vue1i"), ExtResource("7_k3lwc")])
 texturesVertical = Array[Texture2D]([ExtResource("8_csm47"), ExtResource("9_8k34q"), ExtResource("10_plmhy"), ExtResource("11_q2lbv")])
 
@@ -73,11 +75,16 @@ texture = ExtResource("4_v0rat")
 [node name="AudioListener2D" type="AudioListener2D" parent="PlayerNode"]
 current = true
 
+[node name="info_overlay" type="Sprite2D" parent="PlayerNode"]
+modulate = Color(1, 0.180392, 0, 1)
+z_index = 1
+texture = ExtResource("11_vn0wb")
+
 [node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera")]
 zoom = Vector2(2, 2)
 script = ExtResource("5_me4wu")
 target = NodePath("../PlayerNode")
-lerp = 1
+lerp = 2
 strength = 250
 camera = NodePath(".")
 
@@ -230,6 +237,7 @@ visible = false
 position = Vector2(160, -56)
 
 [node name="hud" parent="user_interface" instance=ExtResource("6_343tk")]
+visible = false
 
 [node name="pause" parent="user_interface" instance=ExtResource("15_nosia")]
 visible = false
@@ -294,11 +302,10 @@ tile_set = ExtResource("9_r0fvi")
 collision_enabled = false
 
 [node name="collision" type="TileMapLayer" parent="enviroment/tilemaps"]
-visible = false
 z_index = 3
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD9//j/AAAAAAAAAAD9//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPr/AAAAAAAAAAABAPn/AAAAAAAAAAACAPj/AAAAAAAAAAD8//r/AAACAAAAAAD8//v/AAACAAAAAAD9//z/AAACAAAAAAD9//3/AAAGAAAAAAD9//7/AAAEAAAAAAD9/wAAAAACAAAAAAD9/wEAAAAGAAAAAAD9/wIAAAAEAAAAAAD8/wMAAAAEAAAAAAD8/wQAAAAEAAAAAAAEAAYAAAAFAAAAAAADAAUAAAABAAAAAAADAAQAAAABAAAAAAAEAAUAAAAEAAAAAAAFAAQAAAAEAAAAAAAGAAYAAAADAAAAAAAFAAcAAAADAAAAAAAFAAgAAAAIAAAAAAAFAAkAAAABAAAAAAAGAAoAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//j/AAAAAAAAAAD9//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPr/AAAAAAAAAAABAPn/AAAAAAAAAAACAPj/AAAAAAAAAAD8//r/AAACAAAAAAD8//v/AAACAAAAAAD9//z/AAACAAAAAAD9//3/AAAGAAAAAAD9//7/AAAEAAAAAAD9/wAAAAACAAAAAAD9/wEAAAAGAAAAAAD9/wIAAAAEAAAAAAD8/wMAAAAEAAAAAAD8/wQAAAAEAAAAAAAEAAYAAAAFAAAAAAADAAUAAAABAAAAAAADAAQAAAABAAAAAAAEAAUAAAAEAAAAAAAFAAQAAAAEAAAAAAAGAAYAAAADAAAAAAAFAAcAAAADAAAAAAAFAAgAAAAIAAAAAAAGAAoAAAABAAAAAAD+/wMAAAAHAAAAAAD+/wQAAAADAAAAAAD9/wUAAAADAAAAAAD9/wYAAAADAAAAAAD8/wYAAAACAAAAAAD//wQAAAACAAAAAAAAAAQAAAADAAAAAAAAAAMAAAAHAAAAAAABAAQAAAAGAAAAAAAAAAUAAAAEAAAAAAAAAAYAAAAEAAAAAAD//wcAAAAEAAAAAAD//wgAAAAEAAAAAAD//woAAAACAAAAAAD//wsAAAACAAAAAAAAAAwAAAACAAAAAAAAAA0AAAACAAAAAAABAA4AAAACAAAAAAABAA8AAAACAAAAAAACABAAAAACAAAAAAACABEAAAACAAAAAAADABIAAAACAAAAAAADABMAAAACAAAAAAAEABMAAAADAAAAAAAFABIAAAADAAAAAAAFABEAAAADAAAAAAAGABAAAAADAAAAAAAGAA8AAAADAAAAAAAHAA4AAAADAAAAAAAHAA0AAAADAAAAAAAIAAwAAAADAAAAAAAIAAsAAAADAAAAAAAJAAoAAAADAAAAAAAGAAsAAAABAAAAAAAHAAwAAAABAAAAAAAGAAUAAAAAAAAAAAAHAAYAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAA=")
 tile_set = ExtResource("7_6i2wf")
 script = ExtResource("12_l0x72")
 
