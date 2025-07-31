@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmncfhfw4krg6"]
+[gd_scene load_steps=5 format=3 uid="uid://cmncfhfw4krg6"]
 
 [ext_resource type="Script" uid="uid://skmc6jubnn5j" path="res://scripts/Shelf.cs" id="1_ynh4i"]
 [ext_resource type="Texture2D" uid="uid://bn57e1igsp64s" path="res://textures/ui/tile_selector.png" id="2_707bd"]
 [ext_resource type="Texture2D" uid="uid://cltksydb1a170" path="res://textures/plants/dirtpatch/dirtpatch_dry.png" id="4_7q781"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m43bq"]
+blend_mode = 1
 
 [node name="shelf" type="Node2D" node_paths=PackedStringArray("selector", "area")]
 script = ExtResource("1_ynh4i")
@@ -14,8 +17,23 @@ prePlanted = true
 [node name="graphics" type="Node2D" parent="."]
 
 [node name="selector" type="Sprite2D" parent="graphics"]
+self_modulate = Color(1, 0, 0, 1)
 z_index = 4096
 texture_filter = 1
+texture = ExtResource("2_707bd")
+
+[node name="selector2" type="Sprite2D" parent="graphics/selector"]
+self_modulate = Color(1, 0, 0, 1)
+z_index = 4096
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_m43bq")
+texture = ExtResource("2_707bd")
+
+[node name="selector3" type="Sprite2D" parent="graphics/selector"]
+self_modulate = Color(1, 0, 0, 1)
+z_index = 4096
+texture_filter = 2
+material = SubResource("CanvasItemMaterial_m43bq")
 texture = ExtResource("2_707bd")
 
 [node name="dirt_sprite" type="Sprite2D" parent="graphics"]
