@@ -110,6 +110,7 @@ public partial class PlayerNode : Node2D
 		}
 
 		RenderPlayerSprite();
+
 	}
 
 
@@ -262,7 +263,7 @@ public partial class PlayerNode : Node2D
 	private void RenderPlayerSprite()
 	{
 
-		int index = (int)(ticks % 4);
+		int index = (int)(time * 4);
 
 		switch (lastFacingDirection)
 		{

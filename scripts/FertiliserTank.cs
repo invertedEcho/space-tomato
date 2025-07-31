@@ -25,12 +25,7 @@ public partial class FertiliserTank : Sprite2D
     private void calculateState()
     {
 
-        if (UglyGlobalState.fertilizerCount > 100)
-        {
-            UglyGlobalState.fertilizerCount = 100;
-        }
-
-        int currentStage = (int)Mathf.Remap(UglyGlobalState.fertilizerCount, 0, 100, 0, fillStates.Count);
+        int currentStage = (int)Mathf.Remap(Mathf.Clamp(UglyGlobalState.fertilizerCount, 0, 100), 0, 100, 0, fillStates.Count);
 
         Texture = fillStates[currentStage];
     }

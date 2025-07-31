@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2ug2ocyx57i2"]
+[gd_scene load_steps=18 format=3 uid="uid://d2ug2ocyx57i2"]
 
 [ext_resource type="Script" uid="uid://ces0vc2gua4ut" path="res://scripts/SwitchSceneButton.cs" id="1_48ign"]
+[ext_resource type="Theme" uid="uid://daovupa4m1u03" path="res://ui_theme.tres" id="1_amia2"]
 [ext_resource type="PackedScene" uid="uid://cgmr0oahjo0bx" path="res://scenes/spaceship.tscn" id="2_l7wge"]
 [ext_resource type="Script" uid="uid://cs7at8fg33cn5" path="res://scripts/QuitButton.cs" id="3_7nrmo"]
 [ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="4_lam2r"]
@@ -17,13 +18,14 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
 bg_color = Color(1, 1, 1, 0)
-border_width_left = 2
-border_color = Color(2.88785e-06, 0.627374, 0.639106, 1)
+border_width_left = 5
+border_color = Color(0.00392157, 1, 1, 1)
 
 [sub_resource type="Environment" id="Environment_lam2r"]
 background_mode = 3
 background_canvas_max_layer = 25
 ambient_light_energy = 0.0
+tonemap_mode = 3
 glow_enabled = true
 glow_intensity = 8.0
 glow_strength = 0.4
@@ -61,17 +63,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_c7uy4")
 [node name="VBoxContainer" type="VBoxContainer" parent="main_menu/ui_root/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.02
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="title" type="Label" parent="main_menu/ui_root/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme = ExtResource("1_amia2")
 text = "SPACE TOMATO"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -79,6 +81,7 @@ vertical_alignment = 1
 [node name="btn_play" type="Button" parent="main_menu/ui_root/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("1_amia2")
 text = "PLAY"
 script = ExtResource("1_48ign")
 scene = ExtResource("2_l7wge")
@@ -86,12 +89,14 @@ scene = ExtResource("2_l7wge")
 [node name="btn_quit" type="Button" parent="main_menu/ui_root/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme = ExtResource("1_amia2")
 text = "QUIT"
 script = ExtResource("3_7nrmo")
 
 [node name="info" type="Label" parent="main_menu/ui_root/Panel/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("1_amia2")
+theme_override_font_sizes/font_size = 16
 text = "Made in 2.5 days 
 for the AUXJAM 2025
 
@@ -101,20 +106,21 @@ Jakob Stechow
 Aaron Kerker"
 horizontal_alignment = 2
 
-[node name="parallax_background" type="Node2D" parent="." node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase")]
+[node name="parallax_background" type="Node2D" parent="." node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny")]
 position = Vector2(0, 8)
 scale = Vector2(2.2, 2.2)
 script = ExtResource("4_lam2r")
-cloudSpeed = 0.1
-farStarSpeed = 0.15
-middleStarSpeed = 0.2
-closeStarSpeed = 0.3
-speedStarSpeed = 2.0
 cloudBase = NodePath("clouds")
+cloudSpeed = 0.1
 farStarBase = NodePath("stars/far")
+farStarSpeed = 0.15
 middleStarBase = NodePath("stars/middle")
+middleStarSpeed = 0.2
 closeStarBase = NodePath("stars/close")
+closeStarSpeed = 0.3
 speedStarBase = NodePath("stars/speedyStars")
+speedStarSpeed = 2.0
+upAndDowny = []
 
 [node name="background_base" type="Sprite2D" parent="parallax_background"]
 texture = ExtResource("5_amia2")

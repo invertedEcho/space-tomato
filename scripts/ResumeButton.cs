@@ -18,6 +18,7 @@ public partial class ResumeButton : Button
     {
         Engine.TimeScale = 1;
         root.Visible = false;
+        UglyGlobalState.paused = false;
     }
 
 

@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://betvv7qvwr0vf"]
+[gd_scene load_steps=5 format=3 uid="uid://betvv7qvwr0vf"]
 
+[ext_resource type="Theme" uid="uid://daovupa4m1u03" path="res://ui_theme.tres" id="1_wqhvx"]
 [ext_resource type="Script" uid="uid://cs7at8fg33cn5" path="res://scripts/QuitButton.cs" id="1_xeevv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
+bg_color = Color(0.282353, 0, 0, 0.32549)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqhvx"]
+bg_color = Color(0.8, 0, 0, 1)
 
 [node name="game_over" type="CanvasLayer"]
 
@@ -21,19 +34,26 @@ anchor_right = 0.6
 anchor_bottom = 0.7
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbwuq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui_root/Panel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -4.33301
+offset_bottom = -5.20001
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="ui_root/Panel/VBoxContainer"]
 layout_mode = 2
-text = "GAME OVER"
+theme = ExtResource("1_wqhvx")
+text = "GAME
+OVER"
 horizontal_alignment = 1
 
 [node name="spacing" type="Label" parent="ui_root/Panel/VBoxContainer"]
@@ -42,5 +62,7 @@ horizontal_alignment = 1
 
 [node name="btn_quit" type="Button" parent="ui_root/Panel/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_wqhvx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wqhvx")
 text = "QUIT"
 script = ExtResource("1_xeevv")
