@@ -144,8 +144,6 @@ public partial class PlayerNode : Node2D
 
 		oxygen -= 1;
 
-		UglyGlobalState.fertilizerCount += 25;
-
 		ticks++;
 
 	}
