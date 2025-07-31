@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=36 format=4 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://clcmbsnw84ohm" path="res://textures/player/player_vertical4.png" id="11_q2lbv"]
 [ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="11_vn0wb"]
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="12_l0x72"]
+[ext_resource type="PackedScene" uid="uid://bbpr7rq47xxcl" path="res://scenes/music_manager.tscn" id="12_syl8l"]
 [ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="12_vue1i"]
 [ext_resource type="Texture2D" uid="uid://3b16va4bb3tg" path="res://textures/background/background.png" id="13_k3lwc"]
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://scenes/game_over.tscn" id="14_0xuuw"]
@@ -79,6 +80,8 @@ current = true
 modulate = Color(1, 0.180392, 0, 1)
 z_index = 1
 texture = ExtResource("11_vn0wb")
+
+[node name="music_manager" parent="PlayerNode" instance=ExtResource("12_syl8l")]
 
 [node name="main_camera" type="Camera2D" parent="." node_paths=PackedStringArray("target", "camera")]
 zoom = Vector2(2, 2)

@@ -76,4 +76,6 @@ escape={
 
 [rendering]
 
+rendering_device/vsync/swapchain_image_count=2
 textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
