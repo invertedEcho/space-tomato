@@ -17,8 +17,8 @@ run/main_scene="uid://d2ug2ocyx57i2"
 config/use_hidden_project_data_directory=false
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
-boot_splash/image="uid://daqr1wohqqww1"
-config/icon="uid://4qqgn4k85lov"
+boot_splash/bg_color=Color(0.0784314, 0.0823529, 0.0941176, 1)
+config/icon="res://icon.svg"
 
 [autoload]
 
@@ -26,6 +26,7 @@ SoundManager="*res://prefabs/sound_manager.tscn"
 
 [display]
 
+window/size/mode=3
 window/vsync/vsync_mode=2
 
 [dotnet]

@@ -39,6 +39,8 @@ public partial class Shelf : Node2D
 
 		dirtSprite = GetNode<Sprite2D>("graphics/dirt_sprite");
 		shelfTimer = GetNode<Timer>("shelf_timer");
+		Random randomTimerDuration = new Random();
+		shelfTimer.WaitTime = randomTimerDuration.Next(45, 60);
 
 		Random randomTimerDuration = new Random();
 		shelfTimer.WaitTime = randomTimerDuration.Next(45, 60);

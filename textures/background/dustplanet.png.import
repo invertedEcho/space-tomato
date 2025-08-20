@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w8t4v1lkqn7r"
-path="res://.godot/imported/basic_cover_wall.png-8fe7dd93282bbd4ac3720d7d4c2b0089.ctex"
+uid="uid://dhqhrxjosttl5"
+path="res://.godot/imported/dustplanet.png-784e1b7b8435f4329016a8170eaaf0e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contentsrc/spaceship_tiles/walls/basic_cover_wall.png"
-dest_files=["res://.godot/imported/basic_cover_wall.png-8fe7dd93282bbd4ac3720d7d4c2b0089.ctex"]
+source_file="res://textures/background/dustplanet.png"
+dest_files=["res://.godot/imported/dustplanet.png-784e1b7b8435f4329016a8170eaaf0e8.ctex"]
 
 [params]
 

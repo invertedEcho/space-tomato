@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=21 format=3 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
 [ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
@@ -15,19 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://clcmbsnw84ohm" path="res://textures/player/player_vertical4.png" id="11_q2lbv"]
 [ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="11_vn0wb"]
 [ext_resource type="PackedScene" uid="uid://bbpr7rq47xxcl" path="res://prefabs/music_manager.tscn" id="12_syl8l"]
-[ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="12_vue1i"]
-[ext_resource type="Texture2D" uid="uid://3b16va4bb3tg" path="res://textures/background/background.png" id="13_k3lwc"]
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://prefabs/game_over.tscn" id="14_0xuuw"]
-[ext_resource type="Texture2D" uid="uid://bpib0brv1ibyy" path="res://textures/background/cloud_0.png" id="14_uvf41"]
+[ext_resource type="PackedScene" uid="uid://c8pl11gl4euwp" path="res://prefabs/parallax_background.tscn" id="14_kcotq"]
 [ext_resource type="PackedScene" uid="uid://ckhoqxse1e4r0" path="res://prefabs/pauseMenu.tscn" id="15_nosia"]
-[ext_resource type="Texture2D" uid="uid://dpj001whd6mpp" path="res://textures/background/cloud_1.png" id="15_r15p1"]
-[ext_resource type="Texture2D" uid="uid://dwp8nffshlbin" path="res://textures/background/cloud_2.png" id="16_m7q4g"]
-[ext_resource type="Texture2D" uid="uid://bngjbovmp7x8v" path="res://textures/background/cloud_3.png" id="17_aigc1"]
-[ext_resource type="Texture2D" uid="uid://mdfnhfcn6kli" path="res://textures/background/cloud_4.png" id="18_vn0wb"]
-[ext_resource type="Texture2D" uid="uid://dohnop0wx58tf" path="res://textures/background/cloud_5.png" id="19_syl8l"]
-[ext_resource type="Texture2D" uid="uid://croyd2y2lt84o" path="res://textures/background/stars_far.png" id="20_aigc1"]
-[ext_resource type="Texture2D" uid="uid://cbkvvhhdngtn7" path="res://textures/background/stars_middle.png" id="21_vn0wb"]
-[ext_resource type="Texture2D" uid="uid://hllmfj164s8v" path="res://textures/background/stars_close.png" id="22_syl8l"]
 [ext_resource type="PackedScene" uid="uid://c14ujwkhdey34" path="res://prefabs/enviroment.tscn" id="29_uvf41"]
 
 [sub_resource type="Environment" id="Environment_kcotq"]
@@ -83,146 +73,7 @@ lerp = 2
 strength = 250
 camera = NodePath(".")
 
-[node name="parallax_background" type="Node2D" parent="main_camera" node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny")]
-scale = Vector2(2.2, 2.2)
-script = ExtResource("12_vue1i")
-cloudBase = NodePath("clouds")
-cloudSpeed = 0.1
-farStarBase = NodePath("stars/far")
-farStarSpeed = 0.15
-middleStarBase = NodePath("stars/middle")
-middleStarSpeed = 0.2
-closeStarBase = NodePath("stars/close")
-closeStarSpeed = 0.3
-speedStarBase = NodePath("stars/speedyStars")
-speedStarSpeed = 2.0
-upAndDowny = []
-
-[node name="background_base" type="Sprite2D" parent="main_camera/parallax_background"]
-texture = ExtResource("13_k3lwc")
-
-[node name="clouds" type="Node2D" parent="main_camera/parallax_background"]
-
-[node name="cloud_group" type="Node2D" parent="main_camera/parallax_background/clouds"]
-
-[node name="cloud1" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group"]
-texture = ExtResource("14_uvf41")
-
-[node name="cloud2" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group"]
-texture = ExtResource("15_r15p1")
-
-[node name="cloud3" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group"]
-texture = ExtResource("16_m7q4g")
-
-[node name="cloud4" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group"]
-texture = ExtResource("17_aigc1")
-
-[node name="cloud5" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group"]
-texture = ExtResource("18_vn0wb")
-
-[node name="cloud6" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group"]
-texture = ExtResource("19_syl8l")
-
-[node name="cloud_group2" type="Node2D" parent="main_camera/parallax_background/clouds"]
-position = Vector2(640, 0)
-
-[node name="cloud1" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group2"]
-texture = ExtResource("14_uvf41")
-
-[node name="cloud2" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group2"]
-texture = ExtResource("15_r15p1")
-
-[node name="cloud3" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group2"]
-texture = ExtResource("16_m7q4g")
-
-[node name="cloud4" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group2"]
-texture = ExtResource("17_aigc1")
-
-[node name="cloud5" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group2"]
-texture = ExtResource("18_vn0wb")
-
-[node name="cloud6" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group2"]
-texture = ExtResource("19_syl8l")
-
-[node name="cloud_group3" type="Node2D" parent="main_camera/parallax_background/clouds"]
-position = Vector2(-640, 0)
-
-[node name="cloud1" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group3"]
-texture = ExtResource("14_uvf41")
-
-[node name="cloud2" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group3"]
-texture = ExtResource("15_r15p1")
-
-[node name="cloud3" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group3"]
-texture = ExtResource("16_m7q4g")
-
-[node name="cloud4" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group3"]
-texture = ExtResource("17_aigc1")
-
-[node name="cloud5" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group3"]
-texture = ExtResource("18_vn0wb")
-
-[node name="cloud6" type="Sprite2D" parent="main_camera/parallax_background/clouds/cloud_group3"]
-texture = ExtResource("19_syl8l")
-
-[node name="stars" type="Node2D" parent="main_camera/parallax_background"]
-
-[node name="far" type="Node2D" parent="main_camera/parallax_background/stars"]
-
-[node name="star_far" type="Sprite2D" parent="main_camera/parallax_background/stars/far"]
-texture = ExtResource("20_aigc1")
-
-[node name="star_far3" type="Sprite2D" parent="main_camera/parallax_background/stars/far"]
-position = Vector2(-640, 0)
-texture = ExtResource("20_aigc1")
-
-[node name="star_far2" type="Sprite2D" parent="main_camera/parallax_background/stars/far"]
-position = Vector2(640, 0)
-texture = ExtResource("20_aigc1")
-
-[node name="middle" type="Node2D" parent="main_camera/parallax_background/stars"]
-
-[node name="star_middle" type="Sprite2D" parent="main_camera/parallax_background/stars/middle"]
-texture = ExtResource("21_vn0wb")
-
-[node name="star_middle2" type="Sprite2D" parent="main_camera/parallax_background/stars/middle"]
-position = Vector2(640, 0)
-texture = ExtResource("21_vn0wb")
-
-[node name="star_middle3" type="Sprite2D" parent="main_camera/parallax_background/stars/middle"]
-position = Vector2(-640, 0)
-texture = ExtResource("21_vn0wb")
-
-[node name="close" type="Node2D" parent="main_camera/parallax_background/stars"]
-
-[node name="star_close" type="Sprite2D" parent="main_camera/parallax_background/stars/close"]
-texture = ExtResource("22_syl8l")
-
-[node name="star_close2" type="Sprite2D" parent="main_camera/parallax_background/stars/close"]
-position = Vector2(640, 0)
-texture = ExtResource("22_syl8l")
-
-[node name="star_close3" type="Sprite2D" parent="main_camera/parallax_background/stars/close"]
-position = Vector2(-640, 0)
-texture = ExtResource("22_syl8l")
-
-[node name="speedyStars" type="Node2D" parent="main_camera/parallax_background/stars"]
-modulate = Color(1, 1, 1, 0.164706)
-z_index = 4096
-
-[node name="star_close" type="Sprite2D" parent="main_camera/parallax_background/stars/speedyStars"]
-scale = Vector2(5, 5)
-texture = ExtResource("22_syl8l")
-
-[node name="star_close2" type="Sprite2D" parent="main_camera/parallax_background/stars/speedyStars"]
-position = Vector2(640, 0)
-scale = Vector2(5, 5)
-texture = ExtResource("22_syl8l")
-
-[node name="star_close3" type="Sprite2D" parent="main_camera/parallax_background/stars/speedyStars"]
-position = Vector2(-640, 0)
-scale = Vector2(5, 5)
-texture = ExtResource("22_syl8l")
+[node name="parallax_background" parent="main_camera" instance=ExtResource("14_kcotq")]
 
 [node name="user_interface" type="Node2D" parent="."]
 
@@ -243,3 +94,5 @@ visible = false
 environment = SubResource("Environment_kcotq")
 
 [node name="enviroment" parent="." instance=ExtResource("29_uvf41")]
+
+[editable path="enviroment"]

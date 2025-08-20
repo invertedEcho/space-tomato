@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1odsth6405pm"
-path="res://.godot/imported/basic_window_rounded_bottom_R.png-06d703b10c54b1f2277887efbc2e2e4f.ctex"
+uid="uid://cjlmgxlreahra"
+path="res://.godot/imported/dangerfield.png-40ea5fcc24dff30c1efa313d866dbe42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contentsrc/spaceship_tiles/walls/basic_window_rounded_bottom_R.png"
-dest_files=["res://.godot/imported/basic_window_rounded_bottom_R.png-06d703b10c54b1f2277887efbc2e2e4f.ctex"]
+source_file="res://textures/background/dangerfield.png"
+dest_files=["res://.godot/imported/dangerfield.png-40ea5fcc24dff30c1efa313d866dbe42.ctex"]
 
 [params]
 
