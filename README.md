@@ -18,3 +18,11 @@ Here are some screenshots and arts:
 <img width="630" height="500" alt="image" src="https://github.com/user-attachments/assets/922e1d0c-cb68-457a-88e3-6ea906683cd0" />
 
 <img width="960" height="400" alt="image" src="https://github.com/user-attachments/assets/c1a67729-11dc-45ff-be01-17abcaaba367" />
+
+## Contributing Guidelines
+
+If working on code:
+
+- You must use a formatter that uses our `.editorconfig`
+- `.cs` files must be in Pascal Case, e.g. `MyCustomScript.cs`
+- Variable names in `.cs` files must be in Camel Case, e.g. `myVariable`
