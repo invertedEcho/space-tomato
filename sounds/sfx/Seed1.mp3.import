@@ -3,12 +3,11 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://f44u878lco6c"
-path="res://.godot/imported/Seed1.mp3-016c24a49b45a8e3435fc67efccf46fa.mp3str"
+valid=false
 
 [deps]
 
 source_file="res://sounds/sfx/Seed1.mp3"
-dest_files=["res://.godot/imported/Seed1.mp3-016c24a49b45a8e3435fc67efccf46fa.mp3str"]
 
 [params]
 

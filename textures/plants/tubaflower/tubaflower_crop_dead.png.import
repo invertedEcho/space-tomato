@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cleujbc37ksqd"
-path="res://.godot/imported/tubaflower_crop_dead.png-99bb9ebbe592b485fbb1513e6ca5a178.ctex"
+path="res://godot/imported/tubaflower_crop_dead.png-99bb9ebbe592b485fbb1513e6ca5a178.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/plants/tubaflower/tubaflower_crop_dead.png"
-dest_files=["res://.godot/imported/tubaflower_crop_dead.png-99bb9ebbe592b485fbb1513e6ca5a178.ctex"]
+dest_files=["res://godot/imported/tubaflower_crop_dead.png-99bb9ebbe592b485fbb1513e6ca5a178.ctex"]
 
 [params]
 

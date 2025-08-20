@@ -42,6 +42,9 @@ public partial class Shelf : Node2D
 		Random randomTimerDuration = new Random();
 		shelfTimer.WaitTime = randomTimerDuration.Next(45, 60);
 
+		Random randomTimerDuration = new Random();
+		shelfTimer.WaitTime = randomTimerDuration.Next(45, 60);
+
 		shelfTimer.Timeout += HandleTimeout;
 
 		if (prePlanted)
