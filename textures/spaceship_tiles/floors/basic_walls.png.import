@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmi0nhfh5gl4t"
-path="res://godot/imported/basic_walls.png-869e251ac660a98d7650605138ce2203.ctex"
+uid="uid://dtrry8x8hsb76"
+path="res://.godot/imported/basic_walls.png-869e251ac660a98d7650605138ce2203.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/spaceship_tiles/floors/basic_walls.png"
-dest_files=["res://godot/imported/basic_walls.png-869e251ac660a98d7650605138ce2203.ctex"]
+dest_files=["res://.godot/imported/basic_walls.png-869e251ac660a98d7650605138ce2203.ctex"]
 
 [params]
 

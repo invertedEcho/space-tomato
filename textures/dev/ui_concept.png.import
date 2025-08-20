@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0y3pr0b0p5vi"
-path="res://godot/imported/ui_concept.png-bce7346813c66f447f8e263a704da1d0.ctex"
+uid="uid://bm5we5qsjdwnv"
+path="res://.godot/imported/ui_concept.png-bce7346813c66f447f8e263a704da1d0.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/dev/ui_concept.png"
-dest_files=["res://godot/imported/ui_concept.png-bce7346813c66f447f8e263a704da1d0.ctex"]
+dest_files=["res://.godot/imported/ui_concept.png-bce7346813c66f447f8e263a704da1d0.ctex"]
 
 [params]
 

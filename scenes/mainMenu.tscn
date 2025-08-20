@@ -4,8 +4,8 @@
 [ext_resource type="Theme" uid="uid://daovupa4m1u03" path="res://ui_theme.tres" id="1_amia2"]
 [ext_resource type="PackedScene" uid="uid://cgmr0oahjo0bx" path="res://scenes/spaceship.tscn" id="2_l7wge"]
 [ext_resource type="Script" uid="uid://cs7at8fg33cn5" path="res://scripts/QuitButton.cs" id="3_7nrmo"]
-[ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="5_25e00"]
-[ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="6_jfr2g"]
+[ext_resource type="Texture2D" uid="uid://byb1xqn12n3nt" path="res://textures/dev/tile_info.png" id="5_25e00"]
+[ext_resource type="Texture2D" uid="uid://ecwownke6m2x" path="res://textures/player/player_horizontal1.png" id="6_jfr2g"]
 [ext_resource type="PackedScene" uid="uid://c8pl11gl4euwp" path="res://prefabs/parallax_background.tscn" id="7_ldpc3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7uy4"]
@@ -167,4 +167,3 @@ zoom = Vector2(2, 2)
 environment = SubResource("Environment_lam2r")
 
 [node name="parallax_background" parent="." instance=ExtResource("7_ldpc3")]
-planets = null

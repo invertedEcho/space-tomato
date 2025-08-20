@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=4 format=3 uid="uid://daovupa4m1u03"]
 
-[ext_resource type="FontFile" uid="uid://5mwsy5fquf1l" path="res://fonts/pixelfont.ttf" id="1_touxu"]
+[ext_resource type="FontFile" uid="uid://b82fb3bqi2p5c" path="res://fonts/pixelfont.ttf" id="1_touxu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qiyq"]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddf5qi3534a5w"
-path="res://godot/imported/destroy.png-d7662e7b96f45e0df31bb22cdd745ae1.ctex"
+uid="uid://d3dnw0u12xdhw"
+path="res://.godot/imported/destroy.png-d7662e7b96f45e0df31bb22cdd745ae1.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/dev/destroy.png"
-dest_files=["res://godot/imported/destroy.png-d7662e7b96f45e0df31bb22cdd745ae1.ctex"]
+dest_files=["res://.godot/imported/destroy.png-d7662e7b96f45e0df31bb22cdd745ae1.ctex"]
 
 [params]
 

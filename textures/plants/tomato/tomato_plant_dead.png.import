@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2bks2daxke85"
-path="res://godot/imported/tomato_plant_dead.png-b0a015b617c30974964c3fc677e33b72.ctex"
+uid="uid://iy0yn877abc6"
+path="res://.godot/imported/tomato_plant_dead.png-b0a015b617c30974964c3fc677e33b72.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/plants/tomato/tomato_plant_dead.png"
-dest_files=["res://godot/imported/tomato_plant_dead.png-b0a015b617c30974964c3fc677e33b72.ctex"]
+dest_files=["res://.godot/imported/tomato_plant_dead.png-b0a015b617c30974964c3fc677e33b72.ctex"]
 
 [params]
 

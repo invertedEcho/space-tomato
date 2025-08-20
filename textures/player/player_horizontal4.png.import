@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d211gbjnwjjme"
-path="res://godot/imported/player_horizontal4.png-bcf75ecf78c75a3ea52c9b1d2a8cceda.ctex"
+uid="uid://3m6gdr6m6200"
+path="res://.godot/imported/player_horizontal4.png-bcf75ecf78c75a3ea52c9b1d2a8cceda.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/player/player_horizontal4.png"
-dest_files=["res://godot/imported/player_horizontal4.png-bcf75ecf78c75a3ea52c9b1d2a8cceda.ctex"]
+dest_files=["res://.godot/imported/player_horizontal4.png-bcf75ecf78c75a3ea52c9b1d2a8cceda.ctex"]
 
 [params]
 

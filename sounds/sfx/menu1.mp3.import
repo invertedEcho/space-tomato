@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://c44k8kxwhm0jg"
-valid=false
+uid="uid://ciy7vgrdrjsou"
+path="res://.godot/imported/menu1.mp3-99d3868b080e178c35b3570daff22405.mp3str"
 
 [deps]
 
 source_file="res://sounds/sfx/menu1.mp3"
+dest_files=["res://.godot/imported/menu1.mp3-99d3868b080e178c35b3570daff22405.mp3str"]
 
 [params]
 

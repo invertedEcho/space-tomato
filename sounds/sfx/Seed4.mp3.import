@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://gc7mxaxgsdks"
-valid=false
+uid="uid://cdj5pju5kgwml"
+path="res://.godot/imported/Seed4.mp3-23fd2df4e02690970d2fff2e0ca9614c.mp3str"
 
 [deps]
 
 source_file="res://sounds/sfx/Seed4.mp3"
+dest_files=["res://.godot/imported/Seed4.mp3-23fd2df4e02690970d2fff2e0ca9614c.mp3str"]
 
 [params]
 

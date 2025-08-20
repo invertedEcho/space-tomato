@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://dwabqxbxcp8iw"
-valid=false
+uid="uid://7rjs6lrrg68r"
+path="res://.godot/imported/Attention1.mp3-453a24e7d88cc38aef27ec6550cf4107.mp3str"
 
 [deps]
 
 source_file="res://sounds/sfx/Attention1.mp3"
+dest_files=["res://.godot/imported/Attention1.mp3-453a24e7d88cc38aef27ec6550cf4107.mp3str"]
 
 [params]
 

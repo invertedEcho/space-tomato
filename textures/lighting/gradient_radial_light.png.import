@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkxh33etf4ksc"
-path="res://godot/imported/gradient_radial_light.png-c9c42bb1bb9df9d218721f13ba4daa84.ctex"
+uid="uid://dceq81f11dllt"
+path="res://.godot/imported/gradient_radial_light.png-c9c42bb1bb9df9d218721f13ba4daa84.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/lighting/gradient_radial_light.png"
-dest_files=["res://godot/imported/gradient_radial_light.png-c9c42bb1bb9df9d218721f13ba4daa84.ctex"]
+dest_files=["res://.godot/imported/gradient_radial_light.png-c9c42bb1bb9df9d218721f13ba4daa84.ctex"]
 
 [params]
 

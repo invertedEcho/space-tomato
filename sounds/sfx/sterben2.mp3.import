@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://bq7ythyx43k3x"
-valid=false
+uid="uid://1v15afresj64"
+path="res://.godot/imported/sterben2.mp3-e671cd7bde2300f5bc8e265a7889caa3.mp3str"
 
 [deps]
 
 source_file="res://sounds/sfx/sterben2.mp3"
+dest_files=["res://.godot/imported/sterben2.mp3-e671cd7bde2300f5bc8e265a7889caa3.mp3str"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2yrcm6lemcw8"
-path="res://godot/imported/tomato_fruits.png-65a4d5283b109790edc14cc1e7d4ebb4.ctex"
+uid="uid://ckmp11qld125i"
+path="res://.godot/imported/tomato_fruits.png-65a4d5283b109790edc14cc1e7d4ebb4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/plants/tomato/tomato_fruits.png"
-dest_files=["res://godot/imported/tomato_fruits.png-65a4d5283b109790edc14cc1e7d4ebb4.ctex"]
+dest_files=["res://.godot/imported/tomato_fruits.png-65a4d5283b109790edc14cc1e7d4ebb4.ctex"]
 
 [params]
 

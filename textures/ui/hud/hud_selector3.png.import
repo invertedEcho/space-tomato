@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://st37een8vs76"
-path="res://godot/imported/hud_selector3.png-df86a33d856f643396a2eba9234f4b6f.ctex"
+uid="uid://bpvn0bp6f5l15"
+path="res://.godot/imported/hud_selector3.png-df86a33d856f643396a2eba9234f4b6f.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/ui/hud/hud_selector3.png"
-dest_files=["res://godot/imported/hud_selector3.png-df86a33d856f643396a2eba9234f4b6f.ctex"]
+dest_files=["res://.godot/imported/hud_selector3.png-df86a33d856f643396a2eba9234f4b6f.ctex"]
 
 [params]
 

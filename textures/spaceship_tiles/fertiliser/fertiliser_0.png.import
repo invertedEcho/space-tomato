@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsyt464y4w62j"
-path="res://godot/imported/fertiliser_0.png-2af48341ee714dd61a10c2809b88cba6.ctex"
+uid="uid://dhgkajai7dbh0"
+path="res://.godot/imported/fertiliser_0.png-2af48341ee714dd61a10c2809b88cba6.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/spaceship_tiles/fertiliser/fertiliser_0.png"
-dest_files=["res://godot/imported/fertiliser_0.png-2af48341ee714dd61a10c2809b88cba6.ctex"]
+dest_files=["res://.godot/imported/fertiliser_0.png-2af48341ee714dd61a10c2809b88cba6.ctex"]
 
 [params]
 

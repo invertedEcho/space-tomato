@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lhuc1kdufp1m"
-path="res://godot/imported/oxygen_tank_4.png-0898c9ec7ae506e82ed5d481db4204bb.ctex"
+uid="uid://df8smbao44cxm"
+path="res://.godot/imported/oxygen_tank_4.png-0898c9ec7ae506e82ed5d481db4204bb.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/spaceship_tiles/oxygen/oxygen_tank_4.png"
-dest_files=["res://godot/imported/oxygen_tank_4.png-0898c9ec7ae506e82ed5d481db4204bb.ctex"]
+dest_files=["res://.godot/imported/oxygen_tank_4.png-0898c9ec7ae506e82ed5d481db4204bb.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpib0brv1ibyy"
-path="res://godot/imported/cloud_0.png-d78c46b03341d58947820d7cf843975e.ctex"
+uid="uid://bfa5ak6phqdnn"
+path="res://.godot/imported/cloud_0.png-d78c46b03341d58947820d7cf843975e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/background/cloud_0.png"
-dest_files=["res://godot/imported/cloud_0.png-d78c46b03341d58947820d7cf843975e.ctex"]
+dest_files=["res://.godot/imported/cloud_0.png-d78c46b03341d58947820d7cf843975e.ctex"]
 
 [params]
 

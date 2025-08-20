@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://bur3eua3usmvr"
-valid=false
+uid="uid://vplx0pj2kae1"
+path="res://.godot/imported/BG _ white noise.mp3-03f2ee4e42de394cc677eacb7af6e493.mp3str"
 
 [deps]
 
 source_file="res://sounds/music/BG _ white noise.mp3"
+dest_files=["res://.godot/imported/BG _ white noise.mp3-03f2ee4e42de394cc677eacb7af6e493.mp3str"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciniry7il0nsj"
-path="res://godot/imported/candleflower_crop_full.png-7f97bb3f84c585d55cd67413718f3055.ctex"
+uid="uid://cudi86umayo4c"
+path="res://.godot/imported/candleflower_crop_full.png-7f97bb3f84c585d55cd67413718f3055.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/plants/candleflower/candleflower_crop_full.png"
-dest_files=["res://godot/imported/candleflower_crop_full.png-7f97bb3f84c585d55cd67413718f3055.ctex"]
+dest_files=["res://.godot/imported/candleflower_crop_full.png-7f97bb3f84c585d55cd67413718f3055.ctex"]
 
 [params]
 

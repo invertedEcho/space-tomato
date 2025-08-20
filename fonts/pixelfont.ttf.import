@@ -2,12 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://5mwsy5fquf1l"
-valid=false
+uid="uid://b82fb3bqi2p5c"
+path="res://.godot/imported/pixelfont.ttf-0936775289ff35e48d117777ed94635f.fontdata"
 
 [deps]
 
 source_file="res://fonts/pixelfont.ttf"
+dest_files=["res://.godot/imported/pixelfont.ttf-0936775289ff35e48d117777ed94635f.fontdata"]
 
 [params]
 
@@ -28,7 +29,13 @@ Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0
+}]
 language_support={}
 script_support={}
 opentype_features={}

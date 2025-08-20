@@ -2,12 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://b5by6t7vye3k2"
-valid=false
+uid="uid://btj5es2xolusb"
+path="res://.godot/imported/BG _ digital.mp3-90fe5de4ceedc9eeee28ee3de15e0399.mp3str"
 
 [deps]
 
 source_file="res://sounds/music/BG _ digital.mp3"
+dest_files=["res://.godot/imported/BG _ digital.mp3-90fe5de4ceedc9eeee28ee3de15e0399.mp3str"]
 
 [params]
 

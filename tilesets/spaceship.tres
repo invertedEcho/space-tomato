@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dl5hp2x50pnbl"]
 
-[ext_resource type="Texture2D" uid="uid://c5yvqlw2he50s" path="res://textures/spaceship_tiles/floors/basic_floors.png" id="1_elpcm"]
-[ext_resource type="Texture2D" uid="uid://bmi0nhfh5gl4t" path="res://textures/spaceship_tiles/floors/basic_walls.png" id="2_33kp3"]
+[ext_resource type="Texture2D" uid="uid://da4hpuvnikyjm" path="res://textures/spaceship_tiles/floors/basic_floors.png" id="1_elpcm"]
+[ext_resource type="Texture2D" uid="uid://dtrry8x8hsb76" path="res://textures/spaceship_tiles/floors/basic_walls.png" id="2_33kp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ljeb"]
 texture = ExtResource("1_elpcm")

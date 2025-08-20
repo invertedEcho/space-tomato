@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp5uqba3d021p"
-path="res://godot/imported/damage.png-cdd96fb12b13fd23267d5d8705204c6e.ctex"
+uid="uid://fdx27qoe83x3"
+path="res://.godot/imported/damage.png-cdd96fb12b13fd23267d5d8705204c6e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/ui/hud/damage.png"
-dest_files=["res://godot/imported/damage.png-cdd96fb12b13fd23267d5d8705204c6e.ctex"]
+dest_files=["res://.godot/imported/damage.png-cdd96fb12b13fd23267d5d8705204c6e.ctex"]
 
 [params]
 

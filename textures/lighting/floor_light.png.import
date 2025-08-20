@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs3p4nptyj8et"
-path="res://godot/imported/floor_light.png-0b9a18757f0c1f86f1ae4055ed5c440d.ctex"
+uid="uid://lvtvsgpbu0br"
+path="res://.godot/imported/floor_light.png-0b9a18757f0c1f86f1ae4055ed5c440d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/lighting/floor_light.png"
-dest_files=["res://godot/imported/floor_light.png-0b9a18757f0c1f86f1ae4055ed5c440d.ctex"]
+dest_files=["res://.godot/imported/floor_light.png-0b9a18757f0c1f86f1ae4055ed5c440d.ctex"]
 
 [params]
 

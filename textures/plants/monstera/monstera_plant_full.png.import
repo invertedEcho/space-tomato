@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm7uec7q311qh"
-path="res://godot/imported/monstera_plant_full.png-c2fa9b202be70b78d157b1487cc5e235.ctex"
+uid="uid://bjl8cry6mwwxb"
+path="res://.godot/imported/monstera_plant_full.png-c2fa9b202be70b78d157b1487cc5e235.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://textures/plants/monstera/monstera_plant_full.png"
-dest_files=["res://godot/imported/monstera_plant_full.png-c2fa9b202be70b78d157b1487cc5e235.ctex"]
+dest_files=["res://.godot/imported/monstera_plant_full.png-c2fa9b202be70b78d157b1487cc5e235.ctex"]
 
 [params]
 
