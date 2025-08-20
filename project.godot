@@ -17,7 +17,7 @@ run/main_scene="uid://d2ug2ocyx57i2"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0.0784314, 0.0823529, 0.0941176, 1)
-config/icon="res://icon.svg"
+config/icon="uid://ca4b0sjdapa2s"
 
 [autoload]
 
@@ -25,7 +25,6 @@ SoundManager="*res://prefabs/sound_manager.tscn"
 
 [display]
 
-window/size/mode=3
 window/vsync/vsync_mode=2
 
 [dotnet]

@@ -1,20 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8pl11gl4euwp"]
+[gd_scene load_steps=13 format=3 uid="uid://c8pl11gl4euwp"]
 
 [ext_resource type="Script" uid="uid://dajgtvi0ogf7x" path="res://scripts/ParallaxBackground.cs" id="1_s145n"]
-[ext_resource type="Texture2D" uid="uid://3b16va4bb3tg" path="res://textures/background/background.png" id="2_ytgti"]
-[ext_resource type="Texture2D" uid="uid://cjlmgxlreahra" path="res://textures/background/dangerfield.png" id="3_flw1v"]
-[ext_resource type="Texture2D" uid="uid://bpib0brv1ibyy" path="res://textures/background/cloud_0.png" id="3_w0180"]
-[ext_resource type="Texture2D" uid="uid://dpj001whd6mpp" path="res://textures/background/cloud_1.png" id="4_flw1v"]
-[ext_resource type="Texture2D" uid="uid://dwp8nffshlbin" path="res://textures/background/cloud_2.png" id="5_uobku"]
-[ext_resource type="Texture2D" uid="uid://bngjbovmp7x8v" path="res://textures/background/cloud_3.png" id="6_mey53"]
-[ext_resource type="Texture2D" uid="uid://mdfnhfcn6kli" path="res://textures/background/cloud_4.png" id="7_eaxyr"]
-[ext_resource type="Texture2D" uid="uid://dohnop0wx58tf" path="res://textures/background/cloud_5.png" id="8_djrnj"]
-[ext_resource type="Texture2D" uid="uid://croyd2y2lt84o" path="res://textures/background/stars_far.png" id="9_q47ku"]
-[ext_resource type="Texture2D" uid="uid://dhqhrxjosttl5" path="res://textures/background/dustplanet.png" id="9_ytgti"]
-[ext_resource type="Texture2D" uid="uid://cbkvvhhdngtn7" path="res://textures/background/stars_middle.png" id="10_7t5d5"]
-[ext_resource type="Texture2D" uid="uid://hllmfj164s8v" path="res://textures/background/stars_close.png" id="11_o3310"]
+[ext_resource type="Texture2D" uid="uid://bbacch22pvs8b" path="res://textures/background/background.png" id="2_ytgti"]
+[ext_resource type="Texture2D" uid="uid://bfa5ak6phqdnn" path="res://textures/background/cloud_0.png" id="3_w0180"]
+[ext_resource type="Texture2D" uid="uid://upy17o0lsxti" path="res://textures/background/cloud_1.png" id="4_flw1v"]
+[ext_resource type="Texture2D" uid="uid://hpivvi3lv01s" path="res://textures/background/cloud_2.png" id="5_uobku"]
+[ext_resource type="Texture2D" uid="uid://n76xwxgxu8x3" path="res://textures/background/cloud_3.png" id="6_mey53"]
+[ext_resource type="Texture2D" uid="uid://he0663wmp8j5" path="res://textures/background/cloud_4.png" id="7_eaxyr"]
+[ext_resource type="Texture2D" uid="uid://durrbycpxmsrr" path="res://textures/background/cloud_5.png" id="8_djrnj"]
+[ext_resource type="Texture2D" uid="uid://berwxvrcr3rcb" path="res://textures/background/stars_far.png" id="9_q47ku"]
+[ext_resource type="Texture2D" uid="uid://2nmf5giwhlfd" path="res://textures/background/dustplanet.png" id="9_ytgti"]
+[ext_resource type="Texture2D" uid="uid://dtljfsq8iatys" path="res://textures/background/stars_middle.png" id="10_7t5d5"]
+[ext_resource type="Texture2D" uid="uid://b4upwxt0f4oih" path="res://textures/background/stars_close.png" id="11_o3310"]
 
-[node name="parallax_background" type="Node2D" node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny", "planetSpawnTimer", "planet")]
+[node name="parallax_background" type="Node2D" node_paths=PackedStringArray("cloudBase", "farStarBase", "middleStarBase", "closeStarBase", "speedStarBase", "upAndDowny")]
 scale = Vector2(2.2, 2.2)
 script = ExtResource("1_s145n")
 cloudBase = NodePath("clouds")
@@ -28,9 +27,6 @@ closeStarSpeed = 0.3
 speedStarBase = NodePath("stars/speedyStars")
 speedStarSpeed = 2.0
 upAndDowny = [NodePath("clouds/cloud_group/cloud1"), NodePath("clouds/cloud_group2/cloud1"), NodePath("clouds/cloud_group3/cloud1")]
-planetSpawnTimer = NodePath("planet_spawn_timer")
-planets = Array[Texture2D]([ExtResource("9_ytgti"), ExtResource("3_flw1v")])
-planet = NodePath("planet")
 
 [node name="background_base" type="Sprite2D" parent="."]
 scale = Vector2(50, 50)

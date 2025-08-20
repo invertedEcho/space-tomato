@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmncfhfw4krg6"]
 
 [ext_resource type="Script" uid="uid://skmc6jubnn5j" path="res://scripts/Shelf.cs" id="1_ynh4i"]
-[ext_resource type="Texture2D" uid="uid://bn57e1igsp64s" path="res://textures/ui/tile_selector.png" id="2_707bd"]
-[ext_resource type="Texture2D" uid="uid://cltksydb1a170" path="res://textures/plants/dirtpatch/dirtpatch_dry.png" id="4_7q781"]
+[ext_resource type="Texture2D" uid="uid://2kn5wlqbw67s" path="res://textures/ui/tile_selector.png" id="2_707bd"]
+[ext_resource type="Texture2D" uid="uid://b7khpgt7jenct" path="res://textures/plants/dirtpatch/dirtpatch_dry.png" id="4_7q781"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m43bq"]
 blend_mode = 1

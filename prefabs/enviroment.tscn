@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://bu2mytpg3knmd" path="res://textures/CollisionTileLayer.cs" id="3_eyxog"]
 [ext_resource type="PackedScene" uid="uid://cmncfhfw4krg6" path="res://prefabs/shelf.tscn" id="4_0tyjc"]
 [ext_resource type="PackedScene" uid="uid://cb6kdrdr6i6vf" path="res://prefabs/oxygen_tank.tscn" id="4_7pm43"]
-[ext_resource type="Texture2D" uid="uid://bkxh33etf4ksc" path="res://textures/lighting/gradient_radial_light.png" id="4_jcxjv"]
-[ext_resource type="Texture2D" uid="uid://bxfsklfujkv8b" path="res://textures/lighting/gradient_linear_light_window.png" id="5_56s3p"]
+[ext_resource type="Texture2D" uid="uid://dceq81f11dllt" path="res://textures/lighting/gradient_radial_light.png" id="4_jcxjv"]
+[ext_resource type="Texture2D" uid="uid://dqfgfdwanx6np" path="res://textures/lighting/gradient_linear_light_window.png" id="5_56s3p"]
 [ext_resource type="PackedScene" uid="uid://df40i4042qcpo" path="res://prefabs/fertiliser_tank.tscn" id="5_m16ab"]
-[ext_resource type="Texture2D" uid="uid://dw6nd7kyuqwho" path="res://textures/lighting/gradient_linear_light.png" id="6_e2he3"]
+[ext_resource type="Texture2D" uid="uid://bhkyd1ryctkr7" path="res://textures/lighting/gradient_linear_light.png" id="6_e2he3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_56s3p"]
 blend_mode = 1

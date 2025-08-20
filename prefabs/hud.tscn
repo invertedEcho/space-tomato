@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://t2cid18l8xin"]
 
 [ext_resource type="Script" uid="uid://droqaoixbkeha" path="res://scripts/HUD.cs" id="1_5ysmq"]
-[ext_resource type="Texture2D" uid="uid://bp5uqba3d021p" path="res://textures/ui/hud/damage.png" id="2_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://fdx27qoe83x3" path="res://textures/ui/hud/damage.png" id="2_oo0fn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
 

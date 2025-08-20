@@ -1,19 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgmr0oahjo0bx"]
+[gd_scene load_steps=20 format=3 uid="uid://cgmr0oahjo0bx"]
 
 [ext_resource type="Script" uid="uid://oudm86tep3pu" path="res://scripts/PlayerNode.cs" id="3_xs8u7"]
-[ext_resource type="Texture2D" uid="uid://himewfce3tj1" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
-[ext_resource type="Texture2D" uid="uid://x6g8sdbsq4ir" path="res://textures/dev/circle.png" id="4_v0rat"]
-[ext_resource type="Texture2D" uid="uid://cade6o10uuwun" path="res://textures/player/player_horizontal2.png" id="5_i1do7"]
+[ext_resource type="Texture2D" uid="uid://ecwownke6m2x" path="res://textures/player/player_horizontal1.png" id="4_5pdae"]
+[ext_resource type="Texture2D" uid="uid://1fi8egwbxerq" path="res://textures/player/player_horizontal2.png" id="5_i1do7"]
 [ext_resource type="Script" uid="uid://50m3nc53ig2y" path="res://scripts/PlayerCamera.cs" id="5_me4wu"]
 [ext_resource type="PackedScene" uid="uid://t2cid18l8xin" path="res://prefabs/hud.tscn" id="6_343tk"]
-[ext_resource type="Texture2D" uid="uid://d24wsw8drc34d" path="res://textures/player/player_horizontal3.png" id="6_vue1i"]
+[ext_resource type="Texture2D" uid="uid://cs6cuo3ys413p" path="res://textures/player/player_horizontal3.png" id="6_vue1i"]
 [ext_resource type="PackedScene" uid="uid://conh6mun4r6ta" path="res://prefabs/interactionHud.tscn" id="7_6wr2n"]
-[ext_resource type="Texture2D" uid="uid://d211gbjnwjjme" path="res://textures/player/player_horizontal4.png" id="7_k3lwc"]
-[ext_resource type="Texture2D" uid="uid://dp0ilofsoevq5" path="res://textures/player/player_vertical1.png" id="8_csm47"]
-[ext_resource type="Texture2D" uid="uid://j56mey1r25k" path="res://textures/player/player_vertical2.png" id="9_8k34q"]
-[ext_resource type="Texture2D" uid="uid://7hhygye2hr4d" path="res://textures/player/player_vertical3.png" id="10_plmhy"]
-[ext_resource type="Texture2D" uid="uid://clcmbsnw84ohm" path="res://textures/player/player_vertical4.png" id="11_q2lbv"]
-[ext_resource type="Texture2D" uid="uid://uj400ryy0ewm" path="res://textures/dev/tile_info.png" id="11_vn0wb"]
+[ext_resource type="Texture2D" uid="uid://3m6gdr6m6200" path="res://textures/player/player_horizontal4.png" id="7_k3lwc"]
+[ext_resource type="Texture2D" uid="uid://b12hvf5y1cjkg" path="res://textures/player/player_vertical1.png" id="8_csm47"]
+[ext_resource type="Texture2D" uid="uid://c7n6wtwu332dn" path="res://textures/player/player_vertical2.png" id="9_8k34q"]
+[ext_resource type="Texture2D" uid="uid://du36fn6v658jl" path="res://textures/player/player_vertical3.png" id="10_plmhy"]
+[ext_resource type="Texture2D" uid="uid://b2dm35bhmwc12" path="res://textures/player/player_vertical4.png" id="11_q2lbv"]
+[ext_resource type="Texture2D" uid="uid://byb1xqn12n3nt" path="res://textures/dev/tile_info.png" id="11_vn0wb"]
 [ext_resource type="PackedScene" uid="uid://bbpr7rq47xxcl" path="res://prefabs/music_manager.tscn" id="12_syl8l"]
 [ext_resource type="PackedScene" uid="uid://betvv7qvwr0vf" path="res://prefabs/game_over.tscn" id="14_0xuuw"]
 [ext_resource type="PackedScene" uid="uid://c8pl11gl4euwp" path="res://prefabs/parallax_background.tscn" id="14_kcotq"]
@@ -53,7 +52,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(0, -16)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_v0rat")
+texture = ExtResource("4_5pdae")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="PlayerNode"]
 current = true
