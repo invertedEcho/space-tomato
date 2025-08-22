@@ -73,6 +73,20 @@ public partial class Plant : Node2D
         handleOxygen(delta);
     }
 
+    /// <summary>
+    /// This method is used to handle the next cycle of this plant.
+    ///
+    /// It will change the plant texture to the corresponding texture depending on the next PlantState.
+    ///
+    /// </summary>
+    public void HandleNextCycle()
+    {
+        plantState = GetNextPlantState();
+        var spritePathForPlantState = GetSpritePathForPlantState();
+        plantSprite.Texture = (Texture2D)GD.Load(spritePathForPlantState);
+        isWatered = false;
+    }
+
     private void handleOxygen(double delta)
     {
 
@@ -103,7 +117,7 @@ public partial class Plant : Node2D
         }
     }
 
-    public string GetSpritePathForPlantState(PlantState plantState)
+    public string GetSpritePathForPlantState()
     {
         string basePath = "res://textures/plants/";
 
@@ -230,5 +244,4 @@ public partial class Plant : Node2D
         GD.Print("WARN: reached impossible? case");
         return PlantState.PLANT_DRY;
     }
-
 }

@@ -50,10 +50,10 @@ public partial class InteractionHUD : Node2D
 
             if (option.getHover() == true)
             {
-                if (Input.IsActionJustPressed("interact"))
+                if (Input.IsActionJustPressed("left_mouse_button"))
                 {
                     optionSelected.Invoke(i);
-			        UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("MENU"), Vector2.Zero);
+                    UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("MENU"), Vector2.Zero);
                 }
             }
         }

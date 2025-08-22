@@ -29,7 +29,6 @@ public partial class Shelf : Node2D
     public override void _Ready()
     {
         base._Ready();
-        GD.Print("ready shelf!");
         area.InputPickable = true;
 
         Random randomInstance = new Random();
@@ -42,7 +41,6 @@ public partial class Shelf : Node2D
         shelfTimer = GetNode<Timer>("shelf_timer");
         shelfTimer.WaitTime = randomInstance.Next(45, 60);
 
-        shelfTimer.Timeout += HandleTimeout;
 
         if (prePlanted)
         {
@@ -57,6 +55,8 @@ public partial class Shelf : Node2D
             plantScene.plantType = randomPlantPick;
             plantReference = plantScene;
             plantReference.isWatered = true;
+            GD.Print("adding HandleTimeout handler because this plant has prePlanted=true | origin: _Ready()");
+            shelfTimer.Timeout += HandleTimeout;
             AddChild(plantScene);
 
             switch (plantReference.plantType)
@@ -83,16 +83,11 @@ public partial class Shelf : Node2D
     {
         if (plantReference == null)
         {
-            // TODO: this function just shouldnt be called at first place if plantReference is null
-            GD.Print("handle timoeout from shelf timer was called, but no plant planted yet. ignoring!");
+            GD.PrintErr("handle timoeout from shelf timer was called, but no plant planted yet. ignoring!");
             return;
         }
 
-        // TODO: we should rather just call a method in the plant class that handles a "cycle"
-        plantReference.plantState = plantReference.GetNextPlantState();
-        var spritePathForPlantState = plantReference.GetSpritePathForPlantState(plantReference.plantState);
-        plantReference.plantSprite.Texture = (Texture2D)GD.Load(spritePathForPlantState);
-        plantReference.isWatered = false;
+        plantReference.HandleNextCycle();
         dirtPatchSprite.Texture = (Texture2D)GD.Load(DirtPatchDryTexturePath);
     }
 
@@ -112,8 +107,7 @@ public partial class Shelf : Node2D
         {
             selector.Visible = true;
 
-            // TODO: interact is a bit meaningless
-            if (Input.IsActionJustPressed("interact"))
+            if (Input.IsActionJustPressed("left_mouse_button"))
             {
                 UglyGlobalState.interactionHUD.setPosition(GlobalPosition.X, GlobalPosition.Y - 64);
                 UglyGlobalState.interactionHUD.Visible = true;
@@ -121,17 +115,17 @@ public partial class Shelf : Node2D
                 UglyGlobalState.interactionHUD.optionSelected += onOptionSelected;
                 if (plantReference == null)
                 {
-                    Texture2D tomatoCropTexture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
-                    UglyGlobalState.interactionHUD.setTexture(tomatoCropTexture, 0);
+                    Texture2D tomatoTexture = (Texture2D)GD.Load("res://textures/plants/tomato/tomato_plant_with_fruits.png");
+                    UglyGlobalState.interactionHUD.setTexture(tomatoTexture, 0);
 
-                    Texture2D monsteraCropTexture = (Texture2D)GD.Load("res://textures/plants/monstera/monstera_plant_full.png");
-                    UglyGlobalState.interactionHUD.setTexture(monsteraCropTexture, 1);
+                    Texture2D monsteraTexture = (Texture2D)GD.Load("res://textures/plants/monstera/monstera_plant_full.png");
+                    UglyGlobalState.interactionHUD.setTexture(monsteraTexture, 1);
 
-                    Texture2D tubaFlowerCropTexture = (Texture2D)GD.Load("res://textures/plants/tubaflower/tubaflower_plant_full.png");
-                    UglyGlobalState.interactionHUD.setTexture(tubaFlowerCropTexture, 2);
+                    Texture2D tubaflowerTexture = (Texture2D)GD.Load("res://textures/plants/tubaflower/tubaflower_plant_full.png");
+                    UglyGlobalState.interactionHUD.setTexture(tubaflowerTexture, 2);
 
-                    Texture2D candleFlowerTexture = (Texture2D)GD.Load("res://textures/plants/candleflower/candleflower_plant_full.png");
-                    UglyGlobalState.interactionHUD.setTexture(candleFlowerTexture, 3);
+                    Texture2D candleflowerTexture = (Texture2D)GD.Load("res://textures/plants/candleflower/candleflower_plant_full.png");
+                    UglyGlobalState.interactionHUD.setTexture(candleflowerTexture, 3);
                     UglyGlobalState.soundManager.PlaySound(UglyGlobalState.soundManager.getSoundPalette("PLANT"), GlobalPosition);
                 }
                 else
@@ -175,9 +169,13 @@ public partial class Shelf : Node2D
 
     }
 
+    // TODO: this function should be in the interactionHUD script
+    // and the interactionHUD script should have a reference to the shelf
+    // can we have the interactionHUD as a child of a shelf?
+    // then we also dont need this in UglyGlobalState and will clean up lots of stuff
+    // TODO: also needs heavy refactor
     private void onOptionSelected(int selectedOption)
     {
-        GD.Print("onOptionSelected in shelf script");
         UglyGlobalState.interactionHUD.Visible = false;
 
         UglyGlobalState.interactionHUD.optionSelected -= onOptionSelected;
@@ -186,7 +184,6 @@ public partial class Shelf : Node2D
 
         if (shelfHasPlantOrCrop)
         {
-            GD.Print("Option selected, shelf its coming from has plant or crop.");
             if (selectedOption == 0)
             {
                 plantReference.isWatered = true;
@@ -220,9 +217,10 @@ public partial class Shelf : Node2D
             }
             else if (selectedOption == 3)
             {
-                GD.Print("shelf has plant, destroyed action, freeing plantreference and set to null");
+                GD.Print("destroy action selected, freeing plantreference, setting plantreference to null and removing timeouthandler from shelfTimer");
                 plantReference.Free();
                 plantReference = null;
+                shelfTimer.Timeout -= HandleTimeout;
                 UglyGlobalState.fertilizerCount += 1;
             }
         }
@@ -230,31 +228,28 @@ public partial class Shelf : Node2D
         {
             GD.Print("Option selected on an empty shelf!");
             var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://prefabs/plant.tscn").Instantiate();
-            GD.Print("plantScene: " + plantScene);
+            plantReference = plantScene;
+
+            GD.Print("adding HandleTimeout handler because plant selected on an empty shelf | origin: onOptionSelected from interactionHUD");
+            shelfTimer.Timeout += HandleTimeout;
+            // TODO: extract this to a function get planttype for optionOfInteractionHUD
             if (selectedOption == 0)
             {
                 plantScene.plantType = PlantType.TOMATO;
-                plantReference = plantScene;
-                AddChild(plantScene);
             }
             else if (selectedOption == 1)
             {
                 plantScene.plantType = PlantType.MONSTERA;
-                plantReference = plantScene;
-                AddChild(plantScene);
             }
             else if (selectedOption == 2)
             {
                 plantScene.plantType = PlantType.TUBAFLOWER;
-                plantReference = plantScene;
-                AddChild(plantScene);
             }
             else if (selectedOption == 3)
             {
                 plantScene.plantType = PlantType.CANDLE_FLOWER;
-                plantReference = plantScene;
-                AddChild(plantScene);
             }
+            AddChild(plantScene);
         }
     }
 
