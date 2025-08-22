@@ -3,6 +3,8 @@ using Godot;
 
 public partial class Shelf : Node2D
 {
+    public const String DirtPatchNormalTexturePath = "res://textures/plants/dirtpatch/dirtpatch_normal.png";
+    public const String DirtPatchDryTexturePath = "res://textures/plants/dirtpatch/dirtpatch_dry.png";
 
     [ExportCategory("References")]
     [Export]
@@ -30,17 +32,15 @@ public partial class Shelf : Node2D
         GD.Print("ready shelf!");
         area.InputPickable = true;
 
-
-        Random randomBool = new Random();
-        prePlanted = randomBool.NextDouble() >= 0.5;
+        Random randomInstance = new Random();
+        prePlanted = randomInstance.NextDouble() >= 0.5;
 
         area.MouseEntered += onMouseEntered;
         area.MouseExited += onMouseExit;
 
         dirtPatchSprite = GetNode<Sprite2D>("graphics/dirt_sprite");
         shelfTimer = GetNode<Timer>("shelf_timer");
-        Random randomTimerDuration = new Random();
-        shelfTimer.WaitTime = randomTimerDuration.Next(45, 60);
+        shelfTimer.WaitTime = randomInstance.Next(45, 60);
 
         shelfTimer.Timeout += HandleTimeout;
 
@@ -75,24 +75,25 @@ public partial class Shelf : Node2D
                     break;
             }
 
-            dirtPatchSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_normal.png");
+            dirtPatchSprite.Texture = (Texture2D)GD.Load(DirtPatchNormalTexturePath);
         }
-        GD.Print("ready done shelf!");
     }
 
     private void HandleTimeout()
     {
         if (plantReference == null)
         {
+            // TODO: this function just shouldnt be called at first place if plantReference is null
             GD.Print("handle timoeout from shelf timer was called, but no plant planted yet. ignoring!");
             return;
         }
+
+        // TODO: we should rather just call a method in the plant class that handles a "cycle"
         plantReference.plantState = plantReference.GetNextPlantState();
         var spritePathForPlantState = plantReference.GetSpritePathForPlantState(plantReference.plantState);
-        plantReference.plantSprite.Texture = (Texture2D)GD.Load("res://" + spritePathForPlantState);
+        plantReference.plantSprite.Texture = (Texture2D)GD.Load(spritePathForPlantState);
         plantReference.isWatered = false;
-        dirtPatchSprite.Texture = (Texture2D)GD.Load("res://textures/plants/dirtpatch/dirtpatch_dry.png");
-        GD.Print("plant timer ended, restarting. isWatered is set to false and texture was changed.");
+        dirtPatchSprite.Texture = (Texture2D)GD.Load(DirtPatchDryTexturePath);
     }
 
     public override void _ExitTree()
@@ -101,7 +102,6 @@ public partial class Shelf : Node2D
 
         area.MouseEntered -= onMouseEntered;
         area.MouseExited -= onMouseExit;
-        GD.Print("shelf exited tree!");
     }
 
     public override void _Process(double delta)
@@ -112,6 +112,7 @@ public partial class Shelf : Node2D
         {
             selector.Visible = true;
 
+            // TODO: interact is a bit meaningless
             if (Input.IsActionJustPressed("interact"))
             {
                 UglyGlobalState.interactionHUD.setPosition(GlobalPosition.X, GlobalPosition.Y - 64);

@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwbgx0ckrct5"]
+[gd_scene load_steps=2 format=3 uid="uid://dwbgx0ckrct5"]
 
 [ext_resource type="Script" uid="uid://t2e44ctbiq1q" path="res://scripts/Plant.cs" id="1_odjdt"]
-[ext_resource type="Texture2D" uid="uid://b3me1kx3yjmna" path="res://textures/plants/tomato/tomato_plant_full.png" id="2_a88lo"]
 
-[node name="Plant" type="Node2D"]
+[node name="Plant" type="Node2D" node_paths=PackedStringArray("plantSprite")]
 script = ExtResource("1_odjdt")
+plantSprite = NodePath("plant_sprite")
 
 [node name="plant_sprite" type="Sprite2D" parent="."]
 z_index = 99
-texture = ExtResource("2_a88lo")
 offset = Vector2(0, -16)
