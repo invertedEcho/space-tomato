@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://daovupa4m1u03"]
+
+[ext_resource type="FontFile" uid="uid://b82fb3bqi2p5c" path="res://assets/fonts/pixelfont.ttf" id="1_touxu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qiyq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6sfk"]
+bg_color = Color(0, 0.905882, 0.960784, 1)
+
+[resource]
+default_font = ExtResource("1_touxu")
+default_font_size = 48
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 48
+Button/styles/disabled = SubResource("StyleBoxFlat_1qiyq")
+Button/styles/normal = SubResource("StyleBoxFlat_i6sfk")

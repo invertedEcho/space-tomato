@@ -21,7 +21,7 @@ config/icon="uid://ca4b0sjdapa2s"
 
 [autoload]
 
-SoundManager="*res://prefabs/sound_manager.tscn"
+SoundManager="*res://game/audio/sound_manager.tscn"
 
 [display]
 
@@ -30,16 +30,6 @@ window/vsync/vsync_mode=2
 [dotnet]
 
 project/assembly_name="Space Potato"
-
-[file_customization]
-
-folder_colors={
-"res://contentsrc/": "gray",
-"res://prefabs/": "teal",
-"res://scenes/": "orange",
-"res://sounds/": "purple",
-"res://textures/": "green"
-}
 
 [input]
 

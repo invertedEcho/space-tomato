@@ -32,3 +32,5 @@ If working on code:
 - Use Godot Resources when necessary
 - Use the export feature so non-developers can also change relevant data in the editor, e.g. `[Export]`
 - Log/Print Statements must be meaningful, e.g. no `GD.Print("Error in script")`
+- Method Names must be in Pascal Case
+- Node names must be in PascalCase. Godot Nodes are also in this naming convention so it makes sense
