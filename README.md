@@ -25,8 +25,10 @@ If working on code:
 
 - You must use a formatter that uses our `.editorconfig`
 - `.cs` files must be in Pascal Case, e.g. `MyCustomScript.cs`
-- Variable names in `.cs` files must be in Camel Case, e.g. `myVariable`
+- Variable names in `.cs` files must be in Camel Case, e.g. `myVariable`, except constants, these must be in Pascal Case
+- Variable names must have a meaningful name and must not be an abbreviation, e.g. no `initialSecs` but rather `initialSeconds`
 - Private variables must start with an underscore
 - Curly braces must be on new line
 - Use Godot Resources when necessary
 - Use the export feature so non-developers can also change relevant data in the editor, e.g. `[Export]`
+- Log/Print Statements must be meaningful, e.g. no `GD.Print("Error in script")`
