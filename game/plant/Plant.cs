@@ -21,6 +21,7 @@ public enum PlantType
 
 public partial class Plant : Node2D
 {
+    public static readonly PlantType[] PlantTypes = [PlantType.CANDLE_FLOWER, PlantType.MONSTERA, PlantType.TOMATO, PlantType.TUBAFLOWER];
     public const string InitialTomatoCropTexture = "res://game/plant/textures/tomato/tomato_crop_full.png";
     public const string InitialMonsteraCropTexture = "res://game/plant/textures/monstera/monstera_crop_full.png";
     public const string InitialTubaflowerCropTexture = "res://game/plant/textures/tubaflower/tubaflower_crop_full.png";

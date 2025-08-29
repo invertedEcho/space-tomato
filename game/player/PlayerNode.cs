@@ -1,4 +1,3 @@
-using System;
 using Godot;
 using Godot.Collections;
 
@@ -148,7 +147,8 @@ public partial class PlayerNode : Node2D
 
 	}
 
-	public void addHealth(int health) {
+	public void addHealth(int health)
+	{
 		var newHealth = this.health + health;
 		if (newHealth > 100)
 		{
@@ -157,7 +157,7 @@ public partial class PlayerNode : Node2D
 		}
 		this.health += health;
 	}
-	
+
 
 	private void ProcessMovement()
 	{

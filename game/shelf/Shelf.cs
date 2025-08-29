@@ -44,14 +44,12 @@ public partial class Shelf : Node2D
 
         if (prePlanted)
         {
-            PlantType[] plantTypes = [PlantType.CANDLE_FLOWER, PlantType.MONSTERA, PlantType.TOMATO, PlantType.TUBAFLOWER];
-
             var plantScene = (Plant)ResourceLoader.Load<PackedScene>("res://game/plant/plant.tscn").Instantiate();
             plantScene.plantState = PlantState.PLANT_FULL;
 
             Random random = new Random();
-            int randomPlantTypeIndex = random.Next(0, plantTypes.Length);
-            var randomPlantPick = plantTypes[randomPlantTypeIndex];
+            int randomPlantTypeIndex = random.Next(0, Plant.PlantTypes.Length);
+            var randomPlantPick = Plant.PlantTypes[randomPlantTypeIndex];
             plantScene.plantType = randomPlantPick;
             plantReference = plantScene;
             plantReference.isWatered = true;
