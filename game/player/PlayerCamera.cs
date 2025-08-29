@@ -75,7 +75,7 @@ public partial class PlayerCamera : Camera2D
         {
             var currentZoom = camera.Zoom;
             var newZoom = currentZoom - new Vector2(0.5f, 0.5f);
-            if (newZoom.X < 2 || newZoom.Y < 2)
+            if (newZoom.X < 1 || newZoom.Y < 1)
             {
                 return;
             }
