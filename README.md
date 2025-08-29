@@ -34,3 +34,4 @@ If working on code:
 - Log/Print Statements must be meaningful, e.g. no `GD.Print("Error in script")`
 - Method Names must be in Pascal Case
 - Node names must be in PascalCase. Godot Nodes are also in this naming convention so it makes sense
+- All files and directories must be in snake_case, except C# scripts, these must have the same name as their contained class, and also be in PascalCase
